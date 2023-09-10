@@ -1,0 +1,53 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 28, "y": 96},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "havecue",
+    "states": {
+      "havecue": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "cue",
+          "haveItem": "yes",
+          "noItem": "no"
+        }
+      },
+      "no": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你得到了一個球桿",
+          "options": {
+            "YA": "give"
+          }
+        }
+      },
+      "yes": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經有球桿了!!不要貪心XDD",
+          "options": {
+            "OK": "exit"
+          }
+        }
+      },
+      "give": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "cue",
+          "nextState": "exit"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "havecue"
+        }
+      }
+    }
+  }
+}

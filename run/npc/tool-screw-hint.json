@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 36, "y": 29},
+  "visibleName": "Sophia",
+  "distanceLimit": 2,
+  "display": [
+    {
+    "zIndex": 11,
+    "layerName": "npcImage",
+    "renderFunction": "_drawOneCharacterImage",
+    "renderArgs": null,
+    "character": "npc_Female 14-2"
+  },
+  {
+    "zIndex": 16,
+    "layerName": "npcName",
+    "renderFunction": "_drawOneCharacterName",
+    "renderArgs": null
+  }
+],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "到底是誰一直把螺絲丟在花盆上!!!</br>還每隔幾秒就丟!!",
+          "options": {
+            "恩...(不是我..": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

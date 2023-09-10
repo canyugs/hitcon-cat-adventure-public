@@ -1,0 +1,53 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 19, "y": 85},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "havekey",
+    "states": {
+      "havekey": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "key",
+          "haveItem": "yes",
+          "noItem": "no"
+        }
+      },
+      "no": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你找到一把鑰匙",
+          "options": {
+            "不知道它能開什麼!!": "givekey"
+          }
+        }
+      },
+      "yes": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這裡什麼都沒有...",
+          "options": {
+            "OK": "exit"
+          }
+        }
+      },
+      "givekey": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "key",
+          "nextState": "exit"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "havekey"
+        }
+      }
+    }
+  }
+}

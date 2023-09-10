@@ -1,0 +1,54 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 25, "y": 95},
+  "distanceLimit": 3,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "play",
+    "states": {
+      "havecue": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "cue",
+          "haveItem": "yes",
+          "noItem": "no"
+        }
+      },
+      "no": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你沒有球桿喔!!",
+          "options": {
+            "啊我去拿!!": "exit"
+          }
+        }
+      },
+      "yes": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ["KissWin","Combination shot","9-ball in","Miscue","Clean table!!!!"],
+          "options": {
+            "wow": "exit"
+          }
+        }
+      },
+      "play": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是一個撞球桌",
+          "options": {
+            "break shot": "havecue",
+            "離開":"exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "play"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 77, "y": 19},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你得到一個杯子",
+          "options": {
+            "OK": "giveg"
+          }
+        }
+      },
+      "giveg": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 10,
+          "itemName": "glass",
+          "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

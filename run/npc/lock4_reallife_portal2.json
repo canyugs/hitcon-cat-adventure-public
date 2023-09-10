@@ -1,0 +1,46 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 46, "y": 36},
+  "distanceLimit": 3,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "start",
+    "states": {
+      "start": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "今天幾號!?08/18嗎!?",
+          "options": {
+            "是!!": "s1",
+            "不是!!": "s2"
+          }
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "我相信你會找到神秘的傳送儀式!!",
+          "options": {
+            "甚麼神秘的儀式??": "exit"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "那你之後再來吧!我們在沉睡一下...",
+          "options": {
+            "恩...": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "start"
+        }
+      }
+    }
+  }
+}

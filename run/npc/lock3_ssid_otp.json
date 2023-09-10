@@ -1,0 +1,95 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 22, "y": 83},
+  "distanceLimit": 2,
+  "visibleName": "IamSoldier",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Soldier 01-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "isFinished",
+    "states": {
+      "isFinished": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "gate3",
+          "haveItem": "finished",
+          "noItem": "question"
+        }
+      },
+      "question": {
+        "func": "showDialogAndCheckTOTP",
+        "kwargs": {
+          "dialog": "請輸入OTP",
+          "nextState": "correct",
+          "nextStateIncorrect" : "incorrect",
+          "secret": "Lisasasasasa",
+          "otpWindow": 2
+        }
+      },
+      "correct": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "密碼正確",
+          "options": {
+            "終於通過了": "giveGate3"
+          }
+        }
+      },
+      "incorrect": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "密碼錯誤",
+          "options": {
+            "我再去仔細看看好了": "exit"
+          }
+        }
+      },
+      "giveGate3": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "gate3",
+          "nextState": "teleportToNextStage"
+        }
+      },
+      "teleportToNextStage": {
+        "func": "teleport",
+        "kwargs": {
+          "mapCoord": {"mapName": "world1", "x": 22, "y": 84},
+          "nextState": "exit"
+        }
+      },
+      "finished": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經通過這關了",
+          "options": {
+            "留在這裡": "exit",
+            "帶我到下一關": "teleportToNextStage"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isFinished"
+        }
+      }
+    }
+  }
+}

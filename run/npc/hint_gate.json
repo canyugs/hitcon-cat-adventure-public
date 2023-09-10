@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 30, "y": 15},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ["需要買票才能入場!!!",
+            "你好,我是廢話機器人",
+            "1的加法反元素是多少",
+            "我的書櫃裡有錢",
+            "-1是我最喜歡的數字，你呢?"],
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

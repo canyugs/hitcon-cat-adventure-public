@@ -1,0 +1,52 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 59, "y": 21},
+  "visibleName": "",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你找到了一顆螺絲",
+          "options": {
+            "OK": "f1"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你又找到了一顆螺絲",
+          "options": {
+            "OK": "f1"
+          }
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 5,
+          "itemName": "screw",
+          "nextState": "d"
+        }
+      },
+      "wait": {
+        "func": "sleep",
+        "kwargs": {
+          "delay": 15000,
+          "nextState": "s2"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "wait"
+        }
+      }
+    }
+  }
+}

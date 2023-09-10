@@ -1,8 +1,8 @@
 {
   "enabled": true,
-  "initialPosition": {"mapName": "world1", "x": 5, "y": 61},
+  "initialPosition": {"mapName": "world1", "x": 21, "y": 82},
   "distanceLimit": 2,
-  "visibleName": " ",
+  "visibleName": "",
   "display": [],
   "FSM": {
     "initialState": "s1",
@@ -10,7 +10,7 @@
       "s1": {
         "func": "showDialog",
         "kwargs": {
-          "dialogs": "Nothing here...<br>這裡什麼都沒有...",
+          "dialogs": "一個關閉的螢幕...",
           "options": {
             "OK": "d"
           }

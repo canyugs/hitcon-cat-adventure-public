@@ -1,0 +1,45 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 7, "y": 16},
+  "visibleName": "",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你找到了一個撬棒",
+          "options": {
+            "OK": "f1"
+          }
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "crowbar",
+          "nextState": "d"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這裡什麼都沒有...",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s2"
+        }
+      }
+    }
+  }
+}

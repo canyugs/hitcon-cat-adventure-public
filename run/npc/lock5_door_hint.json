@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 15, "y": 92},
+  "distanceLimit": 2,
+  "visibleName": "Bob",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su3 Student male 04"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "hint",
+    "states": {
+      "hint": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是最後一扇門，終於解到這了!!!!!",
+          "options": {
+            "OK": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "hint"
+        }
+      }
+    }
+  }
+}

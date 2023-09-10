@@ -1,0 +1,14 @@
+{ "columns":64,
+ "image":"..\/packages\/Package_Water_Dungeon\/atlas_32x.png",
+ "imageheight":512,
+ "imagewidth":2048,
+ "margin":0,
+ "name":"Water_Dungeon",
+ "spacing":0,
+ "tilecount":1024,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

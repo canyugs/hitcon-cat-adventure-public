@@ -1,0 +1,50 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 58, "y": 28},
+  "distanceLimit": 2,
+  "visibleName": "Ruth",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su1 Student fmale 08"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Hi，你解到哪了?",
+          "options": {
+            "恩...我現在不知道要幹嘛?!": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "會議廳裡面好像有個<font color='red'>神祕的傳送門</font>，年會那幾天可以去瞧瞧",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

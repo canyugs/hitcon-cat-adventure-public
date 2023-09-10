@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"Modern_Office_32x32.png",
+ "imageheight":1696,
+ "imagewidth":512,
+ "margin":0,
+ "name":"Office_Set",
+ "spacing":0,
+ "tilecount":848,
+ "tiledversion":"1.9.0",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.8"
+}

@@ -1,0 +1,31 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "圖片有哪些開啟方式呢?<a href='/static/run/hosted/onlinelock2.jpg' target='_blank'>[Download]</a></br><img src='/static/run/hosted/onlinelock2.jpg' width='100' height='100'>",
+          "options": {
+            "上面有寫什麼嗎?? 下載下來，開啟試試看": "e",
+            "drop": "t1"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "pic",
+          "haveItem": "e",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

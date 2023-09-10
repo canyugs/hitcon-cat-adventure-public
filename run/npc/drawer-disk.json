@@ -1,0 +1,49 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 15, "y": 82},
+  "visibleName": "",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "disk",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	    "s2": {
+        "func": "showDialog",
+        "kwargs": {
+        "dialogs": "你找到一個離線電腦開機碟",
+		    "options": {"OK": "f1"}
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+        "dialogs": "這裡什麼都沒有...",
+		    "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		    "amount": "1",
+		    "maxAmount": 1,
+          "itemName": "disk",
+		      "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 42, "y": 36},
+  "distanceLimit": 3,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "start",
+    "states": {
+      "start": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這個門跟某個世界有種聯繫.....",
+          "options": {
+            "某個世界??是指實體會場嗎?": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "start"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{ "columns":26,
+ "image":"..\/packages\/pixel_art_ship_by_benjirokun_d9jqoiv.png",
+ "imageheight":576,
+ "imagewidth":832,
+ "margin":0,
+ "name":"ship",
+ "spacing":0,
+ "tilecount":468,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

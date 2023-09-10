@@ -1,0 +1,20 @@
+#!/bin/python
+from os import system
+from datetime import datetime
+from pyotp import TOTP
+
+def write_log(otp):
+    with open('/home/pi/log', 'a') as f:
+        f.write(f'{datetime.now().strftime("%m-%d %H:%M:%S")} {otp}\n')
+
+def restart_server():
+    system('sudo systemctl restart hostapd')
+
+def write_otp(otp):
+    system(f"sed -i 's/^ssid=.*/ssid=OTP:'{otp}'/g' /home/pi/wifi/hostapd.conf")
+
+if __name__ == '__main__':
+    otp = TOTP('Lisasasasasa').now()
+    write_otp(otp)
+    write_log(otp)
+    restart_server()

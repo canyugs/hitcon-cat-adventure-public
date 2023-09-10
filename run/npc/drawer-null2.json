@@ -1,8 +1,8 @@
 {
   "enabled": true,
-  "initialPosition": {"mapName": "world1", "x": 27, "y": 59},
+  "initialPosition": {"mapName": "world1", "x": 17, "y": 82},
   "distanceLimit": 2,
-  "visibleName": " ",
+  "visibleName": "",
   "display": [],
   "FSM": {
     "initialState": "s1",

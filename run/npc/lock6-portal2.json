@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 3, "y": 73},
+  "distanceLimit": 0,
+  "interactType": "loc",
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "teleport",
+        "kwargs": {
+          "mapCoord": {"mapName": "world1", "x": 3, "y": 71},
+          "nextState": "q"
+        }
+      },
+      "q": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

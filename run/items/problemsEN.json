@@ -2,7 +2,7 @@
     {
         "dialogs": "Which of the following options is \"not\" a possible way to exploit?",
         "options": [
-            "A. Bruce Force",
+            "A. Brute Force",
             "B. Buffer Overflow",
             "C. Social Engineering",
             "D. SQL Injection"
@@ -22,10 +22,10 @@
     {
         "dialogs": "Which of the following coding methods is ending by == or = ?",
         "options": [
-            "A. URL Encode",
-            "B. Base64 Encode",
-            "C. ROT13 Encode",
-            "D. A1Z26 Encode"
+            "A. URL Encoding",
+            "B. Base64 Encoding",
+            "C. ROT13 Encoding",
+            "D. A1Z26 Encoding"
         ],
         "ans": "B"
     },
@@ -160,16 +160,6 @@
         "ans": "C"
     },
     {
-        "dialogs": "There is a technique in information security where an attacker modifies parameters in a web address to cause a web page to spit out information that should not be there in the first place. What is this technique called?",
-        "options": [
-            "A. IP Injection",
-            "B. Security Injection",
-            "C. Database Injection",
-            "D. SQL Injection"
-        ],
-        "ans": "D"
-    },
-    {
         "dialogs": "The hitcon string is generated as aGl0Y29u after the following algorithm, which encoding/encryption method is it?  ",
         "options": [
             "A. ROT13",
@@ -230,7 +220,7 @@
         "ans": "A"
     },
     {
-        "dialogs": "Which of the following options does the statement \"used to detect or verify that the target message has not been modified during the process of computation or transmission\" belong to?",
+        "dialogs": "Which of the following options does the statement 'used to detect or verify that the target message has not been modified during the process of computation or transmission' belong to?",
         "options": [
             "A. Digital signature algorithm",
             "B. Message authentication code",
@@ -370,16 +360,6 @@
         "ans": "B"
     },
     {
-        "dialogs": "\u5728 AI \u767c\u5c55\u5feb\u901f\u7684\u6642\u4ee3\uff0c\u5404\u8def\u5927\u795e\u5404\u986f\u795e\u901a\u52aa\u529b\u5c07\u76f8\u95dc\u6280\u8853\u5f15\u5165\u5176\u4e2d\uff0c\u8acb\u554f\u5728 black hat 2021 \u4e2d TEAMT5 \u63d0\u51fa\u4e86\u600e\u6a23\u7684\u6982\u5ff5\u4f86\u6aa2\u6e2c\u99d0\u7d2e\u5728\u8a18\u61b6\u9ad4\u4e2d\u7684\u60e1\u610f\u7a0b\u5f0f\u5462?~",
-        "options": [
-            "A. \u5229\u7528 CNN \u5f71\u50cf\u8fa8\u8b58\u6982\u5ff5\u642d\u914d Mem2Img function \u5c0d\u8a18\u61b6\u9ad4\u6aa2\u6e2c\u662f\u5426\u6709\u60e1\u610f\u7a0b\u5f0f",
-            "B. \u5229\u7528 Log exception \u7684\u8cc7\u6599\u9ede\u5206\u6790\u4f86\u5c0d Memory \u7684\u7570\u5e38\u4f7f\u7528\u505a\u5075\u6e2c",
-            "C. \u5229\u7528 LSTM \u91dd\u5c0d\u8a18\u61b6\u9ad4\u8cc7\u6599\u505a\u4f7f\u7528\u5206\u6790\u4f86\u8fa8\u6aa2\u6e2c\u8a18\u61b6\u9ad4\u662f\u5426\u6709\u60e1\u610f\u7a0b\u5f0f\u904b\u884c",
-            "D. \u600e\u9ebc\u53ef\u80fd\u6709 AI \u6280\u8853\u5df2\u7d93\u6210\u529f\u4e86\u5566~"
-        ],
-        "ans": "A"
-    },
-    {
         "dialogs": "When checked the record of the attack, we found that the hacker downloaded the .git file on the website. What are the main objectives of the hackers?",
         "options": [
             "A. Check the site's github to see who the author is, if you do not know you can carry out further attacks",
@@ -457,7 +437,7 @@
             "C. is a standard published by IEEE",
             "D. Encrypted by pre-shared key method"
         ],
-        "ans": "A"
+        "ans": "B"
     },
     {
         "dialogs": "Which of the following is the cause of Buffer Overflow by the gets() function?",
@@ -478,16 +458,6 @@
             "D. The authors of the question wanted to eat an orange at the time of the question"
         ],
         "ans": "C"
-    },
-    {
-        "dialogs": "What month will the official version of Windows 11 be released in 2021?",
-        "options": [
-            "A. July",
-            "B. August",
-            "C. September",
-            "D. October"
-        ],
-        "ans": "D"
     },
     {
         "dialogs": "After writing Shellcode in a vulnerable x64 program, which registers should I control to execute Shellcode?",
@@ -516,16 +486,6 @@
             "B. In libc version 2.27, fastbin does not need to pay attention to whether the chunk before and after the chunk is the same.",
             "C. In version 2.23 of libc, Tcache does not need to pay attention to whether the chunks adjacent to it are the same or not.",
             "D. In libc version 2.27, Tcache does not need to pay attention to whether the chunks adjacent to it are the same"
-        ],
-        "ans": "D"
-    },
-    {
-        "dialogs": "Which of the following statements about the unlink mechanism is correct?",
-        "options": [
-            "A. To satisfy the check mechanism P->bk->fd = P",
-            "B. To satisfy the check mechanism P->fd->bk = P",
-            "C. After unlinking, P->bk->fd = P->fd",
-            "D. All of the above are "
         ],
         "ans": "D"
     },
