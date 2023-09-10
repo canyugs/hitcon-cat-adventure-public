@@ -1,0 +1,8 @@
+    Hacker Cat Adventure Shop
+=================================
+    1. Read Story         $15
+    2. Password           $9999
+    3. Donate
+    4. Exit
+=================================
+

@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 185, "y": 77},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "KKCOPMANY 為亞洲領先的媒體科技集團，2005 年在台灣推出全球第一家合法音樂串流服務 KKBOX，並陸續拓展服務地區至日本、香港、新加坡及馬來西亞。集團事業體服務範疇跨足亞洲最具影響力聲音社群品牌 KKBOX、影音串流服務 KKTV、娛樂藝文活動展演 KKLIVE、文創投資 KKFARM、串流技術 KKStream 等。",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

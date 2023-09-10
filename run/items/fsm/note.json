@@ -1,0 +1,91 @@
+{
+  "FSM": {
+    "initialState": "j1",
+    "states": {
+	  "j1": {
+            "func": "showDialogAndCheckKey",
+            "kwargs": {
+              "dialog": "Password!",
+              "nextState": "s1",
+              "nextStateIncorrect" : "s2",
+              "key": "27878045"
+            }
+      },
+	  "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is correct.<br>密碼正確",
+          "options": {
+            "OK": "s3"
+          }
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.<br>密碼錯誤",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "駭客島，每年只有幾天能夠登陸。",
+          "options": {
+            "Next": "s4"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "幾年前我曾經去過那裡，當時撿到了一隻流浪貓。",
+          "options": {
+            "Next": "s5"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "聽說之前有個組織在島嶼中有重要的研究案，但好像最後以失敗收場。",
+          "options": {
+            "Next": "s6"
+          }
+        }
+      },
+      "s6": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這次政府要求我潛入島嶼搜查那個研究案有沒有甚麼遺留下來的東西。",
+          "options": {
+            "Next": "s7"
+          }
+        }
+      },
+      "s7": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "...",
+          "options": {
+            "End": "ee"
+          }
+        }
+      },
+      "ee": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s3"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "j1"
+        }
+      }
+    }
+  }
+}

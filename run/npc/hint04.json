@@ -1,0 +1,50 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 150, "y": 54},
+  "distanceLimit": 2,
+  "visibleName": "Staff-Joe",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 14-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "If you answer Questioner, you can get HITCONpoint!!<br>回答Questioner的問題可以拿到HITCONpoint!!",
+          "options": {
+            "OK": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Our currency is HITCONpoint.<br>HITCONpoint可以說是我們的貨幣",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

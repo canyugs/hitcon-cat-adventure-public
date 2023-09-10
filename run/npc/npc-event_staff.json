@@ -1,0 +1,96 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 136, "y": 2},
+  "visibleName": "Enthusiastic Staff",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Teacher fmale 03"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "command",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "If you want to participate in the HITCON Cat Adventure partners, you have to <font color='red'>go to the Hacker cat first</font>~<br>如果想要參加駭客貓歷險記的小夥伴，要<font color='red'>先去找Hacker Cat</font>~",
+		  "options": {"OK": "d"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Hello! Do you want to join us?<br>哈囉! 你要加入我們嗎?",
+		  "options": {
+            "Sure": "s4",
+            "No": "d"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "nc chal.hitcon2021.online 10002",
+          "options": {"OK": "s5"}
+        }
+      },
+      "s5": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "Tell me what is the password in the machine?<br>告訴我機器中的密碼。",
+          "nextState": "s6",
+          "nextStateIncorrect": "s7",
+          "key": "HITCON{VGhpcyBnYW1lIGlzIGEgdHJhaW5pbmc=}"
+        }
+      },
+      "s6": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Congratulations on passing the test ~ this badge to you, representing you are a member of us~<br>恭喜你通過考驗~ 這個徽章給你，代表你是我們的一員了~",
+          "options": {"Thanks": "f1"}
+        }
+      },
+      "s7": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.<br>密碼錯誤。",
+          "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		"amount": 1,
+		"maxAmount": 1,
+		"itemName": "ch2",
+		"nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

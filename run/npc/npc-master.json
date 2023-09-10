@@ -1,0 +1,60 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world5", "x": 13, "y": 16},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "char1"
+      }
+    ],
+  "FSM": {
+    "initialState": "t1",
+    "states": {
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "cat",
+          "haveItem": "s1",
+          "noItem": "d"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "原來你在這裡呀喵喵~",
+          "options": {
+            "(我!!!回來了嗎!?....)": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You can play with the medal from <font color='red'>black cat, which nearby boat</font>.<br>這個勳章給你，你可以拿著他去和<font color='red'>船附近的黑色貓咪</font>玩!!",
+          "options": {
+            "OK": "g1"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "end",
+          "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "t1"
+        }
+      }
+    }
+  }
+}

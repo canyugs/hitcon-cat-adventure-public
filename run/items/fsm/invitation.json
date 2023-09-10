@@ -1,0 +1,51 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Welcome to Hitcon 2021 online. Event will begin on November 26, 2021. Please remain the code of invitation card because it can't be reissued to you. Thanks.<br>歡迎來到Hitcon 2021 online，活動將於2021.11.26正式開始。請自行留存背面邀請碼，若遺失無法補發。",
+          "options": {
+            "open EN": "s2",
+            "open TW": "s3",
+            "OK": "e"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "HITCON is the yearly party of hackers. Not only sharing technologies, but also feeling the true hacker spirit. Through the interaction of hackers and communities, there are always issues that is new and sensitive.<br> We invite anyone interested in information securities to HITCON.",
+          "options": {
+            "trun": "s4"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "台灣駭客年會是駭客們的聚會，駭客們一年一度的party。除了技術的分享，也可體驗到真正的駭客文化，在駭客與駭客社群的交流下，常常有最新最有趣也最敏感的議題。<br>我們歡迎所有對資訊安全有興趣的朋友一同參與這每年一度的盛會。",
+          "options": {
+            "trun": "s4"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Invitation code:V2VsY29tZSB0byB0aGUgaW5maW5pdGUgbG9vcA==",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

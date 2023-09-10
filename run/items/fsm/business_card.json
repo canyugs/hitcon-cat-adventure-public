@@ -1,0 +1,19 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1":{
+	"func": "teleport", "kwargs": {
+	"mapCoord": {"mapName": "world1", "x": 26, "y": 71},
+	"nextState": "e"
+	}
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

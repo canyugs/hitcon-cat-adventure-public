@@ -1,0 +1,602 @@
+[
+    {
+        "dialogs": "Which of the following options is \"not\" a possible way to exploit?",
+        "options": [
+            "A. Bruce Force",
+            "B. Buffer Overflow",
+            "C. Social Engineering",
+            "D. SQL Injection"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following option is the function of command `cat ~/.bash_history`?",
+        "options": [
+            "A. List the commands history of user",
+            "B. List the administrator user",
+            "C. List the system directory",
+            "D. List the files in system directory"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following coding methods is ending by == or = ?",
+        "options": [
+            "A. URL Encode",
+            "B. Base64 Encode",
+            "C. ROT13 Encode",
+            "D. A1Z26 Encode"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following file formats cannot be decompressed ?",
+        "options": [
+            "A. epub",
+            "B. apk",
+            "C. tar",
+            "D. yml"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "What is incorrect about the description of \"symmetric encryption\" or \"asymmetric encryption\"?",
+        "options": [
+            "A. Symmetric encryption will use a same key for encryption and decryption",
+            "B. Asymmetric encryption can be used in Digital Signature",
+            "C. Symmetric encryption is as efficient as asymmetric encryption",
+            "D. Asymmetric encryption uses its own private key to encrypt files"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "What is the meaning of https when we browse a website?",
+        "options": [
+            "A. Indicates that the site cannot be accessed",
+            "B. The communication process is encrypted using SSL/TLS",
+            "C. Means the network is down",
+            "D. Indicates that the network has a payment mechanism"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following statements about strong codes is correct?",
+        "options": [
+            "A. Use personal information as a password",
+            "B. Characters with sequential or repetitive characters",
+            "C. Long passwords that use a combination of upper and lower case letters, numbers and symbols",
+            "D. Only apparently similar substitutions using numbers or symbols"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following statements about information security is incorrect?",
+        "options": [
+            "A. Do not arbitrarily install/open programs from unknown sources",
+            "B. Regular reminders and training for employees",
+            "C. Regularly back up important data in the computer",
+            "D. Post the password next to the computer for easy access"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is NOT a characteristic of computer viruses?",
+        "options": [
+            "A. Comparative",
+            "B. Parasitism",
+            "C. Infectiousness",
+            "D. Targetedness"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Social engineering is an attack technique that takes advantage of what characteristics?",
+        "options": [
+            "A. Deficiencies in engineering design",
+            "B. Vulnerability of the operating system",
+            "C. Human weaknesses",
+            "D. Weaknesses in communication protocols"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "How many years is HITCON 2021?",
+        "options": [
+            "A. 11",
+            "B. 13",
+            "C. 17",
+            "D. 19"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "In what year was HITCON founded?",
+        "options": [
+            "A. 2004",
+            "B. 2005",
+            "C. 2006",
+            "D. 2007"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Since 2012, HITCON has had a theme almost every year, but in which year is there not an annual theme instead?",
+        "options": [
+            "A. 2013",
+            "B. 2014",
+            "C. 2015",
+            "D. 2016"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "In what year did HITCON first open its free agenda?",
+        "options": [
+            "A. 2021",
+            "B. 2020",
+            "C. 2019",
+            "D. 2018"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following is not part of the HITCON program?",
+        "options": [
+            "A. HITCON Community Subsidy",
+            "B. HITCON CTF",
+            "C. HITCON DEFENSE",
+            "D. HITCON Stay Home"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is NOT an encryption standard?",
+        "options": [
+            "A. IDEA",
+            "B. TEA",
+            "C. RIPEMD",
+            "D. RC5"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "There is a technique in information security where an attacker modifies parameters in a web address to cause a web page to spit out information that should not be there in the first place. What is this technique called?",
+        "options": [
+            "A. IP Injection",
+            "B. Security Injection",
+            "C. Database Injection",
+            "D. SQL Injection"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "The hitcon string is generated as aGl0Y29u after the following algorithm, which encoding/encryption method is it?  ",
+        "options": [
+            "A. ROT13",
+            "B. ROT47",
+            "C. Base64",
+            "D. 3DES"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following is asymmetric encryption?",
+        "options": [
+            "A. RSA",
+            "B. 3DES",
+            "C.Blowfish",
+            "D. AES"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following options is not in the top 3 of OWASP 2021 ?",
+        "options": [
+            "A. Broken Access Control",
+            "B. Server-Side Request Forgery",
+            "C. Cryptographic Failures",
+            "D. Injection"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "What is incorrect about the user and server side descriptions in SYN flood?",
+        "options": [
+            "A. The client requests to establish a connection by sending SYNchronize information to the server",
+            "B. The server responds to the user's SYN-ACK with an acknowledgement request.",
+            "C. The client responds with an ACK and the connection is established.",
+            "D. The client does not send back an ACK."
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following methods does not protect against DDoS attacks?",
+        "options": [
+            "A. Shorten the time out time for SYN semi-connections",
+            "B. Strengthen the firewall access rules to limit requests from abnormal IP addresses",
+            "C. set the router's SYN packet traffic rate",
+            "D. restart the server at regular intervals"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following options does not exist for access control?",
+        "options": [
+            "A. Dictionary Based Access Control",
+            "B. Role Based Access Control",
+            "C. Mandatory Access Control",
+            "D. Attribute Based Access Control"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following options does the statement \"used to detect or verify that the target message has not been modified during the process of computation or transmission\" belong to?",
+        "options": [
+            "A. Digital signature algorithm",
+            "B. Message authentication code",
+            "C. Initialization Vector",
+            "D. Advanced Encryption Standard"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following is not an AES key size?",
+        "options": [
+            "A. 128",
+            "B. 192",
+            "C. 256",
+            "D. 512"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is wrong for Elliptic Curve Cryptography (ECC)?",
+        "options": [
+            "A. Faster than other asymmetric encryption",
+            "B. Curves and bases need to be made public",
+            "C. Private keys can calculate public keys",
+            "D. Can use other people's public keys to make digital signatures"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which tool can I use to solve the Virginia password?",
+        "options": [
+            "A. Wireshark",
+            "B. xortools",
+            "C. Pwntools",
+            "D. IDA"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Format String attack will occur in which function?",
+        "options": [
+            "A. atoi",
+            "B. read",
+            "C. printf",
+            "D. gets"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which is the infiltration tool for WordPress?",
+        "options": [
+            "A. wpscan",
+            "B. nikto",
+            "C. metasploit",
+            "D. nmap"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Buffer Overlfow occurs in which of the following memory segments",
+        "options": [
+            "A. Stack",
+            "B. Heap",
+            "C. .data Section",
+            "D. All of the above"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is not a tool of the blue team",
+        "options": [
+            "A. Cobalt Strike",
+            "B. yara",
+            "C. ETW",
+            "D. None of the above is a blue team tool"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "For the CoAP (The Constrained Application Protocol) protocol, which of the following is not?",
+        "options": [
+            "A. Designed based on REST network architecture",
+            "B. Mainly for low-power networks",
+            "C. Support GET/PUT/POST/DELETE request method",
+            "D. Use packet cutting to save data transfer"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "What method does curl example.com use to request example.com?",
+        "options": [
+            "A. GET",
+            "B. POST",
+            "C. PUT",
+            "D. DELETE"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following cannot be detected by the regular expression ^[a-z0-9_]+@[a-zA-Z0-9_-]+(\\. [a-zA-Z0-9_-]+)+$ is detected?",
+        "options": [
+            "A. haha@gmail.com",
+            "B. ha_ha@Gm_AiL.COM",
+            "C. ha_Ha@gmail.com",
+            "D. _haha@g-m-a-I_L.c-om"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following Hash has a hex length of 32 Bytes?",
+        "options": [
+            "A. sha256",
+            "B. md5",
+            "C. sha512",
+            "D. panama"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following is the primary protection against security problems caused by Return to libc, which randomizes the Stack, Heap, and library addresses for each execution?",
+        "options": [
+            "A:Data Execution Prevention, DEP",
+            "B:Address space layout randomization, ASLR",
+            "C:Position-Independent Executable, PIE",
+            "D:RELocation Read Only, RELRO"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following is \"not\" a necessary prerequisite for a successful TCP/IP session hijacking attack?\nnecessary for a successful Session Hijacking attack?",
+        "options": [
+            "A: Obtain the TCP Sequence Number of the connection to be hijacked",
+            "B:Hack into the victim host and seize execution privileges",
+            "C:Establish a network connection with the victim host",
+            "D: disguise as the victim host and send a packet with a specific TCP sequence number"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "\u5728 AI \u767c\u5c55\u5feb\u901f\u7684\u6642\u4ee3\uff0c\u5404\u8def\u5927\u795e\u5404\u986f\u795e\u901a\u52aa\u529b\u5c07\u76f8\u95dc\u6280\u8853\u5f15\u5165\u5176\u4e2d\uff0c\u8acb\u554f\u5728 black hat 2021 \u4e2d TEAMT5 \u63d0\u51fa\u4e86\u600e\u6a23\u7684\u6982\u5ff5\u4f86\u6aa2\u6e2c\u99d0\u7d2e\u5728\u8a18\u61b6\u9ad4\u4e2d\u7684\u60e1\u610f\u7a0b\u5f0f\u5462?~",
+        "options": [
+            "A. \u5229\u7528 CNN \u5f71\u50cf\u8fa8\u8b58\u6982\u5ff5\u642d\u914d Mem2Img function \u5c0d\u8a18\u61b6\u9ad4\u6aa2\u6e2c\u662f\u5426\u6709\u60e1\u610f\u7a0b\u5f0f",
+            "B. \u5229\u7528 Log exception \u7684\u8cc7\u6599\u9ede\u5206\u6790\u4f86\u5c0d Memory \u7684\u7570\u5e38\u4f7f\u7528\u505a\u5075\u6e2c",
+            "C. \u5229\u7528 LSTM \u91dd\u5c0d\u8a18\u61b6\u9ad4\u8cc7\u6599\u505a\u4f7f\u7528\u5206\u6790\u4f86\u8fa8\u6aa2\u6e2c\u8a18\u61b6\u9ad4\u662f\u5426\u6709\u60e1\u610f\u7a0b\u5f0f\u904b\u884c",
+            "D. \u600e\u9ebc\u53ef\u80fd\u6709 AI \u6280\u8853\u5df2\u7d93\u6210\u529f\u4e86\u5566~"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "When checked the record of the attack, we found that the hacker downloaded the .git file on the website. What are the main objectives of the hackers?",
+        "options": [
+            "A. Check the site's github to see who the author is, if you do not know you can carry out further attacks",
+            "B. grab the site git information, restore the site's source code",
+            "C. see whether the site's users have to use mac book, too rich to attack",
+            "D. download someone else's backdoor software, do not have to write one yourself "
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following attacks cannot be defended against by filtering input parameters?",
+        "options": [
+            "A. SQL injection",
+            "B. Cross site scripting",
+            "C. Command injection",
+            "D. Directory listing"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is not effective in preventing CSRF (Cross-site request forgery)?",
+        "options": [
+            "A. Conduct referer check on request",
+            "B. Add a validation code mechanism",
+            "C. Send requests via POST, DELETE, UPDATE method",
+            "D. requsest with CSRF token"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "The NSA's EternalBlue exploit primarily exploits which of the following method?",
+        "options": [
+            "A. Zero-day Attack",
+            "B. Windows SMB Vulnerability",
+            "C. Shellshock",
+            "D. Poodle Vulnerability"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following languages does not automatically force a border check?",
+        "options": [
+            "A. C#",
+            "B. Java",
+            "C. Python",
+            "D. C"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following is the purpose of the command `net use\\target\\ipc$ \"\" /u:\u201d\u201d` ?",
+        "options": [
+            "A. Used for null session linking",
+            "B. Used to delete ipc connections",
+            "C. to view the number of users",
+            "D. for connecting to u-slots"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following is a Smurf attack?",
+        "options": [
+            "A. Sending a large number of spoofed source address TCP packets on an ongoing basis",
+            "B. Continuously send a large number of forged source address ICMP packets",
+            "C. Sending a large number of TCP connections continuously",
+            "D. Sending a large number of forged destination address UDP packets on an uninterrupted basis"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "What is wrong with the description of the wireless security standard WPA (Wi-Fi Protected Access)?",
+        "options": [
+            "A. Part of the 802.11i standard technology",
+            "B. A standard for wired network encryption",
+            "C. is a standard published by IEEE",
+            "D. Encrypted by pre-shared key method"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following is the cause of Buffer Overflow by the gets() function?",
+        "options": [
+            "A. The function padding other characters after the read string",
+            "B. The function will superimpose the previous string",
+            "C. The function does not limit the number of characters entered by the user",
+            "D. The function takes additional strings from the environment variable"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following is the origin of Heap's attack on the House of Orange name?",
+        "options": [
+            "A. The principle of the attack is like peeling an orange and attacking the memory segment of the program one by one",
+            "B. This attack was invented by the famous hacker Orange",
+            "C. House of Orange was originally a HITCON CTF question, and the questioners used the names of their team members as the name of the question",
+            "D. The authors of the question wanted to eat an orange at the time of the question"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "What month will the official version of Windows 11 be released in 2021?",
+        "options": [
+            "A. July",
+            "B. August",
+            "C. September",
+            "D. October"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "After writing Shellcode in a vulnerable x64 program, which registers should I control to execute Shellcode?",
+        "options": [
+            "A. RAX",
+            "B. RCX",
+            "C. RIP",
+            "D. RDI"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "In June and July Microsoft announced a remote code execution (RCE) vulnerability in PrintNightmare, which can be exploited by attackers to execute arbitrary code with SYSTEM privileges. Who is the service that has the problem?",
+        "options": [
+            "A:Windows Print Spooler",
+            "B:Visual Studio Code",
+            "C:Windows DNS Server",
+            "D:Microsoft Exchange Server"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "What is the difference between libc exploiting the double free vulnerability in version 2.23 and 2.27?",
+        "options": [
+            "A. In libc version 2.23, fastbin does not need to pay attention to whether the chunk before and after the chunk is the same or not.",
+            "B. In libc version 2.27, fastbin does not need to pay attention to whether the chunk before and after the chunk is the same.",
+            "C. In version 2.23 of libc, Tcache does not need to pay attention to whether the chunks adjacent to it are the same or not.",
+            "D. In libc version 2.27, Tcache does not need to pay attention to whether the chunks adjacent to it are the same"
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following statements about the unlink mechanism is correct?",
+        "options": [
+            "A. To satisfy the check mechanism P->bk->fd = P",
+            "B. To satisfy the check mechanism P->fd->bk = P",
+            "C. After unlinking, P->bk->fd = P->fd",
+            "D. All of the above are "
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following statements about Windows Shellcode is correct?",
+        "options": [
+            "A. Windows Shellcode cannot be used to get the shell (cmd) in the program vulnerability",
+            "B. Windows Shellcode cannot call system call directly",
+            "C. Windows x86 and x64 Shellcode can be used together",
+            "D. All of the above"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following common descriptions of Windows Event IDs is correct?",
+        "options": [
+            "A. Event number 1102 is an event generated when a user account is cleared",
+            "B. Event number 4624 is an event generated when a user account is created",
+            "C. Event number 4625 is an event generated when an account cannot be logged in",
+            "D. Event number 4720 is an event generated when an account is successfully logged in"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following statements about the ransomware WannaCry is incorrect?",
+        "options": [
+            "A. Variants include Nemty, Zeppelin, BlackMatter, etc.",
+            "B. Encryption of files using AES+RSA",
+            "C. Exploit the Eternal Blue exploit",
+            "D. Requires users to pay Petcoin as ransom using tor browser"
+        ],
+        "ans": "A"
+    },
+    {
+        "dialogs": "Which of the following is the correct origin of the term \"Net Army\"?",
+        "options": [
+            "A. The term \"1450\", which is described as a net army, originated from the Taiwanese Council of Agriculture's budget of 14.5 million to hire a small editor to clarify false reports, which was questioned as using people's tax money to support the net army.",
+            "B. The term \"leading the wind\" is a popular term originated from ptt to describe the attempt of some villagers to create public opinion to sway the majority of villagers",
+            "C. The sarcastic term \"fifty cents\" is a satire of netizens earning fifty cents for each post",
+            "D. All of the above are "
+        ],
+        "ans": "D"
+    },
+    {
+        "dialogs": "Which of the following descriptions of the tool used for penetration testing WordPress - wpscan is incorrect?",
+        "options": [
+            "A. User names can be listed",
+            "B. You can list the theme of the layout with holes",
+            "C. can list all files under the URL",
+            "D. can list thumbnail related files"
+        ],
+        "ans": "C"
+    },
+    {
+        "dialogs": "Which of the following statements about gdb is incorrect?",
+        "options": [
+            "A. You can use starti to place the breakpoint at the first Instruction of the program.",
+            "B. The input instruction finish will finish the program",
+            "C. dump memory can be used to save the memory of the current program execution to a file",
+            "D. break can be used to set a breakpoint"
+        ],
+        "ans": "B"
+    },
+    {
+        "dialogs": "Which of the following statements about HITCON is incorrect",
+        "options": [
+            "A. Established in 2005",
+            "B. Organize CTF competitions, escape rooms, and corporate information security competitions",
+            "C. Organized various seminars to discuss popular information security issues",
+            "D. Established the Vulnerability Notification Platform Foundation"
+        ],
+        "ans": "D"
+    }
+]

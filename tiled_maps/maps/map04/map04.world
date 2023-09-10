@@ -1,0 +1,76 @@
+{
+    "maps": [
+        {
+            "fileName": "map04-01.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "map04-02.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 1280,
+            "y": 0
+        },
+        {
+            "fileName": "map04-03.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 2560,
+            "y": 0
+        },
+        {
+            "fileName": "map04-04.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 3840,
+            "y": 0
+        },
+        {
+            "fileName": "map04-05.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 5120,
+            "y": 0
+        },
+        {
+            "fileName": "map04-06.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 0,
+            "y": 1600
+        },
+        {
+            "fileName": "map04-07.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 1280,
+            "y": 1600
+        },
+        {
+            "fileName": "map04-08.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 2560,
+            "y": 1600
+        },
+        {
+            "fileName": "map04-09.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 3840,
+            "y": 1600
+        },
+        {
+            "fileName": "map04-10.json",
+            "height": 1600,
+            "width": 1280,
+            "x": 5120,
+            "y": 1600
+        }
+    ],
+    "onlyShowAdjacentMaps": false,
+    "type": "world"
+}

@@ -1,0 +1,50 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 132, "y": 40},
+  "distanceLimit": 2,
+  "visibleName": "Staff-Sally",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Female 13-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You continuously go right from here ,then there is a portal.<br>從這裡一直往右走有一個傳送門",
+          "options": {
+            "OK": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "There are a lot of boxes that likely has treasure map nearby portal.<br>傳送門附近有很多箱子，聽說裡面有藏寶圖!!!",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

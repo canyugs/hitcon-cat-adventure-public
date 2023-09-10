@@ -1,0 +1,68 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 6, "y": 9},
+  "visibleName": "Scientist",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Headmaster fmale"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "How did you get in!!!<br>你......怎麼進來的!!!",
+          "options": {
+            "How are you? (He look like so week….)<br>你還好嗎?(他看起來好虛弱...)": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I obviously hide the only access card that can enter... cough cough<br>我明明把唯一能進來的門禁卡都藏起來了...咳咳咳",
+          "options": {
+            "OK": "s4"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Don’t..touch anything...<br>不要..碰任何東西...",
+          "options": {
+            "...": "s5"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "......",
+          "options": {
+            "...": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

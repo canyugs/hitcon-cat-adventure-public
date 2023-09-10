@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 121, "y": 63},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "勤業眾信(Deloitte & Touche)幫助您管理營運面臨的數位科技風險及不確定性，憑藉著在資訊安全領域的核心競爭優勢，Gartner已連續10年將Deloitte評選為全球資安顧問服務市佔率第一的領導者。<br>勤業眾信提供一系列相關資訊安全服務，讓各產業的客戶可以更準確的衡量、管理及控制數位科技風險，進而提昇與創造企業價值。勤業眾信針對資訊安全領域提供八大服務：<br>數位安全策略(Cyber Strategy) <br>資訊基礎設施安全(Infrastructure Security) <br>新興科技安全(Emerging Technology) <br>雲端安全(Cloud) <br>軟體開發安全(Application Security) <br>身分識別安全(Identity) <br>資料與隱私保護(Data and Privacy) <br>數位安全偵測與應變(Detect and Respond) <br><a href='https://www2.deloitte.com/tw/tc/pages/risk/solutions/cyber-risk.html' target='_blank'>https://www2.deloitte.com/tw/tc/pages/risk/solutions/cyber-risk.html</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

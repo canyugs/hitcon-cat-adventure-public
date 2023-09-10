@@ -1,0 +1,241 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 10, "y": 14},
+  "visibleName": "Alpha",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Cat 01-1r"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "gatepass",
+          "haveItem": "s1",
+          "noItem": "e"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "......",
+          "options": {
+            "(It seems broken....Is it missing component?)<br>(他好像壞掉了..是不是缺了什麼零件..)": "s2",
+            "Bye":"e"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "give....",
+          "options": {
+		  "component": "c2",
+		  "phone": "c3",
+		  "HITCONpoint": "c4",
+		  "smartcard": "c5",
+		  "cardreader": "c6",
+		  "give it later":"e"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Buzzing...<br>嗡...",
+          "options": {
+			"(啟動了!!)": "challenge"
+          }
+        }
+      },
+      "challenge": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Do you want to run the system?<br>是否要啟動系統?",
+          "options": {
+            "Yes": "key1",
+            "No": "nukey1"
+          }
+        }
+      },
+      "nukey1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "....",
+          "options": {
+			"I probably finish missions by finding items and <font color='red'>go back to Dronne</font>.<br>找到了這些東西應該就算完成任務了吧..拿著他們回去找<font color='red'>Dronne</font>好了": "ungkey"
+          }
+        }
+      },
+      "ungkey": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "cat",
+          "nextState": "ee"
+        }
+      },
+      "gkey": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "cat",
+          "nextState": "eee"
+        }
+      },
+      "ee": {
+        "func": "exit",
+        "kwargs": {
+          "next": "nukey1"
+        }
+      },
+      "key1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Who...are you...?<br>..你.是...?",
+          "options": {
+            "Although you may not believe me, I come from the future.<br>我...雖然你可能不相信，但我來自未來": "s9"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "...",
+          "options": {
+            "(It doesn't seem to be fixed...)<br>(好像沒修好..)": "s2"
+          }
+        }
+      },
+      "s6": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have this item.<br>你沒有這項道具。",
+          "options": {
+	    "OK": "e"
+          }
+        }
+      },
+      "s9": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "then...what do I to do now?<br>那...我現在需要做什麼?",
+          "options": {
+            "Someone wiil quickly take you away later...We are the same species so I suggest you leave here soon.<br>等等應該很快就會有人來把你帶走了...你我同是貓我還是建議你現在快離開這。": "s10"
+          }
+        }
+      },
+      "s10": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Well..<br>好...",
+          "options": {
+            "Wait... It is said that you have time travel. Can you take me to the future?<br>等等...聽說你擁有扭轉時間的能力..能帶我回去嗎?": "s11"
+          }
+        }
+      },
+      "s11": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I can try to calculate the formula of future with the chip that you give me although I think I don't have this ability. <br>我想我沒有那樣的能力，但剛剛你給我的晶片能夠計算出近似出未來的數值...我想我可以試試",
+          "options": {
+            "Thank.": "s12"
+          }
+        }
+      },
+      "s12": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Warning-Warning-Warning.....(crash)...",
+          "options": {
+            "Are you ok!! Don't force yourself to overload !!!<br>你還好嗎!!不用勉強!": "s13"
+          }
+        }
+      },
+      "s13": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "(bright light)<br>眼前一陣白光",
+          "options": {
+            "....": "s14"
+          }
+        }
+      },
+      "s14": {
+          "func": "teleport",
+          "kwargs": {
+            "mapCoord": {
+                "mapName": "world5", "x": 10, "y": 7
+            },
+            "nextState": "gkey"
+          }
+        },
+      "c2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "component",
+          "haveItem": "s3",
+          "noItem": "s6"
+        }
+      },
+	"c3": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "phone",
+          "haveItem": "s5",
+          "noItem": "s6"
+        }
+      },
+	"c4": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "hitconpoint",
+          "haveItem": "s5",
+          "noItem": "s6"
+        }
+      },
+	"c5": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "smartcard",
+          "haveItem": "s5",
+          "noItem": "s6"
+        }
+      },
+      "c6": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "cardreader",
+          "haveItem": "s5",
+          "noItem": "s6"
+        }
+      },
+      "eee":{
+        "func":"exit",
+	"kwargs":{
+	  "next": "s13"
+	}
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

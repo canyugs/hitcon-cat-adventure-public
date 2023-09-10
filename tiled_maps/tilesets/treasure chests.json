@@ -1,0 +1,14 @@
+{ "columns":5,
+ "image":"..\/packages\/19.07 - Treasure Chests 1\/treasure chests.png",
+ "imageheight":192,
+ "imagewidth":160,
+ "margin":0,
+ "name":"treasure chests",
+ "spacing":0,
+ "tilecount":30,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

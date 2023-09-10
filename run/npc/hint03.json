@@ -1,0 +1,50 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 136, "y": 26},
+  "distanceLimit": 2,
+  "visibleName": "Child",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Female 20-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "If you answer Questioner, you can get HITCONpoint!!<br>回答Questioner的問題可以拿到HITCONpoint!!",
+          "options": {
+            "OK": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I want to buy candy with HITCONpoint.<br>我要拿HITCONpoint去買糖果XDD",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

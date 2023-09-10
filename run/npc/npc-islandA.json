@@ -1,0 +1,58 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1",
+      "x": 18,
+      "y": 32
+    },
+    "distanceLimit": 2,
+    "visibleName": " ",
+    "display": [],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "This is A.",
+            "options": {
+              "Flip A": "fA"
+            }
+          }
+        },
+        "fA": {
+          "func": "flipBoolVar",
+          "kwargs": {
+            "var": "@island-var-A",
+            "trueState": "t",
+            "falseState": "f"
+          }
+        },
+        "t": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "A is now true",
+            "options": {
+              "OK": "e"
+            }
+          }
+        },
+        "f": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "A is now false",
+            "options": {
+              "OK": "e"
+            }
+          }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

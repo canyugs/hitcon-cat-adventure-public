@@ -1,0 +1,64 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 33, "y": 8},
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "base",
+    "states": {
+      "base": {
+        "func": "checkIsInFinalizedTeam",
+        "kwargs": {
+          "nextState": "s1",
+          "errorState": "teamError"
+        }
+      },
+      "teamError": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You are not in a finalized team, maybe join the team first?<br>你現在不在完整的隊伍中，建議你先加入隊伍呦~",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "diary",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a diary<br>你找到一本日記",
+		  "options": {"I don't know whose diary was dropped here!<br>不知道是誰的日記掉在這裡": "f1"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You've a diary!<br>你已經有一本日記了!",
+		  "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "teamGiveItem",
+        "kwargs": {
+          "maxAmount": 1,
+          "itemName": "diary",
+          "nextState": "d",
+          "errorState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

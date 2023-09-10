@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 104, "y": 56},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "玉山銀行成立於1992年，結合一群志同道合的專家團隊，以台灣最高的山為名，秉持「心清如玉，義重如山」的精神，提供值得信賴的全方位金融服務。獲國際知名財經雜誌富比士(Forbes)評選為｢全球最佳銀行｣台灣銀行業第一名。<br><br>因應金融科技的發展趨勢，玉山匯集資訊、智能、資安等各領域科技專家團隊的力量，融合金融與科技，打造台灣銀行業首家自行開發設計的銀行核心系統，採雲端原生技術與微服務架構，深耕數位轉型的關鍵基礎工程，並致力於發展普惠金融、智能金融與場景金融，滿足顧客金融的需求。玉山期望有更多志同道合的夥伴加入，共同創造更美好的未來。<br><br>玉山官網：<a href='https://www.esunbank.com.tw' target='_blank'>https://www.esunbank.com.tw</a><br><br>招募網站：<a href='https://hr.esunfhc.com/StaffAcquisition/hireexam/Index/' target='_blank'>https://hr.esunfhc.com/StaffAcquisition/hireexam/Index/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 44, "y": 58},
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 12-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "People are so strange nowadays...<br>現在的人真奇怪...",
+          "options": {
+            "Hello, I'm looking for someone.<br>你好，我想要找人": "s2",
+	        "Bye": "e"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Is that your friend?<br>那是你朋友嗎?",
+          "options": {
+            "Uh... What do you mean?<br>呃...什麼意思": "s3"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "There's a weird guy with something in the box in the meeting place, go see if your friend left it for you!!!<br>有個怪人拿著東西，往會場中的箱子裡面放東西，快去看看是不是你朋友留給你的!!!",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

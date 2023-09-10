@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "initialPosition": {
+    "mapName": "world6",
+    "x": 16,
+    "y": 3
+  },
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<code>nc chal.hitcon2021.online 10004</code>",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

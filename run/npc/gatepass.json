@@ -1,0 +1,33 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 10, "y": 10},
+  "distanceLimit": 0,
+  "interactType": "loc",
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "gatepass",
+          "haveItem": "t1",
+          "noItem": "e"
+        }
+      },
+      "t1": {
+            "func": "teleport", "kwargs": {
+            "mapCoord": {"mapName": "world6", "x": 10, "y": 7},
+            "nextState": "e"
+          }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

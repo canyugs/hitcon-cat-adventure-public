@@ -1,0 +1,113 @@
+{
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Select language<br>選擇語言",
+          "options": {
+            "EN": "en1",
+            "TW": "s1"
+          }
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2014.06.01<br>今天可以算是計畫啟動的第一天，整個計畫取名為Adventure，希望這個計劃能夠順利進行。<br><br>2014.07.08<br>找人很多研究人員，但能力參差不齊，來找個時間幫大家上一下演算法的課。<br><br>2014.08.01<br>一直沒為這部機器取個好名子，既然是開始那就叫Alpha好了。<br><br>2014.08.07<br>沒想英國竟然也有類似的計畫，只不過他們研發的是圍棋，而且使用的演算法也不一樣，但沒想到名子竟然和他們差不多，看來工程師取名的邏輯都一樣!",
+          "options": {
+            "Next": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ".........",
+          "options": {
+            "Next": "s3"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2015.01.17<br>目前計畫有點卡關，還無法更加模擬人類的思考邏輯，只能按照我們說個規則去執行...<br><br>2015.09.19<br>近期透過非法的手段取得了的腦神經細胞",
+          "options": {
+            "Next": "s4"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ".........<br>.........",
+          "options": {
+            "Next": "s5"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2017.02.08<br>目前Alpha的演算法已經初步建好了<br><br>2017.05.23<br>投資方竟然說當初投資錯標的，要中斷資金...<br>這個計畫看來沒有辦法繼續了......",
+          "options": {
+            "End": "e"
+          }
+        }
+      },
+      "en1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2014.06.01<br>Today can be considered the first day of the project launch, the whole project named Adventure, I hope this project can be carried out smoothly.<br>2014.07.08<br>I'm looking for a lot of researchers with varying abilities, so I'm looking for a time to help you take a class on algorithms.<br>2014.08.01<br>I have not been able to find a good name for this machine, but since it is the beginning, I will call it Alpha.<br>2014.08.07<br>I didn't think there was a similar project in the UK, only they are developing Go and using a different algorithm, but I didn't expect the name to be similar to theirs, so it seems that engineers have the same logic in naming things!",
+          "options": {
+            "Next": "en2"
+          }
+        }
+      },
+      "en2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ".........",
+          "options": {
+            "Next": "en3"
+          }
+        }
+      },
+      "en3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2015.01.17<br>At the moment the project is a bit stuck, it can't simulate the logic of human thinking more, it can only follow the rules we say...<br>2015.09.19<br>Recently obtained brain nerve cells through illegal means.",
+          "options": {
+            "Next": "en4"
+          }
+        }
+      },
+      "en4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ".........<br>.........",
+          "options": {
+            "Next": "en5"
+          }
+        }
+      },
+      "en5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "2017.02.08<br>The Alpha algorithm has been initially built!<br>2017.05.23<br>The investor even said that the initial investment in the wrong subject, to interrupt the funding ...<br>This project seems to be no way to continue ......",
+          "options": {
+            "End": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

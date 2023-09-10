@@ -1,0 +1,14 @@
+{ "columns":43,
+ "image":"..\/packages\/HITCON-banner.png",
+ "imageheight":224,
+ "imagewidth":1376,
+ "margin":0,
+ "name":"Banner",
+ "spacing":0,
+ "tilecount":301,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 9, "y": 0},
+  "distanceLimit": 0,
+  "interactType": "loc",
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Do you really want to leave the room?<br>你確定要離開這個房間嗎?",
+          "options": {
+            "Yes": "t1",
+	    "NO": "e"
+          }
+        }
+      },
+      "t1": {
+            "func": "teleport", "kwargs": {
+            "mapCoord": {"mapName": "world1", "x": 167, "y": 7},
+            "nextState": "e"
+          }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

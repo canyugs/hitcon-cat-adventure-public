@@ -1,0 +1,48 @@
+{
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "note",
+          "haveItem": "s1",
+          "noItem": "s3"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Unknown Caller<br>未知號碼 來電",
+          "options": {
+            "接聽": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Well, Looks like you already successfully land on island. Do you remember <font color='red'>time of event</font> and get the invitation card?<br>Invitation card has a code,which can get event's reward. Therefore, please <font color='red'>go to hacker cat</font> to exchange the reward during the event.<br>看來你已經成功著陸了，你應該還記得<font color='red'>活動開始的時間</font>吧!!<br>邀請函拿到了嗎?<br>上面有著邀請序號，活動當天記得<font color='red'>拿著序號去找駭客貓</font>換這趟活動的報酬。",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Cat Telecom:5G  battery level:64%",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

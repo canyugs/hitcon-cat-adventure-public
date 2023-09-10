@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 143, "y": 17},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "台灣樂天市場是日本樂天集團於海外成立的第一家子公司，自2008年成立以來已成功地為台灣電子商務市場注入新的活力。「Walk Together」是我們對扶植過數以萬計店家所許下的承諾，樂天期待能持續提供高品質的服務來滿足消費者、店家以及事業夥伴，持續地為台灣社會作出貢獻。 如果您渴望獲得創新的喜悅、開展可能性無限大的職業生涯，加入樂天絕對是最佳的選擇！<br><br><b>了解更多，歡迎按讚及訂閱:</b><br>LinkedIn : <a href='https://reurl.cc/d0XkyM' target='_blank'>https://reurl.cc/d0XkyM</a><br>Facebook: <a href='https://www.facebook.com/RakutenTWRecruiting/' target='_blank'>https://www.facebook.com/RakutenTWRecruiting/</a><br>樂天人分享: <a href='https://rakuten.careers/grow_with_us/share_story_08.html' target='_blank'>https://rakuten.careers/grow_with_us/share_story_08.html</a><br><br><b>獲獎紀錄</b><br>★ 2021幸福企業-金獎<br>★ 2020 HR Asia Awards台灣最佳企業雇主獎<br><br>福利相關<br>★ 壽星最大，生日當月爽放生日假一天 <br>★ 到職第一年就享有8天特休假 (依到職比例計算，第2年起11天，當年度休不完還可以延到隔年底) <br>★ 自選式福利補助金每年一萬元，讓你彈性選擇不同的樂天服務 <br>★ 員工認股計畫，陪著樂天一起成長 <br>★ 完善的公司內、外教育訓練課程及海外受訓機會 <br>★ 參與跨國專案或國外研討會，培養國際化歷練 <br>★ 全球樂天賞機制，獲獎送你免費遊日本 <br>★ 年度員工健康檢查，您的健康是樂天最大的幸福 <br>★ 十元飲料/零食販賣機，再忙也會陪你喝杯咖啡 <br>★ 辦公室樂活舒壓按摩服務 <br>★ 全額補助團保，讓您無後顧之憂",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

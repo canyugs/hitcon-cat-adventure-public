@@ -1,0 +1,46 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world7", "x": 12, "y": 7},
+  "visibleName": "全全",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 14-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "嗚嗚嗚活動組籌備好累 QwQ",
+            "我只是一隻路過的全全，禁止拍打，歡迎餵食",
+            "不知道今天結束後晚餐要吃什麼（要不要揪個晚餐團呢）？",
+            "你知道嗎，「煉蠱」去年的官網和文案其實有錯字喔（中文好難，我中文不好）"
+          ],
+          "options": {
+            "ok.....": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

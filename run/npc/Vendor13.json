@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 170, "y": 31},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "TeamT5 杜浦數位安全是提供網路間諜威脅情資研究、專業威脅鑑識產品與服務的公司，協助產業對抗網路間諜威脅。藉由團隊資安研究成果，提供客戶進階持續性威脅解決方案。<br><br>TeamT5 專精於網路惡意入侵行為分析與追蹤，為目前國內頂尖網路威脅情資研究機構。憑藉著豐富的網駭情資研究與世界級研發團隊，TeamT5 致力於端點資安防護解決方案（Endpoint Protection Solutions）的開發，除了提供高度機器學習能力（Machine Learning）與人工智慧（AI）的惡意威脅鑑識分析平台 ThreatSonar 外，也提供各類資安事件處理與調查服務。<br><br>了解更多關於 TeamT5 👉👉👉  <a href='https://teamt5.org/' target='_blank'>https://teamt5.org/</a><br>臉書追蹤起來 👉👉👉  <a href='https://www.facebook.com/TeamT5.org/' target='_blank'>https://www.facebook.com/TeamT5.org/</a><br>有任何問題歡迎來信  👉👉👉  sales@teamt5.org",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

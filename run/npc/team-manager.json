@@ -1,0 +1,198 @@
+{
+    "enabled": true,
+    "initialPosition": {"mapName": "world1", "x": 135, "y": 52},
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Teacher male 03"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "checkP",
+      "states": {
+      "checkP": {
+        "func": "checkPermission",
+        "kwargs": {
+          "options": {
+            "online": "baseState",
+            "default": "sosad"
+          }
+        }
+      },
+        "baseState": {
+          "func": "checkIsInTeam",
+          "kwargs": {
+            "indivMenu": "indivMenu",
+            "teamMenu": "s2"
+          }
+        },
+        "indivMenu": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Hello! May I help you?<br>你好，需要什麼幫助嗎?",
+            "options": {
+              "Show team guide(TW)<br>查看隊伍教學。": "teamguide1",
+              "Show team guide(EN)<br>查看隊伍教學": "teamguide2",
+              "Create a new team<br>建立一個隊伍": "newTeam1",
+              "Join an existing team with the invitation code<br>使用邀請碼加入隊伍": "joinTeam1",
+              "No, bye!": "exit"
+            }
+          }
+        },
+        "newTeam1": {
+            "func": "createTeam",
+            "kwargs": {
+              "nextState": "exit"
+            }
+        },
+        "joinTeam1": {
+            "func": "joinTeamByInvitationCode",
+            "kwargs": {
+              "dialog": "Give me your invitation code!",
+              "nextState": "joinTeam2",
+              "nextStateCantEnter": "joinTeam3",
+              "nextStateNotFound" : "joinTeam4"
+            }
+        },
+        "joinTeam2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Joined successfully.",
+            "options": {
+              "Thanks, bye!": "exit"
+            }
+          }
+        },
+        "joinTeam3": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Oops! Failed to join the team.",
+            "options": {
+              "OK.": "exit"
+            }
+          }
+        },
+        "joinTeam4": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "The invitation code is invalid.",
+            "options": {
+              "I'll check the code again.": "exit"
+            }
+          }
+        },
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "finalize the team. Teleport to game place.<br>確認固定隊伍，您們將傳送至下一個地點。<br><font color='red'>Castor</font> should know something.<br><font color='red'>Castor</font>那邊應該知道些什麼。",
+            "options": {
+              "OK": "g1"
+            }
+          }
+        },
+        "s2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "What do you want to do?<br>你要做什麼?",
+            "options": {
+              "Show team guide(TW)<br>查看組隊教學。": "teamguide1",
+              "Show team guide(EN)<br>查看組隊教學": "teamguide2",
+              "Show team menu<br>查看隊伍主選單": "teamMenu1"
+            }
+          }
+        },
+        "t1": {
+          "func": "teamTeleport",
+          "kwargs": {
+            "mapCoord": {"mapName": "world1", "x": 51, "y": 15},
+            "nextState": "exit"
+          }
+        },
+        "g1": {
+          "func": "teamGiveItem",
+          "kwargs": {
+            "maxAmount": 1,
+            "itemName": "ch2",
+            "nextState": "t1",
+            "errorState": "exit"
+          }
+        },
+        "teamMenu1": {
+          "func": "showTeamMenu",
+          "kwargs": {
+            "showMembers": "showMemebers",
+            "showInvitationCode": "showInvitationCode",
+            "finalize": "finalize",
+            "quitTeam": "quitTeam",
+            "exit": "exit"
+          }
+        },
+        "showMemebers": {
+          "func": "showMembers",
+          "kwargs": {
+            "nextState": "exit"
+          }
+        },
+        "showInvitationCode": {
+          "func": "showInvitationCode",
+          "kwargs": {
+            "nextState": "exit"
+          }
+        },
+        "finalize": {
+          "func": "finalize",
+          "kwargs": {
+            "nextState": "s1"
+          }
+        },
+        "quitTeam": {
+          "func": "quitTeam",
+          "kwargs": {
+            "nextState": "exit"
+          }
+        },
+        "teamguide1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "[創建對伍] 和組隊管理員對話，點選建立對伍選項後，系統將提供你一組邀請碼，將邀請碼提供給想一起遊玩的夥伴即可。<br>[進入隊伍] 若收到他人提供的隊伍邀請碼，和組隊管理員對話，點選加入隊伍選項後，輸入邀請碼即可加入隊伍。<br><font color='blue'>若確定了對伍成員並希望繼續遊玩駭客貓歷險記(建議三人以上)，即可進入隊伍功能表中點選認定隊伍，系統會將其識別為一個完整隊伍。</font><br>[隊伍功能表]進入隊伍後，和組隊管理員對話，可查看隊伍功能表:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[List all members]查看當前對伍成員。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Show invitation code]查看隊伍邀請碼。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Finalize the team and enter the game]點選認定隊伍並由玩遊戲，即表示系統確認隊伍且<font color='red'>無法新增成員</font>。立即接續遊玩駭客貓歷險記。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Quit team]點選離開隊伍，你將會離開隊伍。若隊伍已經確認並開始遊玩駭客貓歷險記，<font color='red'>玩家若點選退出隊伍，將失去在隊伍中獲得的所有道具。</font>",
+            "options": {
+			  "OK": "exit"
+            }
+          }
+        },
+        "teamguide2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "[Create a team] Talk to the team manager, click on the Create a team option and the system will provide you with a set of invitation codes.<br>[Join a team]If you receive an invitation code from someone else, talk to the team manager, click the Join Team option, and enter the invitation code to join the team.<br><font color='blue'>If you have confirmed your team members and wish to continue playing HITCON Cat Adventures(suggest:three or more people), you can enter the team menu and click on Recognize Team, which will be recognized as a complete team.</font><br>[Team Menu] After entering a team, talk to the team manager to view the team menu:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[List all members] to view the current team members.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Show invitation code] to see the team invitation code.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Finalize the team and enter the game] Click on 'Finalize the team and enter the game', which means the system confirms the team and <font color='red'>no new members can be added</font>. Continue to play HITCON Cat Adventures immediately.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Quit team] to leave the team, you will leave the team. If the team has been confirmed and started playing Hacking Cat Adventures, <font color='red'>players who click on Quit Team will lose all the items they have earned in the team</font>.",
+            "options": {
+			  "OK": "exit"
+            }
+          }
+        },
+        "sosad": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Sorry you don't have possition.<br>很抱歉你沒有組隊的權限",
+            "options": {
+			  "OK": "exit"
+            }
+          }
+        },
+        "exit": {
+          "func": "exit",
+          "kwargs": {
+            "next": "checkP"
+          }
+        }
+      }
+    }
+  }

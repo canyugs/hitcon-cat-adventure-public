@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 128, "y": 81},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "安華聯網科技是物聯網資安合規解決方案的國際領導廠商，獲得網路安全卓越獎機構評選為「亞洲最佳資安公司金獎」，擁有國際級的物聯網資安檢測實驗室與自主開發自動化AI資安評估產品，專注於協助設備製造商、金融、電信等產業客戶快速取得資安認證、有效管理開源軟體風險與弱點，以確保網路與產品的安全性。<br><br>獲得多個國際安全獎項，包括網路安全卓越獎之風險管理金獎，IT世界大獎之最佳IT公司，全球資安卓越獎之風險與政策管理金獎、工控系統安全金獎等。<br>亞洲唯一美國CTIA及ioXt授權資安實驗室，也是台灣唯一Amazon Alexa語音服務授權資安檢測實驗室。<br>國際認可的資安實驗室，同時取得27001 與17025 雙ISO認證，已協助多家國際大廠通過產品資安要求及國際認驗證。<br><br>HERCULES SecSAM開源軟體風險管理平台可有效管理開源軟體(Open Source Software, OSS)之風險，透過分析產品組成並建立軟體物料清單 (SBOM)，藉此找出並管理專案(產品)中第三方元件之弱點、授權等問題，並提供建議的弱點修復方案，亦可介接問題追蹤管理系統進行CI/CD的整合。<br><br>HERCULES SecDevice是針對連網產品所設計的安全評估工具，提供弱點掃描與模糊測試等功能，可協助產品安全測試人員快速上手，檢測範圍包含網路、網頁及無線安全，內容涵蓋OWASP Top 10與OWASP IoT Top 10檢測項目，滿足產品安全開發(SSDLC、DevSecOps)的黑箱檢測需求。<br><br>安華聯網粉絲團<a href='https://www.facebook.com/onsectw/' target='_blank'>https://www.facebook.com/onsectw/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 142, "y": 73},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "睿控網安(TXOne Networks)為全球業界領先的資安廠商，與世界領先產業與關鍵基礎設施機構合作，提供最佳資訊安全解決方案。我們提所供的資安方案可以有效減少工業資訊環境的資安死角，並提高資安防護的可視性，以縮短的資安威脅所造成的影響。<br>針對多變的工控環境我們研發不同的解決方案，我們摒棄傳統資安解決方案的盲點，突破了現代OT端的防護限制，進而提供了一系列全方位的防護產品，包含了工業網路防護產品、工業端點防毒軟體以及全球專利認證隨身資安檢測裝置。<br>我們的使命是協助企業在工業數位轉型的過程中得到最佳的ICS/OT端防護，透過整合IT與OT的可視性，在現有的生產線中提高自動化程度與安全操作性，以降低潛在的風險與威脅。<br><br>官網：<a href='https://www.txone-networks.com/' target='_blank'>https://www.txone-networks.com/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

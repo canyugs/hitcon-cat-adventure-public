@@ -1,0 +1,263 @@
+{
+    "enabled": true,
+    "initialPosition": {"mapName": "world1", "x": 96, "y": 8},
+    "distanceLimit": 2,
+    "visibleName": "Dronne",
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Female 10-1"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s0",
+      "states": {
+        "s0": {
+            "func": "showDialog", "kwargs": {
+            "dialogs": "Are you... Are you the one I'm looking for?<br>你...是我要找的那個人嗎?",
+            "options": {"Yes": "s1", "No": "ee"}
+            }
+        },
+        "s1": {
+            "func": "haveItem", "kwargs": {
+              "amount": 1,
+              "itemName": "ch1",
+              "haveItem": "s2",
+              "noItem": "d2"
+            }
+        },
+        "s2": {
+            "func": "haveItem", "kwargs": {
+              "amount": 1,
+              "itemName": "command",
+              "haveItem": "h3",
+              "noItem": "d1"
+            }
+        },
+        "h3": {
+            "func": "haveItem", "kwargs": {
+              "amount": 1,
+              "itemName": "ch2",
+              "haveItem": "ch2s1",
+              "noItem": "d3"
+            }
+        },
+        "d1": {
+          "func": "showDialog", "kwargs": {
+            "dialogs": "If you can <font color='red'>answer 3 out of 5 questions correctly</font>, I will believe you are the one I am looking for!<br>你如果可以從我出的<font color='red'>5題問答題中答對3題</font>，我就相信你是我要找的人!",
+            "options": {"OK. In EN": "ansen","OK. In TW": "anstw", "not now": "ee"}
+          }
+        },
+        "d2": {
+            "func": "showDialog", "kwargs": {
+              "dialogs": "You're not the one I'm looking for...<br>你不是我要找的人...",
+              "options": {"OK": "ee"}
+            }
+          },
+        "anstw": {
+            "func": "answerProblems",
+            "kwargs": {
+                "problems": 5,
+                "goalPoints": 3,
+                "nextState": "i1",
+                "nextStateIncorrect" : "d2",
+		        "file": "problems.json"
+            }
+        },
+        "ansen": {
+            "func": "answerProblems",
+            "kwargs": {
+                "problems": 5,
+                "goalPoints": 3,
+                "nextState": "i1",
+                "nextStateIncorrect" : "d2",
+		        "file": "problemsEN.json"
+            }
+        },
+        "d3": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Great! You are the new person who just answered the phone!<br>Great!你就是剛剛接電話的新人呀!~",
+                "options": {
+                    "I'm not a newcomer!<br>我不是新人!": "s4",
+                    "That... I'm not...<br>那個...我不是...":"s4"
+                }
+            }
+        },
+        "s4": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "It's the newcomer who came so late, the quality of newcomers nowadays is really...! Forget it, the top should have said to you what to come today!<br>是新人來那麼晚來，現在新人的素質真的...!!算了,上頭應該有和你說今天要來幹嘛吧!",
+                "options": {
+                    "I am not the person you say!<br>我不是你說的那個人!": "s5",
+                    "I do not know ...<br>不知道...": "s5"
+                }
+            }
+        },
+        "s5": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Okay! I'll be merciful and explain the situation to you~<br>After investigation we found that there was a confidential research in the annual meeting that could be harmful to the society, so we need to get the relevant content<br>好吧!我就大發慈悲和你說明現況~<br>經過調查我們發現年會中有一場機密研究，那可能會對社會造成危害，因此我們必需取得相關內容",
+                "options": {
+                    "So?<br>所以?": "s6"
+                }
+            }
+        },
+        "s6": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Now you need to <font color='red'>find the 'Enthusiastic Staff'</font> on the right hand side of the convention hall, gain their trust and <font color='red'>come back to me!</font><br>你必須扮演一名駭客混入他們之中，現在你需要找到<font color='red'>右手邊</font>會場中的<font color='red'>'Enthusiastic Staff'</font>，取得他們的信任後<font color='red'>再回來找我</font>!!",
+                "options": {
+                    "OK": "e"
+                }
+            }
+        },
+        "i1": {
+            "func": "giveItem",
+            "kwargs": {
+                "amount": 1,
+                "maxAmount": 1,
+                "itemName": "command",
+                "nextState": "d3"
+            }
+        },
+        "ch2s1": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "You've managed to gain their trust, not bad!<br>你成功取得他們的信任了，不錯嘛~",
+                "options": {
+                    "What do you want to do after that?<br>之後要幹嘛?":"ch2s2",
+                    "Can I leave now...?<br>那我可以走了嗎..?":"ch2s3"
+                }
+            }
+        },
+        "ch2s2": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Well... So you're still new... Didn't I just say that we were investigating a confidential study?<br>嗯..果然還是新人..我剛剛不是說了我們正在調查一場機密研究。",
+                "options": {
+                    "So what is it that you're probably studying?<br>所以說大概是在研究什麼?":"ch2s4",
+                    "I'm not interested.<br>我沒興趣":"ch2s5"
+                }
+            }
+        },
+        "ch2s3": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "How can you just leave when you're not done?<br>事情還沒辦完呢~怎麼能說走就走~",
+                "options": {
+                    "So what's next?<br>那接下來要幹嘛?":"ch2s2"
+                }
+            }
+        },
+        "ch2s4": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "I heard it's a time flood machine that can manipulate time!<br>聽說是一個可以操縱時光洪流機器!",
+                "options": {
+                    ".... (Looks like it can bring me back to the original time!!!)<br>....(看來它能夠讓我回到原本的時空!!)":"ch2s7"
+                }
+            }
+        },
+        "ch2s5": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "It's a pity that it's a machine that can manipulate the flood of time and light!<br>太可惜了~那可是一個可以操縱時光洪流機器耶!",
+                "options": {
+                    "(This will not be the cause of my travel!!!?)<br>(這該不會就是造成我穿越的原因!!!?)":"ch2s7"
+                }
+            }
+        },
+        "ch2s7": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "According to the investigation, the research site should be underground.The organization has also sent many people to investigate together, go find them and <font color='red'>form a team</font>!<br>根據調查顯示研究的地點應該是在地底下，組織內也有派遣許多人一起調查，去找到他們<font color='red'>組成隊伍</font>吧!!",
+                "options": {
+                    "How to form a team?<br>怎麼組隊?":"i2"
+                }
+            }
+        },
+        "ch2s8": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "I've given you a <font color='red'>scroll</font> that will lead you to the team manager. The team manager will tell you the details of how to form a team.<br>我給你<font color='red'>傳送卷</font>，使用它能帶你找到組隊管理員。詳細的組隊方式管理員會到訴你。",
+                "options": {
+                    "OK":"ch2s9"
+                }
+            }
+        },
+        "ch2s9": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Go get your team together!!!<br>快去組隊吧!!!",
+                "options": {
+                    "OK":"eee"
+                }
+            }
+        },
+        "h4": {
+            "func": "haveItem", "kwargs": {
+              "amount": 1,
+              "itemName": "cat",
+              "haveItem": "end1",
+              "noItem": "ch2s9"
+            }
+        },
+        "end1": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Thanks for giving these important documents. Freshman!  your tasks are complete. I will deal with remaining report.<br>感謝你把這些重要資料帶回來給我~這樣你的工作就結束啦新人~剩下的回報工作交給我就行了。",
+                "options": {
+                    "OK":"end2"
+                }
+            }
+        },
+        "end2": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Then...talking about the reward that will give you. How about giving the medal to you that can be regarded as evidence of finishing this investigation.You can exchange the reward with the medal from <font color='red'>black cat, which nearby boat</font>.<br>至於當初說好的報酬...，這樣吧，這個勳章給你，作為完成本次調查的證明。拿著他可以和<font color='red'>船附近的黑色貓咪</font>換獎勵!!",
+                "options": {
+                    "OK":"g3"
+                }
+            }
+        },
+        "i2": {
+            "func": "giveItem",
+            "kwargs": {
+                "amount": 1,
+                "maxAmount": 1,
+                "itemName": "teleport_ticket",
+                "nextState": "ch2s8"
+            }
+        },
+        "g3": {
+            "func": "giveItem",
+            "kwargs": {
+                "amount": 1,
+                "maxAmount": 1,
+                "itemName": "end",
+                "nextState": "eeee"
+            }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s2"
+          }
+        },
+        "ee": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s0"
+          }
+        },
+        "eee": {
+          "func": "exit",
+          "kwargs": {
+            "next": "h4"
+          }
+        },
+        "eeee": {
+          "func": "exit",
+          "kwargs": {
+            "next": "end1"
+          }
+        }
+      }
+    }
+  }

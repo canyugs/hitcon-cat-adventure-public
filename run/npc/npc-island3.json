@@ -1,0 +1,56 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1",
+      "x": 33,
+      "y": 25
+    },
+  "stanceLimit": 2,
+  "visibleName": " ", 
+    "display": [],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "There is 3.",
+            "options": {
+              "A & B & C & D": "c6"
+            }
+          }
+        },
+        "c6": {
+          "func": "testBooleanExpr", "kwargs": {
+            "booleanVars": ["@island-var-A", "@island-var-B", "@island-var-C", "@island-var-D"],
+            "expr": "return 1===(this['@island-var-A']&this['@island-var-B']&this['@island-var-C']&this['@island-var-D'])",
+            "trueState": "t6",
+            "falseState": "i"
+          }
+        },
+        "t6":{
+          "func": "teleport",
+          "kwargs": {
+            "mapCoord": {"mapName": "world1", "x": 34, "y": 12},
+            "nextState": "e"
+          }
+        },
+        "i":{
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Teleport machine activate failed, please check flip state of gates.",
+            "options": {
+              "OK": "e"
+            }
+          }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

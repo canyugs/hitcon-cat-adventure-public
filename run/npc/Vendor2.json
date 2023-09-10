@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 100, "y": 36},
+  "distanceLimit": 2,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Panasonic 致力為人們創造更美好的生活，在全世界各個國家都有研發多樣化的物聯網產品。基於對產品資訊安全的重視，除總部設有 Panasonic Product Security Center(PSC) 外，日本本社於 2018 年在臺灣設立 Panasonic Cyber Security Lab (PCSL) 。PSC 及 PCSL 透過與全世界 Panasonic 事業群的合作，進行產品網路威脅研究、物聯網產品滲透測試以及資訊人才培訓等專案，以提升及保護Panasonic 產品的資訊安全。<br>今年 HITCON 2021 攤位我們主要有三大主題：<br>Remote Chimera：延續去年的 Chimera Box 零式，今年將推出進階版 Remote Chimera 漏洞競賽獎勵平台，除了提供多元化的漏洞獎勵，並將目標從實體轉換為遠端操作，包含更多的 Panasonic 智慧型家電，供參賽者進行漏洞探索，期望給所有參賽者前所未有的競賽體驗。相關報名網址與資訊：<a href='https://pwn2chimera.com' target='_blank'>https://pwn2chimera.com</a><br><br>ASURA 專案介紹：IoT 的網路威脅一直是 Panaosnic 重視的一個主題，透過 ASURA 專案，Panasonic 蒐集來自網際網路上對於 IoT 產品的網路威脅。另外 ASURA 還擁有 IoT 沙箱，能夠自動化的分析捕捉到的 IoT 惡意程式。藉此專案Panasonic能瞭解最新的 IoT 攻擊及惡意程式，審視並提升 IoT 的產品安全。<br><br>PCSL 徵才：由於網路威脅日益增長，PCSL 的業務也持續擴張。目前有開放 IoT Product Security Engineer、IoT Threat Intelligence Engineer 以及 IoT Vulnerability Research Engineer 三個職缺。歡迎線上或是現場有興趣的會眾來一起加入 PCSL 這個大家庭。職缺細節如下連結：<br><a href='https://m.104.com.tw/job/7fehh?jobsource=amp_cust_job' target='_blank'>https://m.104.com.tw/job/7fehh?jobsource=amp_cust_job<br></a><a href='https://m.104.com.tw/job/7felk?jobsource=amp_cust_job' target='_blank'>https://m.104.com.tw/job/7felk?jobsource=amp_cust_job<br></a><a href='https://m.104.com.tw/job/7fek4?jobsource=amp_cust_job' target='_blank'>https://m.104.com.tw/job/7fek4?jobsource=amp_cust_job</a> ",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

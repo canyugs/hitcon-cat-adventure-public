@@ -1,0 +1,31 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This has word on it surface.<br>上面好像有文字",
+          "options": {
+            "look": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "0001 0101 0010 0110 1010 1001 0111 1000 0100<br>0101 0100 0010 1000 1011 0110 0111 1100<br>0011 0001 1000<br>0001 0010 0011 0111 1111 0011 0101",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

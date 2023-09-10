@@ -1,0 +1,92 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This has word on it surface.<br>上面好像有文字",
+          "options": {
+            "look": "s2",
+			"use": "s3"
+          }
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<img src='/static/run/hosted/pwtable.png'>",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+	  "s3": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "smartcard",
+          "haveItem": "j1",
+          "noItem": "j2"
+        }
+      },
+	  "j1": {
+            "func": "showDialogAndCheckKey",
+            "kwargs": {
+              "dialog": "Password!",
+              "nextState": "s4",
+              "nextStateIncorrect" : "s5",
+              "key": "2014"
+            }
+      },
+	  "j2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Sorry, you don't have items to read.<br>抱歉, 你沒有東西可以讀",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+	  "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is correct! There is a computer that keeps making noise.<br>密碼正確! 有一台一直發出聲音的電腦。",
+          "options": {
+            "OK": "t1"
+          }
+        }
+      },
+	  "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "unlockedcard",
+          "nextState": "e"
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "smartcard",
+          "haveItem": "g1",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

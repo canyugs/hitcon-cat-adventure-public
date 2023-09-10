@@ -1,0 +1,101 @@
+{
+  "enabled": true,
+  "initialPosition": {
+    "mapName": "world1", "x": 190, "y": 48},
+  "visibleName": "Engineer",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Teacher male 01"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "h1",
+    "states": {
+      "h1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "component",
+          "haveItem": "h2",
+          "noItem": "s5"
+        }
+      },
+      "h2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 5,
+          "itemName": "hintask",
+          "haveItem": "s1",
+          "noItem": "s4"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "May I help you?<br>需要什麼幫忙嗎?",
+          "options": {
+            "how to read the package...<br>要怎麼解讀封包...": "s2"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I'm busy, don't disturb me.<br>我很忙不要吵我..",
+          "options": {
+            "...": "g1"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I'm busy.<br>我很忙。",
+          "options": {
+            "...": "e"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 10,
+          "itemName": "hintask",
+          "nextState": "e"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I think teaching you how to fish is better than giving you a fish.<br>給你魚吃不如教你釣魚",
+          "options": {
+            "OK": "s3"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "First you should download Wireshark.Then focus on http.<br>你先去下載wireshark他能讀取封包，再來注意看HTTP的部分。",
+          "options": {
+            "Thank you.": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "h1"
+        }
+      }
+    }
+  }
+}

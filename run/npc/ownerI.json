@@ -1,0 +1,113 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 148, "y": 39},
+  "visibleName": "Anxious Staff",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 14-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "component",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You probably aren't a member of us! If you want to get certified, you can join the HITCON Cat adventure!<br>你應該不是我們的一員吧!要獲得認證的話要參加駭客貓歷險記喔!",
+	  "options": {"...": "d"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Oh, I have a problem with my computer. My password has been changed. Can you give me a hand?<br>Oh,我的電腦有點問題，帳號被改掉了。你能幫我嗎?",
+		  "options": {
+            "Yes": "s4",
+            "Not now": "d"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Download file <a href=/static/run/hosted/dump.pcap>here</a>",
+          "options": {"OK": "s5"}
+        }
+      },
+      "s5": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "Please help me to find the password.<br>請你幫我找到我的密碼",
+          "nextState": "s8",
+          "nextStateIncorrect": "s7",
+          "key": "HITCON{VGhpcyB3b3JsZCBpcyBzaW11bGF0ZWQgYnkgY29tcHV0ZXI=}"
+        }
+      },
+      "s7": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.",
+          "options": {"OK": "d"}
+        }
+      },
+      "s8": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Thank you~  What can I do for you?<br>謝謝你，我能為你做些什麼?",
+          "options": {"Can you tall me where is the cellar?<br>你可以告訴我哪裡有地窖嗎?": "s9"}
+        }
+      },
+      "s9": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "I can pick you up.<br>我可以帶你去。",
+          "options": {
+            "Thank.": "f1"
+          }
+        }
+      },
+      "f1": {
+        "func": "teamGiveItem",
+        "kwargs": {
+          "maxAmount": 1,
+          "itemName": "ch3",
+          "nextState": "f2",
+          "errorState": "d"
+        }
+      },
+      "f2": {
+        "func": "teamTeleport",
+        "kwargs": {
+          "mapCoord": {
+            "mapName": "world1", "x": 167, "y": 8},
+            "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This has word on it surface.<br>上面好像有文字",
+          "options": {
+            "look": "s2",
+            "drop": "t1"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<img src='/static/run/hosted/pwtable3.png'>",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": "1",
+          "itemName": "pwt3",
+          "haveItem": "e",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}
