@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 76, "y": 84},
+  "distanceLimit": 2,
+  "visibleName": "Ted",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su4 Student fmale 10"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "最近廁所好像傳出許多聲音? 好可怕",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

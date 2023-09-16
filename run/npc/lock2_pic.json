@@ -1,0 +1,44 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 23, "y": 32},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "haveI",
+    "states": {
+      "haveI": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "pic",
+          "haveItem": "s1",
+          "noItem": "giveI"
+        }
+      },
+      "giveI": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "pic",
+          "nextState": "exit"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Nothing here...<br>這裡什麼都沒有...",
+          "options": {
+            "OK": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "haveI"
+        }
+      }
+    }
+  }
+}

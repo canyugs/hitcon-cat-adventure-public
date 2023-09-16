@@ -1,18 +1,17 @@
-# HITCON 2021：駭客貓歷險記（Hacker Cat Adventure)
-
+# HITCON 2022：駭客貓歷險記（Hacker Cat Adventure)
 
 ## How to setup/run
 
-Use the commands below to run the HITCON online service for HITCON 2021
+Use the commands below to run the HITCON online service for HITCON 2022
 
 ```
 basedir=`pwd`
 git clone https://github.com/canyugs/hitcon-cat-adventure-public.git hitcon-cat-adventure
 git clone https://github.com/canyugs/hitcon-online.git
 cd "${basedir}/hitcon-cat-adventure"
-git checkout origin/2021
+git checkout origin/2022
 cd "${basedir}/hitcon-online"
-git checkout origin/2021
+git checkout origin/2022
 yarn install
 ./run-dev.sh ../hitcon-cat-adventure/run
 ```
@@ -28,6 +27,9 @@ https://spdx.org/licenses/BSD-3-Clause.html
 
 ```
 Allen Chou
+Alx-Lai
+AnJ226
+aoaaceai
 CanYu
 ccali66
 Chi-Feng Tsai

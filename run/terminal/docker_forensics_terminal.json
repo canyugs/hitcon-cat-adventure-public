@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 31, "y": 29},
+  "terminalInfo": {
+    "imageName": "aoaaceai/victim"
+  },
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "baseState",
+    "states": {
+      "baseState": {
+        "func": "showTerminal",
+        "kwargs": {
+          "nextState": "exit"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "baseState"
+        }
+      }
+    }
+  }
+}

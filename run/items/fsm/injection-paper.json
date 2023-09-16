@@ -1,0 +1,31 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<a href='https://login-portal.hitcon2022.online/src' target='_blank'>https://login-portal.hitcon2022.online/src</a>",
+          "options": {
+            "OK": "e",
+            "drop": "t1"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "injection-paper",
+          "haveItem": "e",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 24, "y": 82},
+  "distanceLimit": 2,
+  "visibleName": "ssid_otp_hint",
+  "display": [],
+  "FSM": {
+    "initialState": "hint",
+    "states": {
+      "hint": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Here is TNEC 2.</br><img src='/static/run/hosted/wifi.png' width='100' height='100'> ",
+          "options": {
+            "這個是不是在哪裡看過": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "hint"
+        }
+      }
+    }
+  }
+}

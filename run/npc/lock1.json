@@ -1,0 +1,52 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 32, "y": 22},
+  "distanceLimit": 0,
+  "interactType": "loc",
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "請出示您的票劵</br>..(這裡有個上鎖的門，上面有掃描器，看來需要掃描電子票才能進入)",
+          "options": {
+            "scan": "t1",
+            "OK":"d"
+          }
+        }
+      },
+      "t1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "ticket",
+          "haveItem": "t2",
+          "noItem": "s2"
+        }
+      },
+      "t2": {
+        "func": "teleport", "kwargs": {
+        "mapCoord": {"mapName": "world1", "x": 32, "y": 23},
+        "nextState": "d"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "您沒有票劵，請您向vendor購買",
+          "options": {
+            "OK":"d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

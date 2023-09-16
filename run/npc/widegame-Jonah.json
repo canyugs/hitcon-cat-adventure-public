@@ -1,0 +1,88 @@
+{
+    "enabled": true,
+    "initialPosition": {"mapName": "world1", "x": 2, "y": 22},
+    "visibleName": "Jonah",
+    "distanceLimit": 2,
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Male 11-1"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Hi",
+                "options": {
+                  "<font color='red'>大地遊戲</font>上的指示寫著要來找你": "s2",
+                  "Bye": "e"
+                }
+            }
+        },
+        "s2": {
+          "func": "showDialog", "kwargs": {
+              "dialogs": "恩...但我現在有點忙，筆電怪怪的..</br>我需要螺絲起子把螺絲轉起來，再用撬棒把殼劃開，以防萬一準備4個螺絲比較保險，你能幫我尋找嗎?",
+              "options": {
+                "好啊": "s3",
+                "先不要": "e"
+              }
+          }
+        },
+        "s3": {
+          "func": "showDialog", "kwargs": {
+              "dialogs": "那麻煩你去幫我尋找<font color='red'>螺絲起子、撬棒和4個螺絲</font>吧!!",
+              "options": {
+                "稍等一下我去蒐集": "ee",
+                "給你，我蒐集到了!!": "a1"
+              }
+          }
+        },
+        "s4": {
+          "func": "showDialog", "kwargs": {
+              "dialogs": "你還沒蒐集到喔!!麻煩你了",
+              "options": {
+                "好": "ee"
+              }
+          }
+        },
+        "a1": {
+          "func": "haveMultiItems",
+          "kwargs": {
+            "items": ["crowbar", "screwdriver", "screw"],
+            "haveItems": "d3",
+            "noItems": "s4",
+            "amount": 6
+          }
+        },
+        "d3": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "既然你幫我了，就告訴你通關密語吧~</b>!qaz@wsx",
+                "options": {"Thanks": "e"}
+            }
+        },
+        "ee": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s3"
+          }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+ }

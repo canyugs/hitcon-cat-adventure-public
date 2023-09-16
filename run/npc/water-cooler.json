@@ -1,0 +1,63 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 8, "y": 16},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是一台飲水機",
+          "options": {
+            "裝水": "water",
+            "離開":"d"
+          }
+        }
+      },
+      "water": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "glass",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "水灑了滿地....",
+          "options": {
+            "啊...我沒有杯子，甜點區那邊好像有!!": "d"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "連續出水...",
+          "options": {
+            "這水挺涼的": "g1"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 10,
+          "itemName": "water",
+          "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

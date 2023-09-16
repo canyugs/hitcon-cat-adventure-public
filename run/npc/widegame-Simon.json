@@ -1,0 +1,71 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 48, "y": 8},
+  "visibleName": "Simon",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 11-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+          "func": "showDialog", "kwargs": {
+              "dialogs": "Hi",
+              "options": {
+                "你好，<font color='red'>大地遊戲</font>上的指示寫著要來找你": "s2",
+                "Bye": "ee"
+              }
+          }
+      },
+      "s2": {
+        "func": "showDialog", "kwargs": {
+            "dialogs": "對的，你答對我三個問題，我就告訴你你想知道的事",
+            "options": {
+              "好，我準備好了": "s3",
+              "稍等，我晚點再來": "ee"
+            }
+        }
+      },
+      "s3": {
+          "func": "answerProblems",
+          "kwargs": {
+              "problems": 3,
+              "goalPoints": 3,
+              "nextState": "d3",
+              "nextStateIncorrect" : "d4"
+          }
+      },
+      "d3": {
+          "func": "showDialog", "kwargs": {
+              "dialogs": "Great!!</br>#$erdfCV</br>這就是通關密語",
+              "options": {"Thanks": "e"}
+          }
+      },
+      "d4": {
+          "func": "showDialog", "kwargs": {
+          "dialogs": "So sad..看來還沒有辦法告訴你",
+          "options": {"Bye": "e"}
+          }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 16, "y": 4},
+  "distanceLimit": 2,
+  "visibleName": "Fitch",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Teacher male 03"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你有去找<font color='red'>大機器人</font>買票了嗎?",
+          "options": {
+            "我現在去...": "s2"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

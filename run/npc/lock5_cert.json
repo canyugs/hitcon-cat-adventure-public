@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 14, "y": 91},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "isCertificateExist",
+    "states": {
+      "isCertificateExist": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "certificate",
+          "haveItem": "teleport",
+          "noItem": "lock"
+        }
+      },
+      "teleport": {
+        "func": "teleport",
+        "kwargs": {
+          "mapCoord": {"mapName": "world1", "x": 13, "y": 91},
+          "nextState": "exit"
+        }
+      },
+      "lock": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是一個上鎖的門...",
+          "options": {
+            "好像需要什麼東西": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isCertificateExist"
+        }
+      }
+    }
+  }
+}

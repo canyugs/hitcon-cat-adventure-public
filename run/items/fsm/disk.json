@@ -1,0 +1,31 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "一個離線電腦開機碟",
+          "options": {
+            "OK": "e",
+            "drop": "t1"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "disk",
+          "haveItem": "e",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

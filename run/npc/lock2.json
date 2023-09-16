@@ -1,0 +1,63 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 20, "y": 31},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "isGate2exist?",
+    "states": {
+      "isGate2exist?": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "gate2",
+          "haveItem": "teleportlock3",
+          "noItem": "enterPassword"
+        }
+      },
+      "enterPassword": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "這是一個上鎖的門...</br>請輸入正確的密碼</br>提示:Photo",
+          "nextState": "giveGate2",
+          "nextStateIncorrect" : "wrongPassword",
+          "key": "3B5FB31D360B2C9FC591B8F31193C86A"
+        }
+      },
+      "teleportlock3": {
+        "func": "teleport",
+        "kwargs": {
+          "mapCoord": {
+              "mapName": "world1", "x": 44, "y": 30
+          },
+          "nextState": "exit"
+        }
+      },
+      "wrongPassword": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "密碼錯誤",
+          "options": {
+            "咦...不對嗎？": "exit"
+          }
+        }
+      },
+      "giveGate2": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "gate2",
+          "nextState": "teleportlock3"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isGate2exist?"
+        }
+      }
+    }
+  }
+}

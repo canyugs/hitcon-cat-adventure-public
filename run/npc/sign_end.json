@@ -1,0 +1,167 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 4, "y": 87},
+  "distanceLimit": 2,
+"visibleName": "staff-Sam",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 17-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "start",
+    "states": {
+      "start": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Hi, 能成功抵達這裡就代表你完成了培訓，請問要結算獎勵了嗎?</br><font color='red'>(遊戲中僅能結算一次，請確定好蒐集進度再進行結算)</font>",
+          "options": {
+            "好 (竟然都拿了一堆東西了，當然結一結搞不好有意外的獎品呢!!)": "checkP",
+            "先不要...再去看看還有什麼東西": "exit"
+          }
+        }
+      },
+      "checkP": {
+        "func": "checkPermission",
+        "kwargs": {
+          "options": {
+            "online_premium": "haveMedalI",
+            "default": "haveMedalII"
+          }
+        }
+      },
+      "haveMedalI": {
+        "func": "haveMultiItems",
+        "kwargs": {
+          "items": ["ticket","gate2","gate3","medalI","medalII","medalIII"],
+          "haveItems": "storyEnd01",
+          "noItems": "haveMedalII",
+          "amount": 6
+        }
+      },
+      "haveMedalII": {
+        "func": "haveMultiItems",
+        "kwargs": {
+          "items": ["ticket","gate2","gate3","medalI","medalII","medalIII"],
+          "haveItems": "storyEnd02",
+          "noItems": "haveMedalIII",
+          "amount": 3
+        }
+      },
+      "haveMedalIII": {
+        "func": "haveMultiItems",
+        "kwargs": {
+          "items": ["ticket","gate2","gate3","medalI","medalII","medalIII"],
+          "haveItems": "storyEnd03",
+          "noItems": "storyEnd04",
+          "amount": 3
+        }
+      },
+      "giveCodeI": {
+        "func": "giveRedeemCode",
+        "kwargs": {
+          "redeemCodes": ["NcOK-xJlI-xTgZ-vRku","xsaL-vMoZ-SQZm-qefD","lhKS-bSrB-mHUX-doGV","BmGd-aCeL-CZml-gGsY","KlZs-NVvY-eyeo-klzX"],
+          "eventName": "online",
+          "nextState": "e",
+          "errorState": "giveCodeII"
+        }
+      },
+      "giveCodeII": {
+        "func": "giveRedeemCode",
+        "kwargs": {
+          "redeemCodes": ["JxNw-xPkY-VAUA-gRfK","ppoJ-aokU-Teyq-FwTH","whea-JqeK-uzPW-HLkW","bdET-wLsh-ENod-OxJb","faMj-ZiGv-Nnvd-fdKg","zKov-PkYy-koJv-oZeC","FieW-JmsP-LgCD-BMbn","RoDV-AWIB-laGH-TAaK","eDPs-mqUA-rXWg-uBZZ","ZCko-lXVH-vRMJ-lRCv","FmTZ-ztWG-Vcln-GYTy","rpdc-Tuag-XtVc-FVcJ","Dkmk-CUPr-JUgP-OHWM","JIoJ-qrok-xzqf-Slhe","Xjsv-anis-UFay-EEGX","UaPw-UEBI-zzdt-CZVB","PDoz-WyWo-QhuX-XZar","Xiwh-WGLU-QwPx-CgSE","PGMe-ZeZO-TldE-jhxt","aPWE-XpcD-RGHM-CzeP","tvjx-BaJE-McMJ-wLJp","Cpho-GLvA-KLVs-JnqD","ocvm-HoWM-rpYW-QFpm","sZXu-yFGA-VmIt-glyw","idhS-KYpU-AMUJ-Cixj","LdAV-PbWk-TOJN-FGoT","GMCP-BveL-ZOjp-WLsn","sSkH-vtbs-aVlD-bXQM","RwtY-UisI-ffLw-aksE","GJNV-fbpj-nYWu-dThy","ftAz-iLFp-nGfw-dhDb","BhsZ-NpKl-oUah-lWqA","WbDD-NvMJ-dpOD-rtug","saKr-xMAf-TCNT-szzb","fvwN-VHMg-trDy-UwIS","jcbz-auox-mDJD-UwaU","NwTv-dTjF-UMOu-wqgy","Ylns-elag-THcd-Lhzt","aigS-Fpqz-oWpC-hWGT","KLeD-LvHG-qwZP-wJSA","XoXQ-OlkY-Gigx-zPfR","vGZo-ZhJR-CPBJ-RnXx","OoKm-WxLo-iuYl-HwLY","Mpra-YyqZ-oKLU-zWiq","vSwD-XAJf-MCSw-FiUx","EmaB-wiUr-PxJn-SaTW","ymXg-ZDVV-ZqiY-pAXt","FsVB-RyeE-niJa-STim","WZVw-TKrM-OglP-iWef","SQeI-ybwJ-hXoh-WprF","ISvb-qpzB-wNuo-HJeD","pWpJ-yGvH-QqOq-gmyf","bEBN-wnjw-LvGF-vJOe","ZRDu-xBCv-Lawb-IODw","zNUJ-rxbM-yrda-PojP","AArW-bvWH-rNVE-dNeI","gHqr-jZDE-flGi-XhEO","jxxD-XBvc-rMZS-GqYd","kYtE-rcnS-ogbz-WBCg","eeNE-JHcM-EocH-GftB"],
+          "eventName": "online",
+          "nextState": "e",
+          "errorState": "giveCodeIII"
+        }
+      },
+      "giveCodeIII": {
+        "func": "giveRedeemCode",
+        "kwargs": {
+          "redeemCodes": ["bFvK-ySuC-OBPl-yeMV","Lvqa-JkAr-JdPz-bPiZ","JrXH-ijel-rNIC-faoH","Yzht-VLbe-VTrn-pLkN","eCfu-GESc-Movv-aURl","GnQS-QVxM-YKed-jWsQ","kiQL-ABiB-QePZ-jCvQ","QsrE-Ywsf-DgTJ-rxVB","iZSG-Qkkx-zRWA-czAD","dqVK-UOzd-HToF-ddEQ","HTdL-JGKs-EUcL-UDAw","aqpQ-xmFc-oBwO-Kwvv","goPY-oIUn-KAXC-FxCY","OeFe-gENm-wZWZ-rdZq","mpHk-AkjH-aqjG-GRLN","uGGt-SdKc-pfDF-LAxS","hPqI-XjDa-DTZu-EsCf","wjlm-XDHn-InLc-EtGU","Oxzg-Hgwd-ltFi-TSJa","Bube-NdFF-JUiv-wVYo","mrCB-vQTj-pFbm-MORR","FPwJ-Hsmo-oJsE-veTA","eCbU-JpdC-fdWv-nTCQ","KBpQ-Majf-VYsk-GJak","LLsd-UYDL-FCWF-GNBJ","rMRM-oCRb-wbER-uUer","geLk-jJgM-RkXy-YwAl","RQuv-wvON-swhe-MRoh","MhsU-qqbG-kjBt-KUbr","gusw-iixQ-QRkB-dhZt","RKWL-bpVB-pDHd-Qnoj","eUTn-Axjh-MUPW-chIl","ntSQ-nqhp-PiCj-mmXj","uLOF-xjpG-PWFo-xPIx","QpEy-DMfB-IRgX-JSEF","QkTl-kAHk-JAUq-xSgB","CEyk-wpYi-GoJD-uToL","bPor-CyPZ-uxkK-bWih","IZEs-DhiE-sCnz-eZIo","BClM-Lfvm-jyQA-HcrO","LwcG-ntdh-WbaR-isJj","SoTX-IUFD-LMys-NmTR","eFqj-kLWo-cJzg-gIrx","YEok-tzIV-fZMY-aidJ","jbgN-OYIf-WAci-SMgw","FWze-nkBI-BAvM-fDfL","Sihi-ALfW-Ihcr-zfSN","CodD-YfAL-MqjS-IbqA","jYaw-lryv-vYOB-kDuB","AFRF-Hfhg-LKgp-ySdO","pxXS-AaGe-Ujom-Aqdo","vzMm-sBDD-kMvc-WrFE","mQnf-yzuW-eSEl-kxYI","LLei-TmLy-qaly-nJso","pwEn-eYTb-Jajz-cDoZ","QtAl-yetG-BcbF-VJMM","oDJu-DPRa-mmNv-NUhn","qrKh-pjMN-wYve-rmZP","Squk-EbZn-Llaq-hRup","Qwoy-kNyc-gDvq-TzCV","xNPb-lxRW-Hscc-fzZR","RBDl-cWtL-Vtvy-BsrK","azkx-KKYb-zpHb-TsoC","Eczx-CkPL-OJPH-SfEC","PpTU-PUzA-CEgV-SosI","PdTR-DzzI-GnaT-jYKH","RfTh-EEjR-JhhB-xHSZ","bvNL-aorZ-HPjO-dKbG","GhWa-RxZc-MyeG-vrQf","dlLj-djma-Gadb-DInE","CAlq-pqnT-OeOP-iVBp","kDOm-GAxz-PPsE-AtKk","fjLC-cLGO-ZLwh-fIOM","DvEL-cSuO-fLZF-xGgo","smbt-QdME-zQxs-WiNc","vTtC-aHzn-hixH-tbES","Jolp-OfLY-GjIm-cStQ","DgnJ-pNzf-SrKJ-Ehoo","FfgH-yFWh-qyoR-NhBN","hEal-mFPi-Attm-CaPM","IMkk-crnS-WSgZ-MXBM","tXwc-vfol-rALt-JKdv","JePP-FmbZ-adbv-mRqT","aOLP-axGX-DxRS-Kyez","HTFr-cWNh-JVgQ-Azwe","HCJd-MAIA-fkej-Xqpq","AuRv-USbM-aaJV-dxim","Wqjs-AZJJ-WWSJ-kAtU","CxIv-goqB-LJVA-cbcg","cKuN-wbPv-tjWd-BLGX","HzZa-Yvoo-gHSH-dZEG","WAJZ-YKLR-aUOE-GdMI","gjrP-OzHk-tFiF-WFgM","iOtV-wjdz-YyVZ-EkHb","hAdV-rtyK-rluC-fkiL","nVgo-ImRl-jwki-pVSG","xOqz-jdAQ-wqXB-ZOIc","alMe-yubV-stmO-MjPE","kQoT-Xret-VSOg-lcxh","sZbr-uWIZ-HJel-OnFi","tUCF-kopB-lFPz-aCXq","FDcD-dcXz-GZjp-DMYV","azUC-jUzT-SGJX-aMEw","TZBq-aqnj-AQHm-QiYi","FJkx-okXY-gVjD-DabY","ryIV-bwre-ahEq-icvH","UriY-nnsz-zXXk-IOic","GdUt-vGJi-Mawv-vbFE","JKKU-gNAm-WQxH-FIme","diqa-WQtl-uAPd-BvoK","kuOD-UhKo-PkhG-zUSs","gIyg-ALUJ-KZNg-pkQv","VClb-bhdW-BdVv-VCjz","gXhW-ITxZ-lAnL-lMHo","TtZf-JUtZ-ehwz-UCrh","geMN-nlSr-iapy-uQCK","zMha-Avsh-ndRW-GLkE","Noec-uLlF-IsXW-lGxu","vMAR-ErDI-VWkk-tyoI","AaPY-JTxD-LsZN-TXSb","Togk-jtIW-ySrc-MLyZ","HGbz-eUZu-waVN-akcq","ViaQ-dwOA-DgCM-CFVa","uutx-OJEl-usEz-hAAB","Rhbc-Tjsq-cJcy-fCTA","WeiI-yVoo-xmLo-aojh","yBkB-vHUb-GLKG-FlyN","eePW-hmDW-dqGS-qQtT","aMaJ-coTr-Ssxk-unfd","LuDL-dksp-KfBX-hpAo","RXnr-Vcdv-tfEZ-SMlT","Cnzg-uVjn-BgYO-mazp","RaVr-SxpA-OXbE-ithQ","AoID-KeIf-swcL-Qpcu","OMsA-JLRe-uboa-JvvO","ZwbO-IJJE-VKoR-yibE","cQRU-DOlR-KfhO-ovjC","PIov-yvSY-jqZz-uVNZ","GXIJ-QTcn-Bkez-gkuo","pZFh-hPoh-mXbS-qjqA","mYHT-JHSo-AIEq-BWmk","yaeK-pTrL-eGje-lzxQ","QRrT-NLvp-slXm-NoXg","CeyZ-cGFc-wRYR-psQx","Novy-PnBo-GEGZ-xWfX","Vsfh-RIIR-fCZq-GutX","qszB-xCwS-KDAl-qIXW","yPEG-iMQm-PSJY-HsiQ","SbYy-KgEQ-xCTy-BxPe","vsMM-ctGv-wAPX-tKHM","klpX-HMYp-iieU-dbNr","dawQ-NUzD-aBCk-rlFD","bXUQ-SCAP-tQxL-bAHe","MoOL-Kclg-tmdh-OCqt","estr-fJMM-FPHt-WsNP","ZwIV-JCIk-fUKG-dScI","GNZF-SkRF-qstC-fFLe","CxsE-Rjjn-rMqE-cnoQ","IrRO-wsNa-hKSP-wrsn","dIbk-qrsI-CCid-NCDj","rgpB-yAKi-LmEe-MPvv","zQxf-oIvm-voHs-vktO","kCOM-JqUi-Gzfv-hXAC","tfvD-DDAS-HeKa-DXtK","FifZ-ImrR-bNXp-pESd","iTxR-HSCc-oxGa-dWPq","acpG-phqB-JJTz-OtIW","fBPR-tncA-EIUl-rGPr","naXX-BwcZ-Hqnx-WywK","cMEe-scwP-Pdyd-Kfjp","ZFaJ-IbEf-jkuX-hDPE","MzNU-MFSO-ZXHE-JxSO","VMgD-pZJW-ByOI-lZqG","HHWt-EyEm-VNTY-WzcS","GlYB-cIdk-OUbM-InUg","TZDF-JYoE-pGGL-Wljm","aTgG-WfNa-HXht-cIzs","StYe-RnpK-KWhH-UaNu","xfOL-irxp-rYsu-qTAD","qnaU-NVgn-RwsY-eEeA","pxjb-ZNqA-VhxS-hyhd","BPbn-SaCg-UNfx-jjIi","djXJ-duog-bFFC-Kfis","FXdI-dkgA-tffs-YDaU","SVqR-Mpym-rcKJ-fXof","XxPp-KnYc-TlIj-sIXK","hfdm-RMWi-Nqjt-dVWr","xAOQ-MnBs-zyaF-CDaL","eloN-EPzY-Strn-tgix","TsRP-Lzyg-eBlF-ykKp","vnJd-tSEf-IDJG-iaUq","mOsr-ykZK-jqXg-cssX","kpaG-fLhw-YYMT-Myrq","aLeI-cEhh-JLPy-DmwD","lJpO-ampt-JKUj-WQjy","cuDi-XsiQ-QaHc-wFuY","Malu-bqRT-Hqld-tzEB","wpqB-etQx-Uewu-fobX","vlxs-Baxh-yaow-Tcuy","vlxs-Baxh-yaow-Tcuy"],
+          "eventName": "online",
+          "nextState": "e",
+          "errorState": "giveCodeend"
+        }
+      },
+      "storyEnd01": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恭喜你完成所有任務了~準備好領取獎品碼了嗎? <font color='red'>請記住獎品碼，並至活動組兌換獎品!!</font>",
+          "options": {
+            "我準備好了~": "giveCodeI"
+          }
+        }
+      },
+      "storyEnd02": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恭喜你完成<font color='red'>部分</font>任務了~準備好領取獎品碼了嗎? <font color='red'>請記住獎品碼，並至活動組兌換獎品!!</font>",
+          "options": {
+            "我準備好了~": "giveCodeII",
+            "還沒，我想多解幾題後再來": "exit"
+          }
+        }
+      },
+      "storyEnd03": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恭喜你完成部分任務了~準備好領取獎品碼了嗎?</br> <font color='red'>請記住獎品碼，並至活動組兌換獎品!!</font>",
+          "options": {
+            "我準備好了~": "giveCodeIII",
+            "還沒，我想多解幾題後再來": "exit"
+          }
+        }
+      },
+      "storyEnd04": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恩...你解的關卡數不足以領取獎勵，加油!!!再接再厲!!!",
+          "options": {
+            "好QQ": "exit"
+          }
+        }
+      },
+      "giveCodeend": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "sorry今年的獎品碼已全數發完QQ",
+          "options": {
+            "太難過了QQ 我明年會更早開始解...": "e"
+          }
+        }
+      },
+      "end": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恭喜你已經完成任務了~",
+          "options": {
+            "YA": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "end"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "start"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "initialPosition": {"mapName": "world1", "x": 6, "y": 59},
+  "initialPosition": {"mapName": "world1", "x": 18, "y": 82},
   "distanceLimit": 2,
   "visibleName": " ",
   "display": [],

@@ -1,0 +1,60 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 18, "y": 27},
+  "distanceLimit": 2,
+  "visibleName": "Eileen",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su2 Student fmale 06"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這關太難了...<font color='red'>我要先去下一關了</font>",
+          "options": {
+            "可以直接到下一關?": "s2",
+            "哪裡可以到下一關?": "s3"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<font color='red'>公佈欄上的照片</font>你有看到嗎? 解開上面的密碼就好啦!",
+          "options": {
+            "好 我試試": "exit"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<font color='red'>上面那個棕色的門啊!!</font>",
+          "options": {
+            "喔喔!原來那裡有門!": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

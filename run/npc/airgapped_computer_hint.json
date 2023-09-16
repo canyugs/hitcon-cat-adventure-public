@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 20, "y": 99},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<a href='https://connect-me.hitcon2022.online/' target='_blank'>https://connect-me.hitcon2022.online/</a>",
+          "options": {
+            "神秘的網址??": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

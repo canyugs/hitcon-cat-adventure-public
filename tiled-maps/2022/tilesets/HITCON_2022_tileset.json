@@ -1,0 +1,14 @@
+{ "columns":56,
+ "image":"..\/packages\/HITCON 2022 tile set\/HITCON 2022 tile-set.png",
+ "imageheight":1920,
+ "imagewidth":1792,
+ "margin":0,
+ "name":"HITCON_2022_tile_set",
+ "spacing":0,
+ "tilecount":3360,
+ "tiledversion":"1.9.0",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.8"
+}

@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 63, "y": 11},
+  "distanceLimit": 2,
+  "visibleName": "Lydia",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Female 05-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "我剛剛看到有人買飲料的時候，錢掉到自動販賣機下面XDD",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 52, "y": 25},
+  "distanceLimit": 2,
+  "visibleName": "Staff-Jackie",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Female 04-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "isFinished",
+    "states": {
+      "isFinished": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "medalII",
+          "haveItem": "finished",
+          "noItem": "start"
+        }
+      },
+      "start": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "歡迎來到這關，你是一個合格的探員嗎?如果你能登入這個網站我就相信你，具備成為我們組織探員的資格。<a href='https://login-portal.hitcon2022.online/login' target='_blank'>[click here]</a>",
+          "options": {
+            "OK": "question"
+          }
+        }
+      },
+      "question": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "告訴我網站裡面寫了什麼?",
+          "nextState": "correct",
+          "nextStateIncorrect" : "incorrect",
+          "key": "hitcon{5q1_1nj3c710n}"
+        }
+      },
+      "correct": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "沒錯沒錯!!!恭喜你! 這是你應得的勳章",
+          "options": {
+            "收下....(這個是？)": "giveMedal"
+          }
+        }
+      },
+      "incorrect": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "不對...你查清楚再回答我吧...",
+          "options": {
+            "我再去仔細看看好了": "exit"
+          }
+        }
+      },
+      "giveMedal": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "medalII",
+          "nextState": "exit"
+        }
+      },
+      "finished": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經通過這關了",
+          "options": {
+            "好好好": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isFinished"
+        }
+      }
+    }
+  }
+}

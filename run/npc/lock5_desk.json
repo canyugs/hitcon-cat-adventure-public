@@ -1,0 +1,63 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 17, "y": 85},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "lock",
+    "states": {
+      "lock": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是一個上鎖的櫃子...",
+          "options": {
+            "使用鑰匙": "usekey",
+            "我去找找鑰匙":"exit"
+          }
+        }
+      },
+      "usekey": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "key",
+          "haveItem": "havekey",
+          "noItem": "nokey"
+        }
+      },
+      "havekey": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "喀擦-----裡面有一張紙條",
+          "options": {
+            "打開了!!!!": "givepaper"
+          }
+        }
+      },
+      "nokey": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "打不開，你沒有鑰匙...",
+          "options": {
+            "恩...我去找找": "exit"
+          }
+        }
+      },
+      "givepaper": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "airgapped-paper",
+          "nextState": "exit"
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "lock"
+        }
+      }
+    }
+  }
+}

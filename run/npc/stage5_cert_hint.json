@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 18, "y": 89},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "hint",
+    "states": {
+      "hint": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This is online world! alert(“So, you can copy and paste into console”);",
+          "options": {
+            "線上是嗎...難道要獻上什麼?": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isCertificateExist"
+        }
+      }
+    }
+  }
+}

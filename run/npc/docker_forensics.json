@@ -1,0 +1,95 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 27, "y": 29},
+  "distanceLimit": 1,
+  "visibleName": "Staff-Nick",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 04-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "medalI",
+          "haveItem": "s4",
+          "noItem": "s1"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恭喜你通過初試!!  我是這場訓練的指導員!</br>你能到這邊相信你已經知道這個培訓規則了吧，接下來的試煉會更加的困難，加油了!!",
+          "options": {
+            "….? (甚麼培訓?我是誰?我在哪?我只想回家...)": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "這關主要是考驗你們搜查的能力，看看這台被入侵的電腦，駭客貌似是使用ssh進入，請告訴我他的IP",
+          "nextState": "f1",
+          "nextStateIncorrect" : "s3",
+          "key": "192.168.87.87"
+        }
+      },
+      "f1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "沒錯就是這個 IP, 收下這個獎牌並前往下一關吧!!祝福你，期望你能通過所有關卡~",
+          "options": {
+            "收下....(這個是？)": "f2"
+          }
+        }
+      },
+      "f2": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "medalI",
+          "nextState": "d"
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "再好好查查，這並不是攻擊者的IP",
+          "options": {
+            "我再仔細的看一下...": "d"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經通過囉",
+          "options": {
+            "喔...好, 再見!": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

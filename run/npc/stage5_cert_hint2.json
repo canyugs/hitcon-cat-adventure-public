@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 23, "y": 97},
+  "distanceLimit": 2,
+  "visibleName": "Andy",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su2 Student male 07"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "hint",
+    "states": {
+      "hint": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "螢幕上好像寫了些甚麼...",
+          "options": {
+            "OK": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "hint"
+        }
+      }
+    }
+  }
+}

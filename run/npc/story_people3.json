@@ -1,0 +1,156 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 44, "y": 29},
+  "distanceLimit": 2,
+  "visibleName": "Staff-Steward",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 04-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "isFinished",
+    "states": {
+      "isFinished": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "medalIII",
+          "haveItem": "finished",
+          "noItem": "start"
+        }
+      },
+      "start": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "就為了你們訓練現在還得加班....",
+          "options": {
+            "有點事想問你...": "talk",
+            "我想給你點東西...": "giveSomething",
+            "bye": "exit"
+          }
+        }
+      },
+      "talk": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "我現在很忙沒空...",
+            "你沒看到我在忙嗎?",
+            "聊什麼天...我還在上班呢！等天上掉下來錢那天我再和你聊.."
+          ],
+          "options": {
+            "喔...好...": "exit"
+          }
+        }
+      },
+      "giveSomething": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "什麼東西?",
+          "options": {
+            "錢": "giveCoin",
+            "獎牌": "other"
+          }
+        }
+      },
+      "giveCoin": {
+        "func": "takeItem",
+        "kwargs": {
+          "amount": 5,
+          "itemName": "coin",
+          "haveItem": "getInformation",
+          "noItem": "noCoin"
+        }
+      },
+      "getInformation": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "別說我太現實啊！人在江湖走格調要有，以物易物、交換情報可以吧！想問什麼？",
+          "options": {
+            "這個訓練是在練什麼？": "q1"
+          }
+        }
+      },
+      "q1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這是組織的探員培訓計畫，主要是在訓練你們這些探員所需要具備的基礎搜索、觀察能力。</br>能夠成功走到出口表示你已經具備生為探員需要的能力了。",
+          "options": {
+            "勳章是要做什麼？": "q2"
+          }
+        }
+      },
+      "q2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "當你蒐集到3個勳章表示你在組織內部就能夠以資深探員自居。",
+          "options": {
+            "了解 感謝你": "clear"
+          }
+        }
+      },
+      "clear": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "想不到吧!我也是試驗官之一，對人進行心理操縱，使其採取行動或泄露機密資訊，這樣的社交工程手法在探案的過程中也是經常被使用到的呢!",
+          "options": {
+            "原來是這樣....": "giveMedal"
+          }
+        }
+      },
+      "giveMedal": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "medalIII",
+          "nextState": "exit"
+        }
+      },
+      "noCoin": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你錢不夠啊...",
+          "options": {
+            "...(看著錢包, 哪邊可以賺錢啊....)": "exit"
+          }
+        }
+      },
+      "other": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "我不需要這個，這是你訓練會用到的東西",
+          "options": {
+            "喔...": "exit"
+          }
+        }
+      },
+      "finished": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經知道社交工程是什麼了吧",
+          "options": {
+            "是! 我會好好使用的": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isFinished"
+        }
+      }
+    }
+  }
+}

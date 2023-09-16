@@ -1,0 +1,8 @@
+# some runtime data
+small_data
+
+# other
+.DS_Store
+
+# Tiled
+*.tiled-session

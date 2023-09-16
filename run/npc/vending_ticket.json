@@ -1,0 +1,107 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 21, "y": 19},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "ticket",
+          "haveItem": "s2",
+          "noItem": "s1"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你願意花多少錢買票?",
+          "options": {
+            "$1000": "t1",
+            "$1": "t2",
+            "自訂": "f3"
+          }
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "ticket",
+          "nextState": "tks"
+        }
+      },
+      "f2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "這樣我會虧本...",
+          "options": {
+            "...": "d"
+          }
+        }
+      },
+      "f3": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "請輸入金額",
+          "nextState": "f1",
+          "nextStateIncorrect" : "f2",
+          "key": "-1"
+        }
+      },
+      "f4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你沒有哪麼多錢...",
+          "options": {
+            "...": "d"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1000,
+          "itemName": "coin",
+          "haveItem": "f1",
+          "noItem": "f4"
+        }
+      },
+      "t2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "coin",
+          "haveItem": "f2",
+          "noItem": "f4"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你已經有票了",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "tks": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "感謝您的購買!!票卷將收納於您的包裹中，若需要進入展廳可使用該票卷進行掃描。",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

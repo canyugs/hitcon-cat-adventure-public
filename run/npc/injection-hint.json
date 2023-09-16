@@ -1,0 +1,34 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 47, "y": 25},
+  "visibleName": " ",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+	    "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你找到一張紙條",
+          "options": {"OK": "f1"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		    "amount": 1,
+		    "maxAmount": 1,
+        "itemName": "injection-paper",
+		    "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

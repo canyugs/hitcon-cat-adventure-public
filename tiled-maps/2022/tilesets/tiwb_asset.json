@@ -1,0 +1,14 @@
+{ "columns":78,
+ "image":"..\/packages\/tiwb_assets\/tiwb_asset.png",
+ "imageheight":512,
+ "imagewidth":2496,
+ "margin":0,
+ "name":"tiwb_asset",
+ "spacing":0,
+ "tilecount":1248,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

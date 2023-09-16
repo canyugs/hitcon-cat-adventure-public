@@ -1,0 +1,50 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 32, "y": 77},
+  "distanceLimit": 2,
+  "visibleName": "Ken",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Hi，有什麼問題嗎?",
+          "options": {
+            "要怎麼進去左邊這兩個房間啊??": "s2"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "去找到<font color='red'>神秘的傳輸門</font>吧!!",
+          "options": {
+            "傳輸門!?": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

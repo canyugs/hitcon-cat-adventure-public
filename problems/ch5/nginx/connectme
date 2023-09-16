@@ -1,0 +1,38 @@
+map $ssl_client_s_dn $ssl_client_s_dn_cn {
+    default "";
+    ~,CN=(?<CN>[^,]+) $CN;
+}
+
+server {
+    listen  80;
+    listen  [::]:80;
+    listen  443 ssl;
+    listen  [::]:443 ssl;
+
+    server_name "connect-me.hitcon2022.online";
+
+    access_log /var/log/nginx/connect-me.access.log;
+    error_log /var/log/nginx/connect-me.error.log;
+
+    ssl_certificate /etc/letsencrypt/live/www.hitcon2022.online/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.hitcon2022.online/privkey.pem;
+    ssl_client_certificate /etc/ssl/hitcon-online/connectme/rootCA.crt;
+    ssl_verify_client optional;
+
+    location / {
+        root /var/www/html/connect-me;
+
+        if ($ssl_client_verify != SUCCESS) {
+            return 303 https://connect-me-failure.hitcon2022.online/verification-failure.html;
+        }
+        
+        if ($ssl_client_s_dn_cn ~ "rootCA.hitcon2022.online") {
+            return 303 https://connect-me-failure.hitcon2022.online/rootca.html;
+        }
+    }
+
+    location /.well-known {
+        allow all;
+        alias /var/www/html/.well-known;
+    }
+}

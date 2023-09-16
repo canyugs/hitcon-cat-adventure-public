@@ -2,7 +2,7 @@
     {
         "dialogs": "下列何者「不」屬於程式弱點可能的利用方式？",
         "options": [
-            "A. 暴力破解（Bruce Force）",
+            "A. 暴力破解（Brute Force）",
             "B. 緩衝區溢位（Buffer Overflow）",
             "C. 社交工程（Social Engineering）",
             "D. SQL 資料隱碼攻擊（SQL Injection）"
@@ -22,10 +22,10 @@
     {
         "dialogs": "請問 ==、= 為下列何種編碼方式之結尾特徵?",
         "options": [
-            "A. URL Encode",
-            "B. Base64 Encode",
-            "C. ROT13 Encode",
-            "D. A1Z26 Encode"
+            "A. URL Encoding",
+            "B. Base64 Encoding",
+            "C. ROT13 Encoding",
+            "D. A1Z26 Encoding"
         ],
         "ans": "B"
     },
@@ -160,16 +160,6 @@
         "ans": "C"
     },
     {
-        "dialogs": "資安中有一技術是攻擊者透過修改網址中的參數，導致網頁吐出原本不該出現的資訊。請問上述該手法被稱為？",
-        "options": [
-            "A. IP Injection",
-            "B. Security Injection",
-            "C. Database Injection",
-            "D. SQL Injection"
-        ],
-        "ans": "D"
-    },
-    {
         "dialogs": "hitcon 這個字串經過如下演算法後產出為aGl0Y29u ，請問該字串是哪種編碼/加密方式？  ",
         "options": [
             "A. ROT13",
@@ -230,7 +220,7 @@
         "ans": "A"
     },
     {
-        "dialogs": "「用於檢測或驗證目標訊息在運算或傳輸的過程中是否有被修改」，此敘述是屬於下列哪一個選項?",
+        "dialogs": "「在密碼學中，用於檢測或驗證目標訊息在運算或傳輸的過程中是否有被修改」，此敘述是屬於下列哪一個選項?",
         "options": [
             "A. Digital signature algorithm",
             "B. Message authentication code",
@@ -370,16 +360,6 @@
         "ans": "B"
     },
     {
-        "dialogs": "在 AI 發展快速的時代，各路大神各顯神通努力將相關技術引入其中，請問在 black hat 2021 中 TEAMT5 提出了怎樣的概念來檢測駐紮在記憶體中的惡意程式呢?~",
-        "options": [
-            "A. 利用 CNN 影像辨識概念搭配 Mem2Img function 對記憶體檢測是否有惡意程式",
-            "B. 利用 Log exception 的資料點分析來對 Memory 的異常使用做偵測",
-            "C. 利用 LSTM 針對記憶體資料做使用分析來辨檢測記憶體是否有惡意程式運行",
-            "D. 怎麼可能有 AI 技術已經成功了啦~"
-        ],
-        "ans": "A"
-    },
-    {
         "dialogs": "檢查被攻擊的紀錄時，發現駭客下載了網站上的.git檔案，請問駭客主要是想要達成什麼目的？",
         "options": [
             "A. 查看網站的github看製作者是誰，如果不認識就可以進行進一步的攻擊",
@@ -457,7 +437,7 @@
             "C. 為IEEE所發布之標準",
             "D. 透過Pre-shared key方式加密"
         ],
-        "ans": "A"
+        "ans": "B"
     },
     {
         "dialogs": "下列何者是 gets() 函數造成 Buffer Overflow 的原因?",
@@ -478,16 +458,6 @@
             "D. 出題者出題當時很想吃橘子"
         ],
         "ans": "C"
-    },
-    {
-        "dialogs": "Windows 11 正式版本於 2021 年幾月發行?",
-        "options": [
-            "A. 7 月",
-            "B. 8 月",
-            "C. 9 月",
-            "D. 10 月"
-        ],
-        "ans": "D"
     },
     {
         "dialogs": "在 x64 有漏洞的程式中寫入 Shellcode 之後，要控制哪個暫存器以執行 Shellcode?",
@@ -516,16 +486,6 @@
             "B. 2.27 版本的 libc 中，fastbin 不需要注意前後相鄰的 chunk 是不是同一塊",
             "C. 2.23 版本的 libc 中，Tcache 不需要注意前後相鄰的 chunk 是不是同一塊",
             "D. 2.27 版本的 libc 中，Tcache 不需要注意前後相鄰的 chunk 是不是同一塊"
-        ],
-        "ans": "D"
-    },
-    {
-        "dialogs": "下列有關 unlink 機制的敘述何者正確?",
-        "options": [
-            "A. 要滿足檢查機制 P->bk->fd = P",
-            "B. 要滿足檢查機制 P->fd->bk = P",
-            "C. 在 unlink 之後會發生 P->bk->fd = P->fd",
-            "D. 以上皆是"
         ],
         "ans": "D"
     },

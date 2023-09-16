@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 5, "y": 47},
+  "distanceLimit": 2,
+  "visibleName": "Edward",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 08-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "剛剛好像有個人了從廁所衝出來, 説 [我在桌面版聽到聲音啦!!!] , 真是一個奇怪的人",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 78, "y": 30},
+  "visibleName": " ",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "你找到一塊錢",
+          "options": {"OK": "f1"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1000,
+          "itemName": "coin",
+          "nextState": "d"
+        }
+      },
+      "wait": {
+        "func": "sleep",
+        "kwargs": {
+          "delay": 15000,
+          "nextState": "s1"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "wait"
+        }
+      }
+    }
+  }
+}

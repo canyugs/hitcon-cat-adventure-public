@@ -1,0 +1,78 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 64, "y": 40},
+  "distanceLimit": 2,
+  "visibleName": "Vincent",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_su2 Student male 13"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Hi, 你今年第一次參加嗎?",
+          "options": {
+            "Yes": "f1",
+            "No": "f2"
+          }
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "firstjoin",
+          "nextState": "s2"
+        }
+      },
+      "f2": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "notfirstjoin",
+          "nextState": "s2"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "是喔，我參加了5年，去年是當工作人員，今年打算就好好當會眾就好。",
+          "options": {
+            "那你知道哪裡會有逃生或者員工通道嗎?": "s3"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "恩...通常都會在會議廳裡面有工作人員進出的通道，但這次地點和上次不一樣，所以我也不是很確定...",
+          "options": {
+            "好吧，謝謝": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s2"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 18, "y": 97},
+  "terminalInfo": {
+    "imageName": "aoaaceai/airgapped"
+  },
+  "distanceLimit": 3,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "isDiskExist",
+    "states": {
+      "isDiskExist": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "disk",
+          "haveItem": "openTerminal",
+          "noItem": "showError"
+        }
+      },
+      "openTerminal": {
+        "func": "showTerminal",
+        "kwargs": {
+          "nextState": "exit"
+        }
+      },
+      "showError": {
+              "func": "showDialog",
+        "kwargs": {
+          "dialogs": "ERROR: No boot disk has been detected or the disk has failed",
+          "options": {
+            "是不是少了什麼東西?": "exit"
+          }
+        }
+      },
+      "exit": {
+        "func": "exit",
+        "kwargs": {
+          "next": "isDiskExist"
+        }
+      }
+    }
+  }
+}

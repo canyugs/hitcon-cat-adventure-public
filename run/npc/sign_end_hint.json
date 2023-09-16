@@ -1,0 +1,68 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 30, "y": 36},
+  "distanceLimit": 2,
+  "visibleName": "George",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 12-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "drink",
+    "states": {
+      "drink": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "我好渴...",
+          "options": {
+            "要喝水嗎?": "t1",
+            "我也是...": "d"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "water",
+          "haveItem": "s1",
+          "noItem": "s2"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "聽說成功走到<font color='red'>左上角那個房間</font>，就算通過培訓，能夠換取獎品!?",
+          "options": {
+            "...?什麼培訓?什麼獎品?(我只想找到出口回家...)": "d"
+          }
+        }
+      },
+      "npc_su2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "罷了罷了..你都沒有水了怎麼能分我喝呢..",
+          "options": {
+            "...": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "drink"
+        }
+      }
+    }
+  }
+}

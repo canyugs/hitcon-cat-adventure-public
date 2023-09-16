@@ -1,0 +1,31 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "想進入某網站，就需要<font color='red'>使用電腦簽發某種憑證</font>",
+          "options": {
+            "OK": "e",
+            "drop": "t1"
+          }
+        }
+      },
+      "t1": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "airgapped-paper",
+          "haveItem": "e",
+          "noItem": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

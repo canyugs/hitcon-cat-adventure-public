@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 2, "y": 57},
+  "distanceLimit": 2,
+  "visibleName": "",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "已打烊...",
+          "options": {
+            "…我剛剛就是想練蠱想太久了..至於直接關門嘛!??</br>現在要怎麼出去啊!!! 應該還有員工通道能夠出去吧..": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
   "enabled": true,
-  "initialPosition": {"mapName": "world1", "x": 5, "y": 60},
+  "initialPosition": {"mapName": "world1", "x": 15, "y": 68},
   "distanceLimit": 2,
-  "visibleName": " ",
+  "visibleName": "",
   "display": [],
   "FSM": {
     "initialState": "s1",
@@ -10,7 +10,7 @@
       "s1": {
         "func": "showDialog",
         "kwargs": {
-          "dialogs": "Nothing here...<br>這裡什麼都沒有...",
+          "dialogs": "這是一個普通的花瓶",
           "options": {
             "OK": "d"
           }
