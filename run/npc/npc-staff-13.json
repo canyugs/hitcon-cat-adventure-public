@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world3", "x": 123, "y": 54},
+  "visibleName": "Neal Koblitz",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 14-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "橢圓曲線密碼學主要的優勢是它比RSA加密演算法使用較小的密鑰長度並提供相同等級的安全性 ㄎㄎ"
+          ],
+          "options": {
+            "ok.....": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

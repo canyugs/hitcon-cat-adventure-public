@@ -1,0 +1,95 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 167, "y": 5},
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "base": {
+        "func": "checkIsInFinalizedTeam",
+        "kwargs": {
+          "nextState": "s1",
+          "errorState": "teamError"
+        }
+      },
+      "teamError": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "System show that you are not in a finalized team<br>系統顯示你不在完整的隊伍中。",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "c1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "guardtoken",
+          "haveItem": "base",
+          "noItem": "e"
+        }
+      },
+      "s0": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This is an Access Control System.",
+          "options": { "OK": "c1" }
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Show me your credential.",
+          "options": {
+		  "use smartcard": "c2",
+		  "use component": "c3",
+		  "Bye": "e"
+          }
+        }
+      },
+      "c2": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "unlockedcard",
+          "haveItem": "s4",
+          "noItem": "s5"
+        }
+      },
+      "c3": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "component",
+          "haveItem": "s2",
+          "noItem": "s5"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This credential is invalid.",
+          "options": { "OK": "s1" }
+        }
+      },
+      "s4": {
+            "func": "teamTeleport", "kwargs": {
+            "mapCoord": {"mapName": "world6", "x": 9, "y": 2},
+            "nextState": "e"
+          }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have this item.<br>你沒有這項道具。",
+          "options": { "OK": "s1" }
+        }
+      },
+	  "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{ "columns":48,
+ "image":"..\/packages\/interior-pack\/atlas_32x.png",
+ "imageheight":512,
+ "imagewidth":1536,
+ "margin":0,
+ "name":"Interior_tileset_32x",
+ "spacing":0,
+ "tilecount":768,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

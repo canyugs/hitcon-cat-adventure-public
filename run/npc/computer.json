@@ -1,0 +1,124 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 2, "y": 3},
+  "visibleName": " ",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "base": {
+        "func": "checkIsInFinalizedTeam",
+        "kwargs": {
+          "nextState": "h1",
+          "errorState": "teamError"
+        }
+      },
+      "teamError": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Join the team first?<br>請先加入隊伍",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "h1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "usb",
+          "haveItem": "c1",
+          "noItem": "s2"
+        }
+      },
+	  "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This is a computer.<br>這是一台電腦。",
+		  "options": {
+              "enter usb": "base",
+              "OK": "d"
+          }
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have this item.<br>你沒有這項道具。",
+		  "options": {"OK": "d"}
+        }
+      },
+      "pw1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is correct!",
+          "options": {
+            "OK": "g1"
+          }
+        }
+      },
+	  "pw2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "c1": {
+            "func": "showDialogAndCheckKey",
+            "kwargs": {
+              "dialog": "Password",
+              "nextState": "pw1",
+              "nextStateIncorrect" : "pw2",
+              "key": "HITCON{TGVhcm5pbmcgZ2VuZXJhdGUgdGhpbms=}"
+            }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "File Explorer",
+		  "options": {
+              "instruction of Alpha<br>Alpha使用說明文件": "s4",
+              "instruction of opening gate<br>閘門開啟文件": "s5"
+              }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Instruction：Please put chip on cat's forehead and click run the system.<br><br>1. It can simulate human's emotion by repeating learning.<br>2.After training is reached a particular level, it can calculate the formula of future with simulated system.<br>Attention：If you overload calculative module,chip will break.<br>使用方式：將晶片放置貓的額頭上，點選啟動系統。<br><b>功能：</b><br>1.可透過重複學習來達到模擬人類情感<br>2.在訓練到一定程度後，可以透過模擬機制計算未來數值<br>'注意':若過度使用計算模組將會使晶片損壞",
+		  "options": {"Close": "e"}
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Automatic Door：Stand on the <font color='red'>right position</font> and <font color='red'>insert USB</font>,then gate will automatically open.<br>感應式閘門：站在<font color='red'>正確的</font>感應<font color='red'>位置</font>，並將<font color='red'>USB插入</font>，閘門將會自動開啟",
+		  "options": {"Close": "e"}
+        }
+      },
+      "g1": {
+        "func": "teamGiveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "unlockedusb",
+          "nextState": "s3"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s3"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

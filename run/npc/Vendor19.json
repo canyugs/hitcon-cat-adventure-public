@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 163, "y": 47},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "CYBAVO成立於2018年，成員來自區塊鏈安全、密碼學、計算機安全、網絡攻防等安全領域，平均擁有十年以上的安全研究經驗，數十個專利成果。團隊中還包含 HITCON 和其他國際知名安全會議創始人，擁有廣泛的白帽資源，掌握第一手的漏洞資訊和最新的攻防技術。<br><br>我們的使命是提供最先進的數位資產託管技術，CYBAVO採用定制化的高效安全系統，專利加密技術，以最高的安全標準打造出CYBAVO VAULT和CYBAVO WALLET SDK，幫助我們的客戶輕鬆管理數位資產，構築起堅固的安全堡壘，防止惡意攻擊、偷竊和丟失。<br><br>如果你對區塊鏈有熱情，對安全分析有研究，並想要創造新的產品，快來加入我們！<br><a href='https://www.cybavo.com/join-us/' target='_blank'>https://www.cybavo.com/join-us/</a><br><br>歡迎加入 CYBAVO 粉絲團，隨時得到有關 CYBAVO 、區塊鏈、和加密貨幣最新的消息！<br>Facebook: <a href='https://www.facebook.com/cybavo' target='_blank'>https://www.facebook.com/cybavo</a><br>Twitter: <a href='https://twitter.com/cybavo'>https://twitter.com/cybavo</a><br>LinkedIn: <a href='https://www.linkedin.com/company/cybavo' target='_blank'>https://www.linkedin.com/company/cybavo</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

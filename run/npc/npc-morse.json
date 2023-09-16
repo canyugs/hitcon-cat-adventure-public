@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "initialPosition": {
+    "mapName": "world1",
+    "x": 109,
+    "y": 48
+  },
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<audio autoplay src='/static/run/hosted/morse.wav'></audio>",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 188, "y": 52},
+  "visibleName": " ",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "cardreader",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a cardreader<br>你找到一台讀卡機",
+		  "options": {"OK": "f1"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You've a cardreader!<br>你已經有一台讀卡機了!",
+		  "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		  "amount": "1",
+		  "maxAmount": 1,
+          "itemName": "cardreader",
+		  "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

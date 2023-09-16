@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 181, "y": 89},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [ ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a paper.<br>你找到一張紙",
+          "options": {
+			  "OK": "g1"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem", "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "pwt2",
+          "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

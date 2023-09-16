@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 124, "y": 22},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<b>#鴻海轉型樞紐-鴻海研究院</b><br>鴻海集團積極投入「電動車、數位健康、機器人」三大新興產業，而鴻海研究院的成立即為轉型升級的關鍵策略。<br><br><b>#研究院對於資安領域的關注</b><br>在資安領域，研究院投入前瞻研究與資安治理，協助鴻海集團提升產品與服務的資安能力，並於集團轉型升級過程中有效降低新興網路攻擊的衝擊。<br><br><b>未來活動介紹</b><br>虛實整合的未來Mobility鑄造工廠<br>面對未來移動自動化所帶來的各式挑戰，以虛實整合的驗證場域進行先期模擬測試與驗證，是縮短研發時間、減少開發成本的重要關鍵。<br>2022年鴻海研究院將推出虛實整合的未來Mobility鑄造工廠，提供一個標準化的開源技術驗證平台。針對軟硬體採用模組化設計，使企業、學研在此平台中可隨插即用（plug-n-play），於創新場域中驗證各種原型項目，邀請世界各地有興趣的朋友一起來探索創新應用及經驗分享，共同定義「行」的未來<br><br><b>鴻海集團的NExT Forum </b><br>NExT代表New Ecosystems multiplied by Technologies，呼應鴻海佈局三大新興產業，藉由五大領域彼此加乘以成就新的未來。鴻海研究院每年固定在3月3日、6月6日、9月9日、12月12日舉辦NExT Forum，定期邀請產官學研專家集思廣益、共同討論未來科技的發展趨勢。 <br>在接下來的12月12日，我們將舉辦Quantum Computing 2021 ，介紹量子軟硬體的前瞻發展議題，邀請大家一同探索量子領域的未來。<br><br>鴻海研究院官網：<a href='https://www.honhai.com/zh-tw/institute' target='_blank'>https://www.honhai.com/zh-tw/institute</a><br>鴻海研究院YouTube頻道：<a href='https://www.youtube.com/results?search_query=%E9%B4%BB%E6%B5%B7%E7%A0%94%E7%A9%B6%E9%99%A2' target='_blank'>https://www.youtube.com/results?search_query=%E9%B4%BB%E6%B5%B7%E7%A0%94%E7%A9%B6%E9%99%A2</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world6", "x": 10, "y": 8},
+  "distanceLimit": 0,
+  "interactType": "loc",
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "gatepass",
+          "haveItem": "t1",
+          "noItem": "s1"
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Insert the credential.",
+          "options": {
+            "USB": "c1",
+	    "component": "c2",
+	    "smartcard": "c3",
+	    "Bye": "e"
+          }
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This credential is invalid.",
+          "options": {
+			"OK": "e"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Gate open",
+          "options": {
+		  "OK": "g1"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have this item.<br>你沒有這項道具。",
+          "options": {
+		  "OK": "e"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have the correct startup item.<br>你沒有正確的啟動道具。",
+          "options": {
+		  "OK": "e"
+          }
+        }
+      },
+      "c2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "component",
+          "haveItem": "s2",
+          "noItem": "s4"
+        }
+      },
+      "c3": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "smartcard",
+          "haveItem": "s2",
+          "noItem": "s4"
+        }
+      },
+      "c1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "unlockedusb",
+          "haveItem": "s3",
+          "noItem": "s5"
+        }
+      },
+      "g1": {
+        "func": "teamGiveItem", "kwargs": {
+          "maxAmount": 1,
+          "itemName": "gatepass",
+          "nextState": "t1",
+          "errorState": "e"
+        }
+      },
+      "t1": {
+            "func": "teleport", "kwargs": {
+            "mapCoord": {"mapName": "world6", "x": 10, "y": 12},
+            "nextState": "e"
+          }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}

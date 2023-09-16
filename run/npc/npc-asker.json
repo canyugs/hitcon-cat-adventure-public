@@ -1,0 +1,80 @@
+{
+    "enabled": true,
+    "initialPosition": {"mapName": "world1", "x": 111, "y": 43},
+    "visibleName": "Questioner",
+    "distanceLimit": 2,
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Male 10-3"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Let me quiz you.<br>讓我來考考你",
+                "options": {"Go": "s3", "Bye": "ee"}
+            }
+        },
+        "s3": {
+            "func": "answerProblems",
+            "kwargs": {
+                "problems": 2,
+                "goalPoints": 2,
+                "nextState": "d3",
+                "nextStateIncorrect" : "d4"
+            }
+        },
+        "d3": {
+            "func": "showDialog", "kwargs": {
+                "dialogs": "Great!",
+                "options": {"Get": "i1"}
+            }
+        },
+        "d4": {
+            "func": "showDialog", "kwargs": {
+            "dialogs": "So sad..",
+            "options": {"Bye": "ee"}
+            }
+        },
+        "i1": {
+            "func": "giveItem",
+            "kwargs": {
+                "amount": "1",
+                "maxAmount": 1,
+                "itemName": "hitconpoint",
+                "nextState": "e"
+            }
+        },
+	    "ss":{
+            "func": "showDialog", "kwargs": {
+            "dialogs": "You have already played.<br>你已經玩過了",
+            "options": {"Bye": "e"}
+	        }
+	    },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+          "next": "ss"
+	      }
+	    },
+        "ee": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+ }

@@ -1,0 +1,253 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 25, "y": 72},
+  "visibleName": "Hacker Cat",
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Cat-01-2r"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "c1",
+    "states": {
+      "c1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "component",
+          "haveItem": "c41",
+          "noItem": "s0"
+        }
+      },
+      "s0": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You can ask me anything!<br>有任何事情都可以問我喔!",
+          "options": {
+            "I want to join the HITCON Cat Adventure.<br>我想參加駭客貓歷險記": "story1",
+            "I want to exchange reward of HITCON Cat Adventure Zero with the code of invitation card<br>我想要使用邀請碼兌換駭客貓歷險記Zero的報酬": "t1",
+			"OK, Bye": "e"
+          }
+        }
+      },
+      "c41": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You can ask me anything!<br>有任何事情都可以問我喔!",
+          "options": {
+            "I want to exchange reward of HITCON Cat Adventure.<br>我想兌換駭客貓歷險記的報酬": "c2",
+            "I want to exchange reward of HITCON Cat Adventure Zero with the code of invitation card<br>我想要使用邀請碼兌換駭客貓歷險記Zero的報酬": "t1",
+            "Do you know where is the cellar?<br>你知道場地中哪裡有地窖嗎?": "c42",
+			"OK, Bye": "e"
+          }
+        }
+      },
+      "t1": {
+            "func": "showDialogAndCheckKey",
+            "kwargs": {
+              "dialog": "Invitation code",
+              "nextState": "t11",
+              "nextStateIncorrect" : "t12",
+              "key": "V2VsY29tZSB0byB0aGUgaW5maW5pdGUgbG9vcA=="
+            }
+      },
+      "c2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "end",
+          "haveItem": "base",
+          "noItem": "noend"
+        }
+      },
+      "noend": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You haven’t finished the HITCON Cat Adventure!! Let’s keep going.<br>你還沒完成駭客貓歷險記喔!!再繼續加油吧~",
+          "options": {
+			"OK": "e"
+          }
+        }
+      },
+      "giveCode": {
+        "func": "giveRedeemCode",
+        "kwargs": {
+          "redeemCodes": ["6cb843e5-f14d-46f8-88f2-61205405a931","19ce4fd3-d687-43e2-a05b-362a9243d541","9f01b36d-4e0b-49ae-bdd9-923230680c34","9dbd9faa-a371-4de0-bcd7-a105f8b5928b","bbdb1fcc-d5c6-4922-9cd1-d497aec4609f","f7047728-f74d-44cf-8ee4-728c6678c8af","e4a07e46-1f18-4ecf-a83c-dcf71a1986bf","0389a505-2529-4700-9308-e8687d6e954d","a878ae9b-2559-4220-9408-9d8ad0a76849","f6f86505-ece0-4c95-8484-118f2a6545a2","036e3e36-ef10-4b77-ac44-9d429bc700e9","450d3453-3085-45c3-bf95-c05b40886078","dcf7a043-d9c3-4f5e-901a-da05d1aa30d5","301056de-fa90-420c-acdb-e18bc84ead85","3d7c505c-8525-4bc1-9d80-2d5e74bcd656","f8f51ce0-8f65-44de-b0d4-a7e245cc89d8","86ebf5ec-054e-4cb3-afa3-6ec206f6a73d","d3d4019c-336d-4b17-a639-ccf4c7d6c932","b1a792d7-50c1-4d2d-9c57-b80935135696","d6a0acff-ce86-4922-8b3a-2089b9e4a75c","ee36d2eb-4cf6-4362-a259-8f079174f351","c234cdab-81fa-4f90-a268-99e986e59a51","fe8c449e-f93f-4f38-b546-0f2515e17269","a05c435d-8d55-40da-b1cf-7b8334b4a3ed","0f07cd1b-116d-4e09-b578-1db5339b6eec","78accb10-f113-4383-9581-0e31f82def7f","fb85ba0f-a4d5-4561-87a7-23a6db8cf4a8","c91de895-1748-4c7f-b169-f64539ce6501","9eb1ff70-e548-4ce5-be78-e9ae44af2c54","8ab5ac4e-68b4-40d0-95a2-8bf1becaec9d","71dc8d9b-271f-42e8-9a0a-c5e090c981fd","adf47169-fe80-4b51-bd18-885c5b378b5f","89cbf46f-4bfe-4858-b120-f6658fe3cecb","36298f9e-dec5-4c0c-99f1-4683d5893f4c","d9de5fee-bb21-436f-8a30-59515e5f133b","0f7867ba-7ce1-4c20-93e1-eb172ccef18c","27df8bbb-da0b-4a00-bea2-d87870eecf11","b7e98bdc-1bbd-48a6-bb18-8a954da7f5c3","e22e1b85-6160-455d-a8b1-5677197b6479","d8af5c4d-f37c-45fd-a781-02b36b75fb6a","d4b4798a-c1de-4e4f-a421-1cd26a0237cc","82e7c7cb-38a0-4f47-b1be-b53a9e5bb219","68460f5b-ebc5-4529-a701-0fc0cb29ae28","b56c1fdb-f054-4389-8064-3d1c7fce4094","93b408f6-ffd8-4e4a-9305-1a0677244542","f8cf8b8c-cc59-45b7-86d5-23ac4da8ef52","e4e4638f-3884-41c4-a268-c7c4bd58d6b1","5a339c53-7653-4dc0-894f-ce7c6033d0de","cd6a58c0-46eb-407e-b457-bc3b480f3461","68063cf3-8409-460a-b6d6-63ab37affd71","31d46598-84f4-4beb-8b57-0291fac7e095","2228451b-c3fb-41bf-8c57-8267348defef","6f545b00-fcda-4b58-81a3-955c2ceecd74","23cf4cd7-2dcc-42ad-96ab-aba0cbcef632","0da7d1fd-b916-4ae6-aea4-22a801f03c16","cfa72fcb-f013-4c5d-aaf6-2b88ee0e6b5a","09e4f681-ca5f-4be9-a7ff-604720540cbb","51ae0370-5a8b-4636-914e-f66d22b9c150","ce3bef1a-6038-4334-b560-784deec451b7","f5a3f56d-6867-4b94-a916-38c9b49fef3c","92f95e0b-5d73-4c0d-b16d-52cefbd7e6cb","f09254cc-b56d-4d13-9670-fe3378200a56","875dca2e-51df-45fc-bfe5-a7e91a03398f","cfcfdcf8-7a10-40e4-8b24-e1a5f340f9c4","03764328-4c83-44d4-8d21-3ac7cda5b99b","caf018a1-451f-45e0-b853-14a5e96105d2","a700df52-030b-4c31-980d-33c9922994a9","678e3927-a145-42ff-92a1-62293cfa7b58","2d0178ee-d328-4900-bdf0-f9656ce8a4a5","696e4614-d7a2-4552-be81-eeb2384c4be6","116196e1-dabc-4e9f-98b2-4947577a9993","d3d365b9-d9a9-45fa-ab26-ebdb97269c7d","2f7b32db-46a7-4ffa-b910-156103227cc4","98164e3a-b920-420d-94db-ef44621e59f3","954bb068-5035-456e-b121-0c576cf12cfc","94247347-4147-46ff-9d71-737f78e95cb6","44af726f-92b7-4483-95e1-dd460ed9a7b6","c69125e0-54b4-474b-9bd8-8237a9742845","4fa0a8d7-036d-40db-8f56-bc279b3e6861","e4c0ef25-3b29-4ea1-ad7c-728c6898fb6c","09fa29aa-d2fa-4bba-8cf5-4ff717a4070b","b9d61f09-1291-469b-959b-65d86bd088a5","baed2ffd-7803-4df5-b5e5-bce8c13fca93","821dde87-949b-4754-9338-3496d1aacd91","f133bfa0-1c4f-4c6c-b52a-e95edbd8ad7e","bd7ec781-b8e9-475d-b6c9-28d6a1befdeb","7211ad7e-b115-4e58-ac7b-e91e2e9b46eb","2d6803ce-775b-4a2d-ae4a-d5be21a700cf","b93168e0-931f-4544-bc87-1b6955857943","425cd611-c107-49cf-8194-40e02cc4f898","d4c91316-07f8-40d9-a17b-ded8eebf534a","ff67ba3b-385d-4c50-9a20-77e29b89f60c","09d7508c-fd4f-4ac1-9691-e74b71ac17c7","df774c3b-a4a0-4310-ba18-9fb878db87ff","c0ca7846-b2f9-4502-90e7-d73a20c5199f","10d2e29e-fc87-4449-8c01-f43106fe2001","66946f5e-256d-43ef-bb18-5aecbc411080","34fc9ef3-75f3-4aff-bb60-b32163fe7210","7f00b058-2a59-4a36-8a95-128db7c8d090","861a6799-c735-433a-8c28-bd42f529d1a9","52f7b9cb-47c1-4c52-80ab-2caaa6dd9922","6af3ae64-1454-4909-88f6-a263e70c4b89","e636ec3b-6ccb-4ac7-a311-a22a9a09bcef","02190a06-7011-4a89-9457-87870238e4c1","8fbc0cf0-1b3d-49f1-b0c8-1383206f3b08","993a1bbd-d762-4f27-bd51-a095300981f8","ee98389e-cb3e-4c59-a044-5eec92652482","1dfbf029-c9f0-473b-a835-b08bde49c32d","e5e59c1a-7af8-46b3-bc1e-d292b607c78f","2dec017f-0dc5-41fc-8f0e-3e121aa5ce14","502ad298-15bd-40ab-9aad-979263b254fe","3c3aacfa-c63c-4ace-936c-dbc5c34b01ba","28434261-703e-4cf6-90ec-1cebe06517af","f3bb1e9d-4573-40c5-ba51-3b12ef10f423","2352cfa8-7100-46d6-af05-d8d6324a0541","31b52cfc-64ce-4ade-a6d6-51fe2f52e237","e05a0bfe-85ce-4d72-b7d9-b364ced4d3dc","f0c8a9cd-b404-46e0-9300-b424ecef535d","4310e832-6d13-49a3-8798-a00fdca3625e","f8fa315a-8cf8-408c-b699-36b9fc832829","781ad0b0-79b4-4cf6-9842-a06f1da6fe4e","7ea92142-d437-488d-883d-59218fe03a77","9c3772a6-e5dd-40f1-b18e-7ec87f2a4f9a","e445b868-32aa-41f7-af76-1419b38e4768","79215cb4-ed79-4d2d-b825-1d56082fa6e6","ee01e8ab-02c3-4a14-8461-2c838dda1ead","1cd8a0d4-d232-48da-bc53-8916e2eae16a","d680d4e8-7c99-4a30-872d-20000ddc955e","cc015a44-8400-49d7-a35a-5880053bacde","ea582971-1ea9-41cf-a577-871080432fb9","e6246f47-7cd7-45f8-b917-1b023da5b3f6","0a9b05e5-0cc0-4fd1-a5ae-fb8a43219061","cd691e48-ff36-4d43-b646-a2d23dfacdac","108e7d4a-5add-4599-9662-840f05454088","d399d2c3-4dd4-4e4c-a904-7f81464584e2","2a8cab3e-07c2-4e9d-bdfd-c5781c021178","f8b0008a-172f-4ccf-96c0-57c4ef873eca","2b273a02-9f53-49b0-bf6d-3f676d2d5217","2d489e22-634a-4e95-82b5-8d14dba825fa","31aa2fd6-c6a8-45bc-89aa-55c9b60fd7f1","8bfee335-c24a-413b-bac7-412e909f842e","5fad0f33-7326-4daa-b476-01a017b782a0","cc060a85-8973-4b24-8bde-c2c061e4a51e","585b75df-9128-4ced-b878-a1ff5a61cfa1","785902c9-6b52-4576-8a3a-bd2fd6d8dc8d","4fa0fa90-b27d-4910-b58e-5637f423edcb","fe29ec9d-70ca-453a-99fa-3c719e5fe46c","51b94bee-1db8-4a49-bef3-7c47ab49dcd3","5ab8b57f-6d32-44d9-a145-e0178cc5d682","a1a5477d-e1f6-430f-86f8-adebbe7bd11b","7c51b43c-7070-46aa-947c-cdb80fd22fb4","c82f1825-6ca4-44bf-a4f7-a6ddac2ea69b","cffb6144-12cb-4e6f-b719-fa75dd82d5c2","71336b32-6eaf-43aa-9d3a-d44f354ea795","c2cd75a5-465c-469c-af80-0d472855958a","0cf4b651-4d3d-4bef-a814-cfd24e68695d","fb11e963-cf2c-47b2-a8f1-9c7b3f78df75","670d5db2-2d6a-40f0-99d1-a92e4c3e78bc","f012061c-4d4f-4e83-93d5-f370c23117c4","c8bf1943-fcff-48c9-967b-e50f6cb05c53","0b5ac4c0-5bb8-48a5-9e2b-2b3e89ac6a5f","f576c16e-213e-4b7a-b1ba-fb87a2ba2cdc","42eb6af5-4311-4e5a-aa34-944888834a40","a47185eb-ce06-4a07-891e-563d8e444bc7","b6ca10e3-0973-4066-aefe-70977e1ad783","56f67a2d-5b54-405b-b3f0-7f8e30ca920a","28a73e36-1088-4eaf-a11a-af9758c4caad","b5f96bac-fae9-4b75-8262-da3d7e81ebe2","67f84e84-e5e9-4d03-bf63-e14d123d413f","ea19fad1-5afd-4ec7-80ea-a56ad2cd0d1b","dc916084-0c60-4e28-8d41-3678f047aeb1","eec76d63-51ec-4939-a9d7-9b445653e93b","9bbc2434-f876-4c42-a7a5-90e283c1bad7","d3940786-a537-42c3-b6b1-51c5ea53c8ee","b18f446a-fe42-4103-88ec-8aa3b44d3ff5","d0baeeab-17bb-4456-afe0-04fc5a56b2cc","83501039-b161-4c36-b9c8-4894ed76f259","12928c63-d6fc-4dcc-8b1f-ee5cf6f5c66a","3d72a151-4f9d-473f-a2b7-4be92b475f96","a8368903-8a9e-4254-9f34-67b8405c269b","f3d261e9-5c02-4b69-a36f-940b97388694","0181e919-d7ee-417a-99f4-15e6e4c8fd8f","f86746c2-1410-45fd-94c0-09ff55207d2b","4761f960-3149-41ba-9497-86aaba28b4c0","75857b44-3b6a-4285-b327-eb97c9ce8149","5459d6ad-8aed-44cc-979b-457a8f862b2c","9e107712-8885-424e-9fff-ac8aa92a40a8","b5b84ae6-d1ab-4a5b-9787-827f3255a182","464d478c-bf43-4a12-9066-391ebeed4eaf","697d2bb5-40bb-40b0-bacf-40ed02bd4324","8d7b9790-b0f3-4481-b1db-c907e20147ee","f0c209fc-083a-4c78-a239-0e5dcb7bf3a9","bfcc1777-2f09-48f3-944a-175cb6333a62","8674e581-5e2a-42e1-b0b9-60e665fbfdcf","16fc0e31-fdc1-419c-bb63-fd8d010dc075","281fe9a2-5cae-44b8-8593-064f41ded62d","8508120d-eb3f-44c7-90a1-40f308e95c7c","e567a098-2e39-4658-9807-1f2274b053b8","1692b7b6-4462-47f1-b6db-456b9ecce5ac","9267c93a-f31e-4d10-a909-1aa85507675f","4a5636a2-1256-4024-81d6-dd802337cec2","23e3e022-4203-4f05-9c81-088db821c183","5ee26311-f6be-4945-bcc2-f277d023bbd5","4255ed42-57a1-41e9-b796-ba5e47ab429e","9284c820-99c7-49b6-8e7d-f27de9e68408","ba678a39-0ef8-4569-98bf-58dcf12018e2","ab15d547-54d1-4e65-ae02-213380188680","c2cadc15-225f-4842-a1f0-05d5e554e169","5949831e-5c58-4822-b4e4-29324b6ef3f7","ccaa31b2-5f83-46fa-a823-db2d41c196f5","b31daadf-de5b-4b42-a02a-f30dfaaba8f6","34403e12-94df-4636-92e0-39c7be404cd4","a2285507-51ae-4ec0-8e73-fd3373cb08dc","de9e3e82-c7e3-492a-be51-4a718d935958","568cacf5-2516-48ef-8060-a3287af7d202","ab5a851b-6e5e-4a1a-a4d2-1b56e74fa22a","a90c261f-4518-43a2-9a04-0f3a309d629e","07825503-ef8d-4e73-a447-03a2092a0f04","8afe41e8-287a-46ce-83ac-862ce0c319ac","d3a80fae-c408-4146-9709-03130d202038","9012eb1d-6e4c-4b55-9738-02df519812c4","7e07173f-d362-4c96-88ee-6dd376b26297","30305e24-88a9-4839-80b2-0e83d6ce0336","008d9e52-629f-4c98-b884-de02cf8d7835","8ff80eaa-5052-4ff3-a0ab-1e5df5bb69e3","5c661ea9-1bcc-4068-bced-fa35e3d53c2a","fc41cc35-fff4-4cd0-a7e0-a3751c591620","81416b5c-acd0-4ade-80c9-db442ad71e10","479bbc4d-2e3e-4309-bf6e-72cd377585e6","b11fcedc-3eb8-42fe-b890-45f781660750","363f0c09-1c54-42df-b3f9-0c28d3abb34e","4939379a-9c87-4d3a-84e7-cb3b1f1777fa","55a097e2-f4b0-421d-b833-7ebc1aaed4a8","3d9f1477-5302-4167-95d4-f43b0c700d55","2d59310e-d173-4892-a244-bbed9c1121af","9adc7f1c-94bc-4bba-b97e-652273d538fb","49593f9a-440d-45e4-b373-644d07b19421","4b7f39dd-08a4-4c25-a91c-cadb80451f7b","7f0eb6c9-6577-474b-ac46-3b44fa2d196e","1394699a-510b-43da-a373-d565fdc34cfe","89727af9-2de5-4152-a35f-065f74cb6c21","325f1c35-45b6-40a6-b41e-915b1dbcc195","f063678e-a710-4206-9a12-662669745300","41632667-89c5-476d-83ce-d3eb666b405a","588f053c-e170-4d75-ba4e-3f5ddb23859f","e490ffcc-bd86-4175-8130-48ac5ec336b0","09463c7c-5708-4066-84a3-410b365eab05","1217cb25-95c1-4130-b574-7dea58501089","9b3e953c-6ae4-41fe-9970-3676436f7914","5bd5c6c9-8113-408b-8a08-12fcd32cb93f","0609b000-fbff-4076-ad69-50910add000a","c187b2db-def1-4d8f-93dc-86890430642f","f95179ca-c88a-4b4d-8204-480c51ca0be9","e870fa17-a130-4acd-a8bb-290f7534159e","c902e15a-7455-41e2-8559-15bc1469fd98","ec96d222-64ed-4d2d-ad38-af9538298643","6eae9bc7-d206-4e1e-b6c5-fcf34c6ab90e","1ede7acc-c9fb-4a14-b958-7d3f0e18a845","0837a3a3-cdfe-45a6-9f86-cf601095937a","0cbecd58-e6bc-487b-b8d2-4891d3351ff1","a512ccbe-886a-4e9d-8f07-c33c688f0284","9d6eac32-b971-4926-ab30-3b97939e09c8","51bedaa6-a997-4050-bec1-bb159a7037ce","892e1744-230c-41ee-b580-d804b1908a1d","e2841697-104c-4d7f-ad64-52c8a11dda0a","b9e14673-17b2-4155-b31f-00d956d390e5","4472bafc-40ea-4a72-8f48-9f8b3389535f","d461fba5-3cb5-4648-ab11-c8087d30fa55","d4e115e6-c09f-4ead-8dd9-bf6e394b8618","5c3a27af-cbc2-4d97-893c-de0556244d01","ad957902-767b-46d3-9d44-905db84f51a1","7499479d-15bb-40db-a58a-54dfb9c71b30","32685eac-48f7-4f28-979d-49b9bc31b107","848bfdfd-de1d-4b52-bf21-f59c4baa78bb","d53e2e9f-fb23-43c4-97e9-7fbcf0ffde9f","90e47894-01a9-4d82-b06d-0101dda6e8db","d9891e51-9a02-450d-9d80-7bd71379eb3c","b3dbeb6e-ac32-48f1-9de0-b51ac5baae28","c4b8346c-d7d7-4425-a75a-54bfe2852678","c5f96e78-bb22-46ab-a475-98273b21c791","2c27e509-cdb2-4cf7-aa52-d35ffc382973","1b515d2a-614c-4a87-a887-4689546c2d7c","b997b769-8354-4714-940d-7f3e8ba4fd48","f276fd7e-d7c7-48e8-b74c-ea619ee85000","8a18adf6-3c13-4d15-a2e4-505fef412c64","cbb44e64-474f-4268-8be7-b62d3249d58b","a11db0f1-0518-4fd9-bcb7-ca4237bbcd9a","0721a70d-c59b-48cf-9341-4c46812583c0","d5c7b01a-cad5-4fdd-b67d-55c909e3f73a","a3203a31-95c3-4b33-a53e-41b3bd248e49","1ac1c7fb-88f2-4782-a069-722efda16209","78cdf4e7-4d58-4a90-83ae-87936c181410","285482a2-ad57-4667-aeb6-1060d9c28432","697dfbb3-0d89-418e-ab46-89cea07dc7fb","0b02d4e2-e6d3-4583-bbbc-a7181aabc718","7f98f593-8cad-494d-b439-87c4e5e3cfc1","604eb149-a917-47c3-b6cb-004bdb9a484c","f7cbe56a-0231-4d5e-ab9f-08c20b6b7996","4e14e51a-1747-43a7-9585-11119877edf6","f73272da-8157-429d-9b69-a9f805c82357","88ec3101-6084-4327-9174-4436ea9736ae","9f786b61-5647-468c-a011-79cfbd4c6970","c8fbdd61-49f9-4063-b0d5-f1cd2ebe6ce5","ed631e8b-52ab-492f-ad78-21d9a214733f","5b5ac5ba-74a5-46c7-b93f-cd53482e96b3","73fa6e8f-3ab4-4713-84a9-2ac5366c0a87","94158bcb-f49a-4128-8735-027bd34edab4","e4e30698-4f22-4544-85b1-59f8a1d89409","7faf4f58-8fc4-407a-8fd9-4ecd87355876","e06dea11-8351-466e-a5d7-59f9fda156ca"],
+          "eventName": "online",
+          "nextState": "e",
+          "errorState": "e"
+        }
+      },
+      "zerogiveCode": {
+        "func": "giveRedeemCode",
+        "kwargs": {
+          "redeemCodes": ["cf064a9e-5df8-4682-a2b7-fee3d76654f5","a4327585-4701-47f7-ae71-7863b3300bcb","90ce3515-c694-4f57-8856-17fac4520378","99884814-a466-43f9-8643-d66b0b3cbfb0","1596ab28-1bdf-4958-a247-f09f1a201f0a","8b35ded2-2f5e-4fa3-ba44-63f07e08e76c","55d42fff-2bed-4546-ad82-f12f665fd5c8","8cbaa154-fdf1-4873-8e71-908ffbcda13b","f539c7b1-233a-44aa-9c33-f98c5e95409d","eaec1e29-a42b-4c9b-9e2e-ebd03cece142","edfe1f30-5a13-4179-8279-9f1499551859","909cb9c6-e9e3-4990-96e9-28e8e849c45d","e9223360-3134-4998-a0a0-d482da96b04a","8ce7468c-b41b-4c75-8746-adef3515212d","9cf43c72-85fc-49ce-a0bd-9205ab7815bc","fca4cd8c-506e-426b-b8a1-1edeab93b854","2c817e86-f727-4b7e-b06d-4ed7a4b8bb14","ebf38452-443e-4ad4-9836-bc43c150ad14","962e10ca-b431-4c01-a7bf-45cb6f3c709c","4988badb-0373-468d-98a8-daa88b26f763","bf2e848d-a96f-40d7-b3f6-4e7a0738f884","accd19f8-0367-4e66-9bd6-06aefbfd9c39","a46053b2-c56d-4635-bbde-6f4580cc1012","5d925322-e239-415b-bbfe-3a05c0fd9482","cdd1f8dc-e72e-4ac7-a77b-a3bca2f7d308","0d235f41-54c4-446e-b440-a5e13ff03a99","64cf0326-2254-4964-adfe-b97112435a10","c7a1aea6-48ba-4af6-9931-7acdd74e4d5d","9e5b9560-8337-4837-b883-147d913b0281","441338f3-0e11-4809-982f-b62ff634b9e6","830439cf-0167-4434-9bc7-5eed11ec9b5e","c38a44a1-f99a-462b-a9ca-cd0895563978","17e0a329-ce58-40eb-96b1-0eb260a0e639","a8e9ca53-bd57-492b-b714-1a679153115a","ed1c0dcd-a014-4b33-a0b6-679d1543bd43","6094645d-9ff5-442a-9f1c-358eb0783a83","4fcb9b8e-933c-4415-95e1-852935e94f12","50d73109-af0d-49ed-b4da-295670a6efbe","5b254d3c-0305-4a74-a200-d1e0a9ae121f","ba65bcea-84c0-4776-9197-6a7a8754e2f3","4b1e2557-5ae3-404c-83b1-3eeac97d9d6b","3c838018-c9a1-4fda-84d8-18fa683c056f","24a05818-1e68-4388-af68-497101a10c39","ff7e8498-f3df-4bd1-86d9-3999fd512b15","052bb0e3-62d2-4d78-99c6-6733ae578cbc","5acc8682-6215-423d-aa49-26fef9a6ae03","ebc995e7-4395-43bf-a468-87e1b10e8a96","c01b9b22-d292-4e0e-9554-8ad63ba90656","f6d46b40-dad1-44f9-8d13-e113845664de","667ce4fb-df00-41c6-928f-c84ca2fc671c","fc845a50-e78e-4486-a91f-2bfd026bd8f8","0fc31e31-0cd3-4979-8c7d-b5622feb5ef1","9f480580-1c92-4127-a809-f13e1260793e","9fa2861d-75f5-4f72-8cea-cd082ab79de1","7f114991-3ed9-4df8-a1d8-7a435cdc3b9e","882fec12-d810-424a-8d41-84730d708563","ed31d964-caf6-45ef-b36d-9ae182ba88ce","5025536d-8af2-4f14-b441-13786eaac3f0","b1be3374-0393-4773-b409-b31459fd5829","09cd61ea-81dc-472a-8ab3-a703beb2edf8","fbb4bcf9-47e5-44ab-b80e-f32f13e632cd","4602dcd9-f30a-4bae-ac0c-dd48cc42f7b7","1b51f78d-4a11-4fac-9237-713f2ea99caa","3584cb8d-8e04-476d-b7d4-0f30d6250811","ff91ae7f-a79e-4fe0-9023-c5572d14c4bf","99bae0fa-9bb1-4b45-8dc2-78d306f6d6cd","e3d925c3-0321-4e8d-95f4-2000cd30e1b8","d9118155-a209-47c3-ace8-d5932c225bc5","db056dcc-b75b-4617-83e7-c6b213e1420f","5ee62d22-e59c-464e-85eb-6f4c00803ad9","3607fbf4-b7b8-4d5a-99b4-f12f950a1c99","a1005f42-8a05-4e91-989a-6af5be37b586","febb76a7-c751-4321-9045-36c0c8c82ce0","8202d69d-3416-4d54-a685-c367e7f75432","3105c15d-94c1-4ec1-a753-5db7a029f659","d07e43bc-f17e-46f0-8449-5e2cdaf75442","833c2430-c3da-4f9a-ae59-da6a46495b19","4c242ca6-382a-4213-a8c5-6f8dbdecc1fd","46cd7bfe-8503-407c-b998-63477aa0bb3c","1f1bd179-1f23-4a6e-ac67-4fede993f82b","ea6f1db2-3f6c-4f02-af8b-119626210325","b9da40e2-be13-4c0e-aba8-b846823f4664","64bcb82e-ccb2-4357-9ec7-0df4a27160c0","67a2a9cc-92eb-441e-acbe-fb8a167a9e5e","1b2f15b1-8274-4dba-a91d-313bbe87720f","a2982b29-be49-4d87-9be2-67dd57c18217","21292aa7-92a3-4606-82a0-4a101c7053e9","8c4bac77-96b5-423f-bccb-8724f808b987","63faa33c-b849-433b-b4eb-0fef209b1244","948fac67-514b-4dfe-8c43-96dd35ef1374","b524a596-050b-460d-a145-b8eb2fa815af","f0d50730-fc22-4a00-ac5b-e4494adc851d","a0fdad2a-00f4-437f-8fd3-730b970d5922","72facbac-f9d2-4979-940b-ed366a344e85","2c539b58-e884-4b45-b41e-4d0600a64b21","d64acc20-bb2a-432c-97e5-10cc64924e86","447307e9-da93-4e45-98a2-9c706f3ed8af","f0cae9a1-e872-41e2-b776-9debd43f21f1","728f413c-438b-4b6b-9845-456bb10ab649","b94cef0d-c102-42b3-972e-e99c145ebac6"],
+          "eventName": "pre-event",
+          "nextState": "e",
+          "errorState": "e"
+        }
+      },
+      "t21": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Thanks for joining the HITCON Cat Adventure.<br>感謝您參與駭客貓歷險記",
+          "options": {
+			"OK": "giveCode"
+          }
+        }
+      },
+      
+      "t11": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Thanks for joining the HITCON Cat Adventures Zero.<br>感謝您參與駭客貓歷險記Zero",
+          "options": {
+			"OK": "zerogiveCode"
+          }
+        }
+      },
+      "t12": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Invitation code error...<br>邀請碼錯誤..",
+          "options": {
+			"OK": "e"
+          }
+        }
+      },
+      "story1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You are a domestic cat, but the idea of 'I want to be human' has sprouted in your mind. One morning you slowly opened your eyes and were about to jump out of the bed when you stumbled and fell to the ground. The owner must have gone to this place!<br>你是一隻家貓，但「好想變成人類」這樣的想法卻在你心中萌芽。某天早晨你緩緩的睜開雙眼正想著跳下床鋪，一個踉蹌，身子跌至地面，你發現手腳與地面接觸的感覺與以往大不相同，照照鏡子發現自己竟真的成了人類，過度驚嚇的你想著要去找主人，但他去哪了，桌上書本、筆散亂著，有張邀請函映入眼簾，想必主人應該就是去了這個地方吧!!",
+          "options": {
+            "Start a journey to find a master<br>踏上尋找主人之路": "s1"
+          }
+        }
+      },
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Welcome to HITCON online 2021, I'm Hacker Cat and you can ask me anything!<br>歡迎來到HITCON online 2021，我是駭客貓有任何事情都可以問我喔喵~",
+          "options": {
+            "(2021...??????) I remember that my calendar said 2031 before I left home...)<br>(2021.??? 我怎麼記得我出門前日曆上是寫著2031...)": "s3"
+          }
+        }
+      },
+      "s2": {
+        "func": "exit",
+        "kwargs": {
+          "next": "c1"
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "What do you need help with?<br>你需要什麼幫忙呢喵?",
+          "options": {
+            "... (How can I explain it better...?)<br>...(怎麼解釋比較好呢...?)": "s4",
+            "I'm a cat, too. I'm here to find my owner.<br>我也是隻貓，要來找主人的": "s5"
+          }
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Let me guess, I'm looking for someone.<br>我來猜猜應該是來找人的~",
+          "options": {
+            "How did you guess!!!?<br>怎麼猜到的!!!?": "s5"
+          }
+        }
+      },
+      "s5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Then you can work hard, the meeting is a bit big, may have to <font color='red'>go around or ask others</font> if they have seen.<br>那你可辛苦了，會場有點大，可能要去<font color='red'>到處翻翻</font>或者<font color='red'>問問其他人</font>有沒有看到。",
+          "options": {
+            "OK": "s6"
+          }
+        }
+      },
+      "s6": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "If you want to interact with <font color='red'>NPCs or boxes and other objects</font> on HITCON-online, then just <font color='red'>click on him with your mouse</font>.<br>在HITCON-online上想要和<font color='red'>NPC或箱子等物件互動</font>的話那就<font color='red'>用滑鼠點他</font>就可以了",
+          "options": {
+            "OK": "s8"
+          }
+        }
+      },
+      "s8": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Business cards will be stored in your bag, which is <font color='red'>located at the top right of the screen</font>, where you can view the items you currently have and the items you can use.<br>名片會收納在你的包包中，<font color='red'>包包位於畫面的右上方</font>，你可以<font color='red'>查看</font>目前擁有的道具以及<font color='red'>使用</font>的道具。",
+          "options": {
+            "Receive business card<br>收到名片": "g1"
+          }
+        }
+      },
+      "g1": {
+        "func": "giveItem",
+        "kwargs": {
+            "amount": 1,
+            "maxAmount": 1,
+            "itemName": "business_card",
+            "nextState": "s2"
+        }
+      },
+      "c42": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Sorry I don’t know. But you can ask <font color='red'>Anxious Staff</font>, he’s computer have all map.<br>你可以問問<font color='red'>Anxious Staff</font>, 他的電腦裡面有所有的地圖, 希望能夠幫上你的忙~喵~。",
+          "options": {
+            "Where is he?<br>他在哪?": "c43"
+          }
+        }
+      },
+      "c43": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "He is in the <font color='red'>center of the venue</font>.  You may find him.<br>他在<font color='red'>會場的中央</font>可能要找找~",
+          "options": {
+            "OK": "s2"
+          }
+        }
+      },
+      "base": { 
+        "func": "checkIsInFinalizedTeam",
+        "kwargs": {
+          "nextState": "quitTeam",
+          "errorState": "teamError"
+        }
+      },
+      "teamError": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You are not in a finalized team, maybe join the team first?<br>你現在不在完整的隊伍中，建議你先加入隊伍呦~",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "quitTeam": {
+          "func": "quitTeam",
+          "kwargs": {
+            "nextState": "t21"
+          }
+        },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "c1"
+        }
+      }
+    }
+  }
+}

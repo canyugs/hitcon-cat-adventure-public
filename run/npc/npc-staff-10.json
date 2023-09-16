@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world3", "x": 14, "y": 37},
+  "visibleName": "稽核特派員",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Female 17-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "為確保資訊安全中的機密性，授予權限時候應該要依據工作職責僅給予相對應需要的存取權哦！"
+          ],
+          "options": {
+            "ok.....": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

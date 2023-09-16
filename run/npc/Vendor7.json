@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 167, "y": 77},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "<b>關於中華資安國際<b/><br><br>中華資安國際是中華電信集團的資安專業服務公司，通過ISO 20000、ISO 27001與ISO 17025認證，並獲Frost & Sullivan「2021台灣年度安全託管服務商大獎」、「BSI資訊服務品質深耕獎」、「2018 HITCON Defense企業資安攻防大賽」冠軍及情資分享特別獎、中華徵信所2020年其他資訊服務業第一名等獎項，更是唯一連年獲得行政院資安服務廠商服務項目評鑑全數「A級」之廠商，專業實力深獲肯定。<br><br>擁有多年的資訊安全攻防實戰經驗，統合研發、實務、技術能力，提供事前檢測、事中監控應變、事後鑑識回復的資安產品及服務，一站式滿足政府及企業的資安需求。<br><br><b>團隊服務內容包含：</b><br>網資安防護服務：入侵防護服務、DDoS防護服務、防駭守門員、HiNet WAF網站防火牆、資安防護閘道器、APT防護等。<br>資安專業服務：紅隊演練、弱點掃描、滲透測試、社交工程演練、原碼掃描、APP檢測、金融安全評估等資安檢測，SOC監控、事件應變、事故鑑識等防護服務，以及IoT檢測、工控(ICS)資安、關鍵基礎設施等工業聯網資安。<br>資安顧問諮詢：ISMS/PIMS制度導入輔導、資訊安全評估、資安架構規劃與導入、PKI建置規劃等。<br>資安管理平台規劃與建置：資安監控平台(SOC)、弱點管理平台、社交工程演練平台、資安資訊分享與分析平台(ISAC)、SecuTex進階式資安威脅防禦系統等。<br>身分識別產品與應用：安全晶片與應用(Secure Element)、加密安全通訊解決方案(CypherCom)等。<br>整體解決方案：資安、網路、軟硬體整體解決方案規劃及建置。<br><b>人才招募中</b><br>資安檢測工程師、資安鑑識分析師、資安威脅與調查分析工程師等職缺招募中，更多正職、實習機會及相關福利請見104網站說明： <a href='https://www.104.com.tw/company/1a2x6bkbsb' target='_blank'>https://www.104.com.tw/company/1a2x6bkbsb</a><br><b>攤位資訊</b><br>歡迎各方好手於11/26(五) - 11/27(六) HITCON 2021活動期間，線上參與HITCON限定CTF競賽，就有機會贏得總價值超過10萬元的OSCP課程 (含一次考試)，溫馨提醒：報名競賽時請提供正確個人資料，得獎名單出爐後我們將主動聯繫得獎者，並公告於中華資安國際Facebook粉絲團及官網。活動期間於中華資安國際的實體攤位也會有區塊鏈小遊戲，歡迎來找我們體驗，還有來自Offensive Security原廠的限量OSCP好禮等你拿喔！關於Offensive Security包班課程等問題也歡迎至攤位詢問。 (本次活動非常感謝Offensive Security贊助HITCON限定CTF競賽) <br><br><b>更多資訊<b><br>Facebook：<a href='https://www.facebook.com/chtsec'>https://www.facebook.com/chtsec</a><br>LinkedIn：<a href='https://www.linkedin.com/company/cht-security/' target='_blank'>https://www.linkedin.com/company/cht-security/</a><br>官網：<a href='https://www.chtsecurity.com/' target='_blank'>https://www.chtsecurity.com/</a><br><br><img src='/static/run/hosted/HITCON-2021-CHT.jpg' style='width: 100%;'>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

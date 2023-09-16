@@ -1,0 +1,14 @@
+{ "columns":96,
+ "image":"..\/packages\/Package_Nature_Dungeon_week33\/atlas_32x.png",
+ "imageheight":512,
+ "imagewidth":3072,
+ "margin":0,
+ "name":"Nature_Dungeon",
+ "spacing":0,
+ "tilecount":1536,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 142, "y": 61},
+  "distanceLimit": 2,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "DEVCORE 是由世界級白帽駭客團隊創立，用主動式攻擊的服務，協助客戶建立資安策略。我們期望用攻擊的能量來協助企業迎戰網路威脅，透過與時俱進的技巧，提高企業防禦韌性。我們擁有世界級的資安檢測能量，持續研究及揭露國際級產品漏洞，並以模擬駭客攻擊的紅隊演練服務為核心，全方位檢視企業防禦姿態。<br><br>目前服務的客戶橫跨高科技製造業、政府、金融、電商、醫療等重要產業，透過紅隊演練、滲透測試、教育訓練及資安顧問服務，強化企業資安體質，協防國家防禦攻擊。<br>同時也獲得 10 項國際資安獎項或網路安全技術票選的肯定、揭露超過 100 個漏洞、超過 30 場的國際資安研討會分享以及超過 25 以上取得如 Amazon、Facebook、Google、Line 財星五百大公司的漏洞獎金計畫。<br><br>對 DEVCORE 還有更多想詢問的問題嗎？ 歡迎與我們聯繫！ contact@devco.re",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

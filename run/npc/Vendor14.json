@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 183, "y": 65},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "ZUSO Generation 如梭世代是發跡於中台灣的資安團隊，由一群專精駭客攻擊手法及威脅分析，深耕於資安技術研究的團隊，具豐富資安經驗與高敏捷的應對機制，提供滲透測試、紅隊演練、事件調查及顧問服務的資訊安全服務公司。<br>「別人提供大同小異的服務 我們只希望提供小同大異的服務」<br>企業用戶面臨的資安風險與需求服務不盡相同，ZUSO 團隊經由全面性檢視企業資安現況並佈局，協助企業發掘資安風險與威脅，為企業量身定製客製化的資安服務規劃，我們期許為企業用戶共同打造高競爭力及完善網路資訊安全環境。<br>ZUSO Generation FB: <a href='https://www.facebook.com/ZUSOGeneration' target='_blank'>https://www.facebook.com/ZUSOGeneration</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

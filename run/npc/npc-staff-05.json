@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world3", "x": 85, "y": 77},
+  "visibleName": "Staff",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 14-1"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "離開座位記得上鎖電腦喔！不然聽說駭客貓貓就會幫你Po文呢！"
+          ],
+          "options": {
+            "ok.....": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

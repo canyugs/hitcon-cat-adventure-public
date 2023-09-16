@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world3", "x": 136, "y": 17},
+  "visibleName": "Staff",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 15-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": [
+            "你知道今年總召是誰？是 Sean 跟 Mars 喔"
+          ],
+          "options": {
+            "ok.....": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

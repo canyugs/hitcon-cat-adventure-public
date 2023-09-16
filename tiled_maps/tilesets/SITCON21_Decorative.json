@@ -1,0 +1,14 @@
+{ "columns":26,
+ "image":"..\/packages\/SITCON21_Decorative.png",
+ "imageheight":512,
+ "imagewidth":832,
+ "margin":0,
+ "name":"SITCON21_Decorative",
+ "spacing":0,
+ "tilecount":416,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

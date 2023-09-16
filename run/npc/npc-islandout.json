@@ -1,0 +1,62 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1",
+      "x": 24,
+      "y": 37
+    },
+    "distanceLimit": 2,
+    "visibleName": "Caster",
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Female 04-1"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Do you need any help?<br>需要什麼幫忙嗎?",
+            "options": {
+              "I want to leave this island?<br>我想離開這座小島...": "s2"
+            }
+          }
+        },
+        "s2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Do you certainly want to leave island? <br>確定要離開小島?",
+            "options": {
+              "Yes": "t1",
+              "No": "e"
+            }
+          }
+        },
+        "t1": {
+              "func": "teleport", "kwargs": {
+              "mapCoord": {"mapName": "world1", "x": 51, "y": 15},
+              "nextState": "e"
+            }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

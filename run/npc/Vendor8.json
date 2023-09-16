@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 102, "y": 22},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Forescout設備風險監測與管控平台，提供單一設備平台，能橫跨Data Center, Campus, Cloud, OT等的不同混合場域，透過二十多種主動與被動式資料採集技術以及業界現有最大設備特徵庫的指紋比對，在無須代理程式 (Agentless) 的狀況下於設備連接企業網路時立即發現和精準辨識並分析各式IT/OT/IoT設備，提供深入的設備可視性與後續設備連結使用狀態監測，達到全面性設備風險持續評估與監控，讓客戶有能力更早發現內網存在之設備風險，找出問題設備，提前進行矯正與處理，超前阻斷駭客攻擊機會，並於內網風暴發生的危機當下，能立即找出風險設備，即時阻斷擴散中的風險。",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

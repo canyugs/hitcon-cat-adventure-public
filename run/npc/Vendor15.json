@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 158, "y": 65},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Fortinet（NASDAQ: FTNT）致力保護全球大型企業、服務供應商和政府組織的資安防禦，為客戶提供完整的可視性與控制力，以因應日趨擴大的攻擊範圍，並滿足今日與未來不斷增長的效能需求。唯有Fortinet安全織網（Security Fabric）能解決最嚴苛的資安挑戰，為網路、應用程式、多雲或邊緣環境中的數位基礎架構提供滴水不漏的資料防護。Fortinet的資安設備出貨量在全球排名第一，深受全球超過50萬客戶的信任。Fortinet 的NSE（Network Security Expert）Program 網路資安培訓計畫，免費為全球民眾提供界最完整的資安培訓課程。Fortinet 於 2020 年在Gartner 網路防火牆（Network Firewalls）魔力象限與廣域網路邊緣（WAN Edge）基礎架構魔力象限皆被評選為領導者。<br><br>如欲瞭解更多資訊，請至 <a href='https://www.fortinet.com/tw' target='_blank'>Fortinet台灣官網</a>、YouTube、LINE@、Fortinet部落格與 FortiGuard實驗室。",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialogAndCheckKey",
+        "kwargs": {
+          "dialog": "Password check:<br>[hint]Listening",
+          "nextState": "i1",
+          "nextStateIncorrect": "s2",
+          "key": "learning"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Password is invalid.",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "i1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Unknown<br>未知號碼 來電",
+          "options": {
+            "Answer<br>接聽": "i2"
+          }
+        }
+      },
+      "i2": {
+        "func": "showDialog",
+        "kwargs": {
+          "subject": "???",
+          "dialogs": "Finally, you answered the phone! How long have I been waiting for you! I would have acted on my own if it wasn't for the fact that the top said they would send more people to support me!!!<br>終於接電話了!等你多久了!要不是上頭說還會多派人來支援我早就自己行動了!!!",
+          "options": {
+            "... I'm not sure what you're talking about, I'm ...<br>...那個我不清楚你在說什麼，我是...": "i3"
+          }
+        }
+      },
+      "i3": {
+        "func": "showDialog",
+        "kwargs": {
+          "subject": "Dronne",
+          "dialogs": "Newbie! God really will give me trouble! Come find me, I'm <font color='red'>Dronne</font>!<br>新人!?天啊還真是會給我找麻煩!快來找我，我叫<font color='red'>Dronne</font>!",
+          "options": {
+            "Hang up<br>掛斷": "i4"
+          }
+        }
+      },
+      "i4": {
+        "func": "giveItem",
+        "kwargs": {
+          "amount": 1,
+          "maxAmount": 1,
+          "itemName": "ch1",
+          "nextState": "ee"
+        }
+      },
+      "i5": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "A phone that has been unlocked.<br>一支已解除鎖定的手機。",
+          "options": {
+            "確認": "ee"
+          }
+        }
+      },
+      "ee": {
+        "func": "exit",
+        "kwargs": {
+          "next": "i5"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

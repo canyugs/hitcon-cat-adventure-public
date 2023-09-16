@@ -1,0 +1,34 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 19, "y": 61},
+  "distanceLimit": 2,
+  "visibleName": "HITCON Cat Adventure introduction",
+  "display": [
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "If you want to participate in the HITCON Cat Adventure partners, you have to go to the Hacker Cat first Oh ~<br>如果想要參加駭客貓歷險記的小夥伴，要先去找駭客貓喔~",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

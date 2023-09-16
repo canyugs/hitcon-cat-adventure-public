@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 130, "y": 34},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "奧義智慧科技為世界領先的 AI 資安公司，企業總部設立於臺灣，並拓展至日本、新加坡、美國等。奧義智慧堅持臺灣自研技術，以專利 CyCraft AI 自動化資安防護，內建 EDR、CTI、TIG 並整合建構新一代 AI 資安戰情中心。獲得逾五十個政府機關、警政、國防單位，以及逾三成金融機構、數十家高科技與關鍵領域龍頭企業的信賴，市佔率國內第一。從端點到網路、從調查到阻擋、從自建到託管，CyCraft AIR 涵蓋企業安全所需的一切面向，遵循 F/A/S/T 量化指標，提供客戶主動防禦，達到「威脅，視可而止」。<br><br>了解奧義最新消息：<a href='https://www.cycarrier.com/blog' target='_blank'>https://www.cycarrier.com/blog</a><br>追蹤奧義 FB 掌握第一手資安新知：<a href='https://www.facebook.com/cycrafttechnology' target='_blank'>https://www.facebook.com/cycrafttechnology</a><br>認同我們的理念？加入奧義：<a href='https://www.104.com.tw/company/1a2x6bk9u1' target='_blank'>https://www.104.com.tw/comgany/1a2x6bk9u1</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

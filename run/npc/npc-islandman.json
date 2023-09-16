@@ -1,0 +1,61 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1",
+      "x": 15,
+      "y": 32
+    },
+    "distanceLimit": 2,
+    "visibleName": "Caster",
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Female 25-1"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "There's a secret on the island.<br>有秘密藏在那些島嶼上",
+            "options": {
+              "How do I get there?<br>要怎麼過去?": "s2"
+            }
+          }
+        },
+        "s2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Let me take you there.<br>我帶你們過去。<br>You need to pay attention that there are some hidden mechanism in in island, it can let you move to specified position.<br>要注意島嶼上有一些隱藏的機關，他會讓你移動到指令位置。",
+            "options": {
+              "Thanks": "t1"
+            }
+          }
+        },
+        "t1": {
+              "func": "teleport", "kwargs": {
+              "mapCoord": {"mapName": "world1", "x": 10, "y": 23},
+              "nextState": "e"
+            }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

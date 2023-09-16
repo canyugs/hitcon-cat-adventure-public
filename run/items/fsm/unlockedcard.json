@@ -1,0 +1,22 @@
+{
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Crash———<br>喀擦———",
+          "options": {
+            "There is a sound of <font color='red'>lock opening</font>.<br>有<font color='red'>鎖打開</font>的聲音": "e"
+          }
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

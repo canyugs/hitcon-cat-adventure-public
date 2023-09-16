@@ -1,0 +1,43 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1", "x": 153, "y": 33},
+    "distanceLimit": 2,
+    "visibleName": "staff-Left",
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_su3 Student fmale 14"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+            "func": "showDialog",
+            "kwargs": {
+              "dialogs": "Here has a <font color='red'>Engineer</font>, If you have some computer-related questions should be able to ask him. But he is not very good temperament, <font color='red'>may need to ask a few times</font> he will help you.<br>會場中有一個<font color='red'>Engineer</font>，和電腦相關的問題應該可以去問他。只是他脾氣不是很好，可能<font color='red'>要多問幾次</font>他才會幫你。",
+              "options": {
+                "OK": "e"
+              }
+            }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,209 @@
+{
+  "items": {
+    "phone": {
+      "baseClass": "tool",
+      "visibleName": "Smartphone",
+      "desc": "A locked smartphone, you should enter the password.",
+      "imagePath": "./items/images/phone.jpg",
+      "fsm": true
+    },
+    "ch1": {
+      "baseClass": "token",
+      "visibleName": "token1",
+      "desc": "Item for accessing a challenge",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "cardreader": {
+      "baseClass": "tool",
+      "visibleName": "cardreader",
+      "desc": "A cardreader. It can read the card.",
+      "imagePath": "./items/ticket/ticket.jpg",
+      "fsm": true
+    },
+    "smartcard": {
+      "baseClass": "tool",
+      "visibleName": "smartcard",
+      "desc": "Smartcard should use cardreader to read it.",
+      "imagePath": "./items/ticket/ticket.jpg",
+      "fsm": true
+    },
+    "unlockedcard": {
+      "baseClass": "tool",
+      "visibleName": "unlockedcard",
+      "desc": "A unlocked card.",
+      "imagePath": "./items/ticket/ticket.jpg",
+      "fsm": true
+    },
+    "command": {
+      "baseClass": "token",
+      "visibleName": "command",
+      "desc": "Item for accessing a challenge.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "ch2": {
+      "baseClass": "token",
+      "visibleName": "token2",
+      "desc": "Item for finishing a challenge.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "ch3": {
+      "baseClass": "token",
+      "visibleName": "token3",
+      "desc": "Item for finishing a challenge.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "guardtoken": {
+      "baseClass": "token",
+      "visibleName": "guardtoken",
+      "desc": "This token can cross the guard.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "hitconpoint": {
+      "baseClass": "token",
+      "visibleName": "HITCONPoint",
+      "desc": "A HITCONPoint, can use it to change something.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "gatepass": {
+      "baseClass": "token",
+      "visibleName": "gatepass",
+      "desc": "It can pass the gate.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "hintask": {
+      "baseClass": "token",
+      "visibleName": "hintask",
+      "desc": "token form hinter.",
+      "imagePath": "./items/ticket/ticket.jpg"
+    },
+    "component": {
+      "baseClass": "tool",
+      "visibleName": "component",
+      "desc": "a electronic component",
+      "imagePath": "./items/images/component.jpg",
+      "fsm": true
+    },
+    "usb": {
+      "baseClass": "tool",
+      "visibleName": "usb",
+      "desc": "a normal usb.",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "business_card": {
+      "baseClass": "tool",
+      "visibleName": "businness_card",
+      "desc": "Business card from Hacker Cat. Use it can know where is it.",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "teleport_ticket": {
+      "baseClass": "tool",
+      "visibleName": "teleport_ticket",
+      "desc": "You can use this ticket to find the team_manager",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "diary": {
+      "baseClass": "tool",
+      "visibleName": "diary",
+      "desc": "I don't know this diary who belongs to? It records the research.",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "pwt1": {
+      "baseClass": "tool",
+      "visibleName": "paper",
+      "desc": "a normal paper",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "pwt2": {
+      "baseClass": "tool",
+      "visibleName": "paper",
+      "desc": "a normal paper",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "pwt3": {
+      "baseClass": "tool",
+      "visibleName": "paper",
+      "desc": "a normal paper",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "pwt4": {
+      "baseClass": "tool",
+      "visibleName": "paper",
+      "desc": "a normal paper",
+      "imagePath": "./items/images/usb.jpg",
+      "fsm": true
+    },
+    "book1": {
+      "baseClass": "tool",
+      "visibleName": "book",
+      "desc": "a normal book",
+      "imagePath": "./items/images/book1.jpg",
+      "fsm": true
+    },
+    "book2": {
+      "baseClass": "tool",
+      "visibleName": "book",
+      "desc": "a normal book",
+      "imagePath": "./items/images/book2.jpg",
+      "fsm": true
+    },
+    "book3": {
+      "baseClass": "tool",
+      "visibleName": "book",
+      "desc": "a normal book",
+      "imagePath": "./items/images/book3.jpg",
+      "fsm": true
+    },
+    "key": {
+      "baseClass": "token",
+      "visibleName": "key",
+      "desc": "a normal key",
+      "imagePath": "./items/images/key.jpg"
+    },
+    "note": {
+      "baseClass": "tool",
+      "visibleName": "note",
+      "desc": "a locked note",
+      "imagePath": "./items/images/note.jpg",
+      "fsm": true
+    },
+    "phone2": {
+      "baseClass": "tool",
+      "visibleName": "smartphone",
+      "desc": "a smartphone",
+      "imagePath": "./items/images/note.jpg",
+      "fsm": true
+    },
+    "invitation": {
+      "baseClass": "tool",
+      "visibleName": "invitation",
+      "desc": "a invitation",
+      "imagePath": "./items/images/note.jpg",
+      "fsm": true
+    },
+    "cat": {
+      "baseClass": "token",
+      "visibleName": "all",
+      "desc": "All of you find clue.",
+      "imagePath": "./items/images/key.jpg"
+    },
+    "end": {
+      "baseClass": "token",
+      "visibleName": "medal",
+      "desc": "Evidence of completing games.",
+      "imagePath": "./items/images/key.jpg"
+    },
+    "unlockedusb": {
+      "baseClass": "token",
+      "visibleName": "unlockedusb",
+      "desc": "a unlocked usb.",
+      "imagePath": "./items/images/key.jpg"
+    }
+  }
+}

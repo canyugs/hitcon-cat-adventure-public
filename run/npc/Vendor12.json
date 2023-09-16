@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 156, "y": 17},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "哈囉，歡迎！<br>我注意到你正使用 HTTPS 瀏覽這個頁面，這是一件好事，確保你說話的對象是你認為的那個人。<br><br>隨著大規模量子計算逐漸走向商用領域，我們將無法完全避免它們遭到武器化。<br>原本看似堅不可摧的數位簽章，如同一張紙，應聲遭到撕毀。<br><br>試想，有多少應用需要立即被暫停、更換，甚至變得無效？<br><hr><br>BTQ 由一群後量子密碼學家發起，願景是為區塊鏈網路設計後量子密碼基礎建設，並創造永續且節能的運作系統，以保障數位資產的長期安全。現有的區塊鏈面臨新時代的挑戰，其中的資產也遭受安全威脅：<br><br>1) 量子電腦的發展讓大質因數分解成為可能<br>2) 中心化的問題讓專業的參與者獲利更多<br>3) 潛在漏洞或不正確編寫的智慧合約導致資安威脅<br>4) 傳統 PoW 類型的共識機制面臨效益的遞減與能源的損耗<br><br>面對這樣的挑戰，BTQ 希望不只透過置換密碼學元件，而是輔以形式驗證的方式確保整個基礎設施的安全性。BTQ 網路都將建立在以硬體為基礎，避免過多能源損耗並更加高效率的共識機制之上！<br><br>BTQ 官網：<a href='http://btq.li/zh' target='_blank'>http://btq.li/zh</a><br>Twitter：<a href='https://twitter.com/btq_ag' target='_blank'>https://twitter.com/btq_ag</a><br><br><hr><br>我們正在積極的擴大團隊，近期內會釋出更多徵才訊息: <br>LinkedIn：<a href='https://www.linkedin.com/company/btqag/' target='_blank'>https://www.linkedin.com/company/btqag/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

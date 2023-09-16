@@ -1,0 +1,23 @@
+{
+    "FSM": {
+      "initialState": "s1",
+      "states": {
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "This is a electronic component.<br>這是一個電子零件。",
+            "options": {
+              "OK": "e"
+            }
+          }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "s1"
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,14 @@
+{ "columns":64,
+ "image":"..\/packages\/Super_Retro_World_Overworld_pack_week16\/atlas_32x.png",
+ "imageheight":512,
+ "imagewidth":2048,
+ "margin":0,
+ "name":"overworld",
+ "spacing":0,
+ "tilecount":1024,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}

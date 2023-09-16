@@ -1,0 +1,49 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 149, "y": 33},
+  "visibleName": " ",
+  "distanceLimit": 2,
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "smartcard",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a smartcard<br>你找到一張智慧卡",
+		  "options": {"OK": "f1"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You've a smartcard!<br>你已經有一張智慧卡了!",
+		  "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		  "amount": "1",
+		  "maxAmount": "1",
+          "itemName": "smartcard",
+		  "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 166, "y": 5},
+  "visibleName": "Soldier",
+  "distanceLimit": 2,
+  "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Soldier 07-2"
+    },
+    {
+      "zIndex": 16,
+      "layerName": "npcName",
+      "renderFunction": "_drawOneCharacterName",
+      "renderArgs": null
+    }
+  ],
+  "FSM": {
+    "initialState": "c1",
+    "states": {
+	  "c1": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "ch3",
+          "haveItem": "s1",
+          "noItem": "s0"
+        }
+      },
+      "s0": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Please keep quiet during the meeting!<br>會場中請保持肅靜!",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+	  "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Leave as soon as possible!<br>閒雜人等盡速離開!",
+          "options": {
+			"chat": "s2",
+            "give something": "s3",
+			"Bye": "e"
+          }
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ["I am also standing here just to make a living.<br>我也只是為了生活才站在這", "I heard that HITCONpoints seems to be worth a lot of money.<br>聽說HITCONpoint好像很值錢", "My dream is not to work.<br>我的夢想就是不工作"],
+          "options": {
+			"OK": "e"
+          }
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "give....",
+          "options": {
+		  "component": "c2",
+		  "phone": "c3",
+		  "HITCONpoint": "c4",
+		  "smartcard": "c5",
+		  "cardreader": "c6",
+		  "give it later":"e"
+          }
+        }
+      },
+	  "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": ["I don't need this!<br>我不需要這個!","Don't want to bribe me?!<br>你休想賄絡我?!", "I can't help to open the door for you because we're all outside!<br>我沒有能力幫你開門，因為我們都在門外!"],
+          "options": {
+			"OK": "e"
+          }
+        }
+      },
+	"s5": {
+        "func": "showDialog",
+        "kwargs": {
+	"dialogs": "Shh ~ secretly tell you here the cellar, is the use of smartcard to enter and exit!<br>噓~我偷偷告訴你這裡的地窖，是使用smartcard進出的!",
+	"options": {
+		"OK": "g1"
+		}
+        }
+      },
+	"s6": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You don't have this item.<br>你沒有這項道具。",
+          "options": {
+			"OK": "s3"
+          }
+        }
+      },
+	"c2": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "component",
+          "haveItem": "s4",
+          "noItem": "s6"
+        }
+      },
+	  "c3": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "phone",
+          "haveItem": "s4",
+          "noItem": "s6"
+        }
+      },
+	  "c4": {
+        "func": "takeItem", "kwargs": {
+          "amount": 1,
+          "itemName": "hitconpoint",
+          "haveItem": "s5",
+          "noItem": "s6"
+        }
+      },
+	"c5": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "smartcard",
+          "haveItem": "s4",
+          "noItem": "s6"
+        }
+      },
+	"c6": {
+        "func": "haveItem", "kwargs": {
+          "amount": 1,
+          "itemName": "cardreader",
+          "haveItem": "s4",
+          "noItem": "s6"
+        }
+      },
+	"g1": {
+        "func": "teamGiveItem",
+        "kwargs": {          
+          "maxAmount": 1,
+          "itemName": "guardtoken",
+          "nextState": "e",
+          "errorState": "e"
+        }
+      },
+	  "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "c1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+    "enabled": true,
+    "initialPosition": {
+      "mapName": "world1",
+      "x": 49,
+      "y": 15
+    },
+    "distanceLimit": 2,
+    "visibleName": "Caster",
+    "display": [
+      {
+        "zIndex": 11,
+        "layerName": "npcImage",
+        "renderFunction": "_drawOneCharacterImage",
+        "renderArgs": null,
+        "character": "npc_Female 04-1"
+      },
+      {
+        "zIndex": 16,
+        "layerName": "npcName",
+        "renderFunction": "_drawOneCharacterName",
+        "renderArgs": null
+      }
+    ],
+    "FSM": {
+      "initialState": "base",
+      "states": {
+      "base": {
+        "func": "checkIsInFinalizedTeam",
+        "kwargs": {
+          "nextState": "s1",
+          "errorState": "teamError"
+          }
+        },
+        "teamError": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "You are not in a finalized team, maybe <font color='red'>find team-manager</font> to join the team first?<br>你現在不在完整的隊伍中，建議你先<font color='red'>去找team-manager</font>加入隊伍呦~",
+            "options": {
+              "OK": "e"
+            }
+          }
+        },
+        "s1": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "Do you want to go to island?<br>你想去島嶼上嗎?",
+            "options": {
+              "How do I get there?<br>要怎麼過去?": "s2"
+            }
+          }
+        },
+        "s2": {
+          "func": "showDialog",
+          "kwargs": {
+            "dialogs": "I will bring you to there!<br>我帶你們過去吧!",
+            "options": {
+              "Thanks": "t1"
+            }
+          }
+        },
+        "t1": {
+              "func": "teamTeleport", "kwargs": {
+              "mapCoord": {"mapName": "world1", "x": 24, "y": 35},
+              "nextState": "e"
+            }
+        },
+        "e": {
+          "func": "exit",
+          "kwargs": {
+            "next": "base"
+          }
+        }
+      }
+    }
+  }
+  

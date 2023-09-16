@@ -1,0 +1,58 @@
+{
+  "enabled": true,
+  "initialPosition": {
+    "mapName": "world6",
+    "x": 18,
+    "y": 9
+  },
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "haveItem",
+        "kwargs": {
+          "amount": 1,
+          "itemName": "usb",
+          "haveItem": "s2",
+          "noItem": "s4"
+        }
+      },
+      "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You've a USB!<br>你們已經有一個USB。",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a USB.<br>你們找到了一個USB。",
+          "options": {
+            "OK": "e"
+          }
+        }
+      },
+      "s4": {
+        "func": "giveItem",
+        "kwargs": {
+          "maxAmount": 1,
+          "itemName": "usb",
+          "nextState": "s3",
+          "errorState": "e"
+        }
+      },
+      "e": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

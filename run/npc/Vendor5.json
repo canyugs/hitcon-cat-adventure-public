@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 124, "y": 10},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "Startup Island TAIWAN象徵從新創之島出發走向世界舞台，積極向國際展現臺灣新創蓬勃發展的巨大能量，並傳達我們有意願且有能力對全球創新創業發展作出貢獻。我們相信臺灣新創能為世界提供實踐創新的養分，而Startup Island TAIWAN將作為臺灣新創拓展全球的支點，讓臺灣創新創業名號響亮全世界。<br>過去，臺灣扮演著全球科技產業的重要夥伴，而在這充滿著創業熱情的島嶼，我們也一直熟悉白手起家的故事，我們驕傲於往日至今的榮光，也相信會由新一代的創業家來繼承。許多的創新與創意正在這座島嶼落地生根，未來，我們的新創團隊必會延續臺灣勇於挑戰的DNA，將新創能量發揮至無限可能。",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

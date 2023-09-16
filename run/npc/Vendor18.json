@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 153, "y": 47},
+  "distanceLimit": 3,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "為因應國家發展之資安人力需求，教育部自106年開始推動「資訊安全人才培育計畫」(106-109年)，藉由推動各項資安人才培育活動，以協助建構資訊安全人才優良健全培育環境，配合產業界資源的投入，協助培育資安人才。隨著5G行動通訊、量子電腦等新興資通訊科技之應用，以及國內外資通安全相關法規的實行，未來在資通安全防護將更加嚴峻，產業對於資安人才的需求在質與量都將顯著的提升。故教育部持續推動第二期「先進資通安全實務人才培育計畫」。新一期計畫之整體目標期能延續前期計畫之成果與量能，並配合第六期「國家資通安全發展方案(110年至113年)」規劃、｢資安產業發展行動計畫(107-114年)等政策，以及參考資通訊技術發展趨勢與國內產業資安人才需求面，深化既有推動策略與模式，鏈結產、學、研之教學能量與資源，建構以需求為導向的設計課程內容與培訓主題與模式為目標，優化資安實務應用教學資源，深耕校園學習鏈，強化學生資安實務技術能力，深耕資安實務人才與人力，提升我國資安人才之質與量，以提供我國各產業所用。<br><br><b>本計畫主要的推動策略與目標為：</b><br>1.建立與優化資安實務教學資源與共享機制，引導大學校院發展先進資通訊安全實務課程教學資源及跨域教學，培養跨域資安人才。<br>2. 推動資安扎根，協助培育高中職校資安種子師資，發展與擴散資安認知教學資源，提升資訊安全防護意識與認知教育。<br>3. 辦理以產業專題為導向之資安暑期課程與資安攻防競賽，強化學生資安實務能力，協助校園資安社團的輔導，建立學生學習交流平台與社群，活絡與深耕學生學習平台與環境。<br>4.鏈結產業資源，提供深耕學習平臺，媒合與輔導學生進入產業實習，深化資安實務能力與廣度。<br>5. 國際交流與合作，辦理國際資安教育研習營與參與國際資安競賽，拓展學生國際視野。<br><br><b>AIS3資安暑期課程</b><br><a href='https://ais3.org/' target='_blank'>https://ais3.org/</a><br><a href='https://www.facebook.com/AIS3tw/' target='_blank'>https://www.facebook.com/AIS3tw/</a><br><br><b>高中職生資安研習營</b><br><a href='https://www.facebook.com/%E9%AB%98%E4%B8%AD%E8%81%B7%E7%94%9F%E8%B3%87%E5%AE%89%E7%A0%94%E7%BF%92%E7%87%9F-455550404836569/' target='_blank'>https://www.facebook.com/%E9%AB%98%E4%B8%AD%E8%81%B7%E7%94%9F%E8%B3%87%E5%AE%89%E7%A0%94%E7%BF%92%E7%87%9F-455550404836569/</a><br><br><b>臺灣好厲駭TAIWANHolyHigh</b><br><a href='https://www.facebook.com/TAIWANHolyHigh-123028255762638/' target='_blank'>https://www.facebook.com/TAIWANHolyHigh-123028255762638/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

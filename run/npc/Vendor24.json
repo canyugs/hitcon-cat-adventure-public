@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 196, "y": 77},
+  "distanceLimit": 2,
+  "visibleName": " ",
+    "display": [
+    {
+      "zIndex": 11,
+      "layerName": "npcImage",
+      "renderFunction": "_drawOneCharacterImage",
+      "renderArgs": null,
+      "character": "npc_Male 18-1"
+    }
+  ],
+  "FSM": {
+    "initialState": "s1",
+    "states": {
+      "s1": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "As an innovator in the tech industry, Google not only committed to providing secure products and services that meet customer's compliance but also took the mission to keep internet users safe. Google has enjoyed a long and close relationship with the security community by offering security reward programs, sharing intelligence and sponsoring security events. <br><a href='https://about.google/' target='_blank'>https://about.google/</a>",
+          "options": {
+            "OK": "d"
+          }
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s1"
+        }
+      }
+    }
+  }
+}

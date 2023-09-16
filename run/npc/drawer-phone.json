@@ -1,0 +1,64 @@
+{
+  "enabled": true,
+  "initialPosition": {"mapName": "world1", "x": 94, "y": 42},
+  "distanceLimit": 2,
+  "visibleName": " ",
+  "display": [],
+  "FSM": {
+    "initialState": "s0",
+    "states": {
+      "s0": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "unlockedcard",
+          "haveItem": "s1",
+          "noItem": "s4"
+        }
+      },
+      "s1": {
+        "func": "haveItem", "kwargs": {
+          "amount": "1",
+          "itemName": "phone",
+          "haveItem": "s3",
+          "noItem": "s2"
+        }
+      },
+	  "s2": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You find a smartphone<br>你找到一台智慧型手機",
+		  "options": {"OK": "f1"}
+        }
+      },
+	  "s3": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "You've a smartphone!<br>你已經有一台智慧型手機了!",
+		  "options": {"OK": "d"}
+        }
+      },
+      "s4": {
+        "func": "showDialog",
+        "kwargs": {
+          "dialogs": "This is a locked drawer.<br>這是一個上了鎖的抽屜!",
+		  "options": {"OK": "d"}
+        }
+      },
+      "f1": {
+        "func": "giveItem",
+        "kwargs": {
+		  "amount": "1",
+		  "maxAmount": 1,
+          "itemName": "phone",
+		  "nextState": "d"
+        }
+      },
+      "d": {
+        "func": "exit",
+        "kwargs": {
+          "next": "s0"
+        }
+      }
+    }
+  }
+}
